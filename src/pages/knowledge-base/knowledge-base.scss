@@ -1,0 +1,20 @@
+page-knowledge-base {
+    .big-button{
+        width:100%;
+        background-color: transparent;
+        border:solid 1px #488aff;
+        height: 20vh;
+        display: block;
+        ion-icon{
+            font-size: 48px;
+            color: #488aff;
+            display: block;
+        }
+        label{
+            font-size: 16px;
+        }
+    }
+    .big-button:active{
+        background-color: rgba(0,0,0,0.1);
+    }
+}

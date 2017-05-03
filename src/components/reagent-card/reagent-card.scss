@@ -32,6 +32,9 @@ reagent-card{
                 color: #000;
             }
         }
+        .reagent-info:active{
+            background: rgba(0,0,0,0.1);
+        }
         .reagent-info-more{
             padding:5px 10px 15px;
         }

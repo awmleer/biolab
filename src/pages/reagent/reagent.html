@@ -1,11 +1,44 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            试剂
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+    <ion-card>
+        <ion-card-header>
+            搜索
+        </ion-card-header>
+        <ion-list>
+            <button ion-item (click)="goSearchBasic()">
+                <ion-icon name="search" item-left></ion-icon>
+                基础搜索
+            </button>
+            <button ion-item>
+                <ion-icon name="search" item-left></ion-icon>
+                高级搜索
+            </button>
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            分类浏览
+        </ion-card-header>
+        <ion-list>
+            <button ion-item>
+                <ion-icon name="planet" item-left></ion-icon>
+                常用有机物
+            </button>
+            <button ion-item>
+                <ion-icon name="planet" item-left></ion-icon>
+                常用无机物
+            </button>
+        </ion-list>
+    </ion-card>
+
 
 </ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>基础搜索</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-searchbar #searchbar [(ngModel)]="searchInput" placeholder="查询试剂"></ion-searchbar>
+    <div>
+        <ion-list id="quick-list">
+            <button ion-item >
+                直接搜索 "{{searchInput}}"
+            </button>
+            <button ion-item >
+                正丁醇
+            </button>
+            <button ion-item >
+                aaa
+            </button>
+            <button ion-item >
+                bbb
+            </button>
+        </ion-list>
+    </div>
+</ion-content>

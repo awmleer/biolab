@@ -12,6 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ReagentPage} from "../pages/reagent/reagent";
 import {SearchBasicPage} from "../pages/search-basic/search-basic";
+import {ReagentListPage} from "../pages/reagent-list/reagent-list";
+import {ReagentCardComponent} from "../components/reagent-card/reagent-card";
 
 @NgModule({
     declarations: [
@@ -21,7 +23,9 @@ import {SearchBasicPage} from "../pages/search-basic/search-basic";
         KnowledgeBasePage,
         ReagentPage,
         SearchBasicPage,
-        TabsPage
+        ReagentListPage,
+        TabsPage,
+        ReagentCardComponent
     ],
     imports: [
         BrowserModule,
@@ -35,6 +39,7 @@ import {SearchBasicPage} from "../pages/search-basic/search-basic";
         KnowledgeBasePage,
         ReagentPage,
         SearchBasicPage,
+        ReagentListPage,
         TabsPage
     ],
     providers: [

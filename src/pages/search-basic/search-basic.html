@@ -9,7 +9,7 @@
     <ion-searchbar #searchbar [(ngModel)]="searchInput" placeholder="查询试剂"></ion-searchbar>
     <div>
         <ion-list id="quick-list">
-            <button ion-item >
+            <button ion-item [hidden]="searchInput==''" (click)="goReagentList()">
                 直接搜索 "{{searchInput}}"
             </button>
             <button ion-item >

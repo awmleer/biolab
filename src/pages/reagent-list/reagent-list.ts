@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {ReagentDetailPage} from "../reagent-detail/reagent-detail";
 
 @Component({
     selector: 'page-reagent-list',
@@ -12,8 +13,8 @@ export class ReagentListPage {
         public navParams: NavParams
     ) {}
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad ReagentList');
+    goReagentDetail(){
+        this.navCtrl.push(ReagentDetailPage);
     }
 
 }

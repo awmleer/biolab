@@ -28,6 +28,9 @@ reagent-card{
             padding:10px;
             width:calc(100% - 100px);
             height:100px;
+            h2{
+                color: #000;
+            }
         }
         .reagent-info-more{
             padding:5px 10px 15px;

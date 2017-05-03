@@ -17,7 +17,6 @@ export class SearchBasicPage {
     ) {}
 
     goReagentList(){
-        console.log('aaa');
         this.navCtrl.push(ReagentListPage);
     }
 

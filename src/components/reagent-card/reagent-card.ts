@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 
 @Component({
@@ -10,6 +10,13 @@ export class ReagentCardComponent {
     constructor() {}
     // @Input()
     // percent:number;
+
+    @Output()
+    cardClicked:EventEmitter<any> = new EventEmitter();
+
+    cardClick() {
+        this.cardClicked.emit();
+    }
 
     toggleExpand(){
         this.expanding=!this.expanding;

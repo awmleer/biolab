@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {NavController, NavParams, Searchbar} from 'ionic-angular';
 import {ReagentListPage} from "../reagent-list/reagent-list";
+import {ReagentDetailPage} from "../reagent-detail/reagent-detail";
 
 @Component({
     selector: 'page-search-basic',
@@ -18,6 +19,10 @@ export class SearchBasicPage {
 
     goReagentList(){
         this.navCtrl.push(ReagentListPage);
+    }
+
+    goReagentDetail(){
+        this.navCtrl.push(ReagentDetailPage);
     }
 
     ionViewDidLoad() {

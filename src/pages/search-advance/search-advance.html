@@ -5,6 +5,50 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+    <ion-list>
+
+        <ion-item>
+            <ion-label fixed>主题</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>篇名</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>关键词</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>摘要</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>作者专业</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>论文年度</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>指导教师</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <div padding-left padding-right>
+        <button ion-button block (click)="advanceSearch()">
+            <ion-icon name="search"></ion-icon> 搜索
+        </button>
+    </div>
 
 </ion-content>

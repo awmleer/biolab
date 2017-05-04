@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {ReagentPage} from "../reagent/reagent";
 import {ReagentListPage} from "../reagent-list/reagent-list";
+import {PaperPage} from "../paper/paper";
 
 @Component({
     selector: 'page-knowledge-base',
@@ -15,6 +16,10 @@ export class KnowledgeBasePage {
 
     goReagentPage(){
         this.navCtrl.push(ReagentPage);
+    }
+
+    goPaperPage(){
+        this.navCtrl.push(PaperPage);
     }
 
     goReagentListPage(){

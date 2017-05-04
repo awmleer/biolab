@@ -16,6 +16,7 @@ import {ReagentListPage} from "../pages/reagent-list/reagent-list";
 import {ReagentCardComponent} from "../components/reagent-card/reagent-card";
 import {ReagentDetailPage} from "../pages/reagent-detail/reagent-detail";
 import {SearchAdvancePage} from "../pages/search-advance/search-advance";
+import {PaperPage} from "../pages/paper/paper";
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import {SearchAdvancePage} from "../pages/search-advance/search-advance";
         SearchAdvancePage,
         ReagentListPage,
         ReagentDetailPage,
+        PaperPage,
         TabsPage,
         ReagentCardComponent
     ],
@@ -46,6 +48,7 @@ import {SearchAdvancePage} from "../pages/search-advance/search-advance";
         SearchAdvancePage,
         ReagentListPage,
         ReagentDetailPage,
+        PaperPage,
         TabsPage
     ],
     providers: [

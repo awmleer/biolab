@@ -5,10 +5,10 @@ import {ReagentListPage} from "../reagent-list/reagent-list";
 import {SearchAdvancePage} from "../search-advance/search-advance";
 
 @Component({
-    selector: 'page-reagent',
-    templateUrl: 'reagent.html'
+    selector: 'page-paper',
+    templateUrl: 'paper.html'
 })
-export class ReagentPage {
+export class PaperPage {
     constructor(
         public navCtrl: NavController
     ) {}

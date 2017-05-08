@@ -14,7 +14,9 @@ export class ReagentPage {
     ) {}
 
     goSearchBasic(){
-        this.navCtrl.push(SearchBasicPage);
+        this.navCtrl.push(SearchBasicPage,{
+            type:'reagent'
+        });
     }
 
     goSearchAdvance(){

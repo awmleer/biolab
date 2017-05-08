@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {SearchBasicPage} from "../search-basic/search-basic";
-import {ReagentListPage} from "../reagent-list/reagent-list";
 import {SearchAdvancePage} from "../search-advance/search-advance";
+import {PaperListPage} from "../paper-list/paper-list";
 
 @Component({
     selector: 'page-paper',
@@ -14,15 +14,17 @@ export class PaperPage {
     ) {}
 
     goSearchBasic(){
-        this.navCtrl.push(SearchBasicPage);
+        this.navCtrl.push(SearchBasicPage,{
+            type:'paper'
+        });
     }
 
     goSearchAdvance(){
         this.navCtrl.push(SearchAdvancePage);
     }
 
-    goReagentList(){
-        this.navCtrl.push(ReagentListPage);
+    goPaperList(){
+        this.navCtrl.push(PaperListPage);
     }
 
 

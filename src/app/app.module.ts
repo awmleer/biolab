@@ -17,6 +17,7 @@ import {ReagentCardComponent} from "../components/reagent-card/reagent-card";
 import {ReagentDetailPage} from "../pages/reagent-detail/reagent-detail";
 import {SearchAdvancePage} from "../pages/search-advance/search-advance";
 import {PaperPage} from "../pages/paper/paper";
+import {PaperListPage} from "../pages/paper-list/paper-list";
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import {PaperPage} from "../pages/paper/paper";
         ReagentListPage,
         ReagentDetailPage,
         PaperPage,
+        PaperListPage,
         TabsPage,
         ReagentCardComponent
     ],
@@ -49,6 +51,7 @@ import {PaperPage} from "../pages/paper/paper";
         ReagentListPage,
         ReagentDetailPage,
         PaperPage,
+        PaperListPage,
         TabsPage
     ],
     providers: [

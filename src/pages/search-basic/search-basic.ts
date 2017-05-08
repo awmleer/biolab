@@ -9,6 +9,7 @@ import {ReagentDetailPage} from "../reagent-detail/reagent-detail";
 })
 export class SearchBasicPage {
     searchInput:string='';
+    searchType:string='';
 
     @ViewChild('searchbar') searchbar:Searchbar;
 
@@ -25,8 +26,10 @@ export class SearchBasicPage {
         this.navCtrl.push(ReagentDetailPage);
     }
 
-    ionViewDidLoad() {
+    ionViewDidEnter(){
         this.searchbar.setFocus();
+        this.searchType=this.navParams.get('type');
+        // console.log(this.navParams.get('type'));
     }
 
 

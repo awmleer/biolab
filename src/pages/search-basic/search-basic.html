@@ -6,19 +6,19 @@
 
 
 <ion-content>
-    <ion-searchbar #searchbar [(ngModel)]="searchInput" placeholder="查询试剂"></ion-searchbar>
+    <ion-searchbar #searchbar [(ngModel)]="searchInput" [placeholder]="searchType=='paper'?'查询论文':searchType=='reagent'?'查询试剂':'查询'"></ion-searchbar>
     <div>
         <ion-list id="quick-list">
-            <button ion-item [hidden]="searchInput==''" (click)="goReagentList()">
+            <button ion-item [hidden]="searchInput==''" (click)="goPaperList()">
                 直接搜索 "{{searchInput}}"
             </button>
-            <button ion-item (click)="goReagentDetail()">
+            <button ion-item [hidden]="searchInput==''" (click)="goReagentDetail()">
                 正丁醇
             </button>
-            <button ion-item >
+            <button ion-item [hidden]="searchInput==''">
                 aaa
             </button>
-            <button ion-item >
+            <button ion-item [hidden]="searchInput==''">
                 bbb
             </button>
         </ion-list>

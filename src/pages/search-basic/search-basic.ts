@@ -18,6 +18,14 @@ export class SearchBasicPage {
         public navParams: NavParams
     ) {}
 
+    checkFocus(){
+        console.log('focus');
+    }
+
+    checkBlur(){
+        console.log('blur');
+    }
+
     goReagentList(){
         this.navCtrl.push(ReagentListPage);
     }

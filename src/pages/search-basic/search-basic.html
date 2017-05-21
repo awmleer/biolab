@@ -6,7 +6,7 @@
 
 
 <ion-content>
-    <ion-searchbar #searchbar [(ngModel)]="searchInput" [placeholder]="searchType=='paper'?'查询论文':searchType=='reagent'?'查询试剂':'查询'"></ion-searchbar>
+    <ion-searchbar (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" #searchbar [(ngModel)]="searchInput" [placeholder]="searchType=='paper'?'查询论文':searchType=='reagent'?'查询试剂':'查询'"></ion-searchbar>
     <div>
         <ion-list id="quick-list">
             <button ion-item [hidden]="searchInput==''" (click)="goPaperList()">

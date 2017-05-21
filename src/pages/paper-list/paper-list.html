@@ -6,27 +6,36 @@
 
 
 <ion-content>
-    <!--todo change to <a> for click event-->
-    <ion-card >
+    <ion-card>
         <ion-card-header>
             花生红衣中多酚物质的提取和性质研究
         </ion-card-header>
         <ion-card-content>
             丁淑婷，孙舒畅，沈佳炜<br>
+            导师：李霁<br>
             实验包括用超声波细胞粉碎机初步提取多酚类物质；以没食子酸为标准物质，用可见光分光光度计制作标准曲线对所得产物进行含量测定；通过自由基清除实验测定其氧化性；研究花生红衣多酚对金黄色葡萄球菌、大肠杆菌、枯草芽孢杆菌和黑曲霉...
         </ion-card-content>
         <div style="padding: 0 11px 12px">
             <ion-row>
+                <!--todo vertical align-->
                 <ion-col>
-                    年度：2014
+                    <ion-note>
+                        年度：2014
+                    </ion-note>
                 </ion-col>
                 <ion-col text-center>
-                    导师：李霁
+                    <ion-note>
+                        下载次数：19
+                    </ion-note>
                 </ion-col>
                 <ion-col text-right>
-                    下载次数：19
+                    <button ion-button icon-left clear small (click)="goPaperDetail()">
+                        <ion-icon name="book"></ion-icon>
+                        <div>详情</div>
+                    </button>
                 </ion-col>
             </ion-row>
         </div>
     </ion-card>
+
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {PaperDetailPage} from "../paper-detail/paper-detail";
 
 
 @Component({
@@ -13,8 +14,8 @@ export class PaperListPage {
         public navParams: NavParams
     ) {}
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad PaperList');
+    goPaperDetail(){
+        this.navCtrl.push(PaperDetailPage);
     }
 
 }

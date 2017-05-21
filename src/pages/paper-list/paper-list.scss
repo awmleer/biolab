@@ -1,3 +1,14 @@
 page-paper-list {
-
+    ion-card-content{
+        padding-bottom: 0!important;
+    }
+    .card-bottom{
+        padding: 0 11px 8px;
+        ion-col p{
+            height: 100%;
+            line-height: 100%;
+            display: flex;
+            align-items: center;
+        }
+    }
 }

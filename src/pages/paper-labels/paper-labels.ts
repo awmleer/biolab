@@ -5,6 +5,7 @@ import {Http} from "@angular/http";
 import 'rxjs/add/operator/toPromise'
 import {CONFIG} from "../../app/config";
 import {PaperLabel} from "../../classes/paper-label";
+import {PaperListPage} from "../paper-list/paper-list";
 
 
 
@@ -31,6 +32,21 @@ export class PaperLabelsPage {
     getChildrenLabels(){
         this.http.get(`${CONFIG.apiUrl}/paper/label/${this.parentLabel.id}/children/`).toPromise().then(response=>{
             this.labels=response.json();
+        });
+    }
+
+    labelClick(label){
+        if (label.hasChildren) {
+            this.goChildrenLabels(label);
+        }else {
+            this.goPaperList(label);
+        }
+    }
+
+    goPaperList(label){
+        this.navCtrl.push(PaperListPage,{
+            from:'label',
+            label:label
         });
     }
 

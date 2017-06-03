@@ -4,6 +4,7 @@ import {Http} from "@angular/http";
 
 import 'rxjs/add/operator/toPromise'
 import {CONFIG} from "../../app/config";
+import {PaperLabel} from "../../classes/paper-label";
 
 
 
@@ -12,8 +13,8 @@ import {CONFIG} from "../../app/config";
     templateUrl: 'paper-labels.html',
 })
 export class PaperLabelsPage {
-    parentLabel;
-    labels:any[]=[];
+    parentLabel:PaperLabel;
+    labels:PaperLabel[]=[];
 
     constructor(
         public navCtrl: NavController,

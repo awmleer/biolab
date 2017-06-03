@@ -8,6 +8,7 @@ import {CONFIG} from "../../app/config";
 
 import 'rxjs/add/operator/toPromise'
 import {PaperLabelsPage} from "../paper-labels/paper-labels";
+import {PaperLabel} from "../../classes/paper-label";
 
 
 @Component({
@@ -15,7 +16,7 @@ import {PaperLabelsPage} from "../paper-labels/paper-labels";
     templateUrl: 'paper.html'
 })
 export class PaperPage {
-    rootLabels:any[]=[];
+    rootLabels:PaperLabel[]=[];
 
     constructor(
         private navCtrl: NavController,

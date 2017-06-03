@@ -19,6 +19,8 @@ import {SearchAdvancePage} from "../pages/search-advance/search-advance";
 import {PaperPage} from "../pages/paper/paper";
 import {PaperListPage} from "../pages/paper-list/paper-list";
 import {PaperDetailPage} from "../pages/paper-detail/paper-detail";
+import {HttpModule} from "@angular/http";
+import {PaperLabelsPage} from "../pages/paper-labels/paper-labels";
 
 @NgModule({
     declarations: [
@@ -33,12 +35,14 @@ import {PaperDetailPage} from "../pages/paper-detail/paper-detail";
         ReagentDetailPage,
         PaperPage,
         PaperListPage,
+        PaperLabelsPage,
         PaperDetailPage,
         TabsPage,
         ReagentCardComponent
     ],
     imports: [
         BrowserModule,
+        HttpModule,
         IonicModule.forRoot(MyApp)
     ],
     bootstrap: [IonicApp],
@@ -54,6 +58,7 @@ import {PaperDetailPage} from "../pages/paper-detail/paper-detail";
         ReagentDetailPage,
         PaperPage,
         PaperListPage,
+        PaperLabelsPage,
         PaperDetailPage,
         TabsPage
     ],

@@ -29,13 +29,9 @@
             分类浏览
         </ion-card-header>
         <ion-list>
-            <button ion-item (click)="goPaperList()">
+            <button ion-item (click)="goChildrenLabels(label)" *ngFor="let label of rootLabels">
                 <ion-icon name="planet" item-left></ion-icon>
-                分类A
-            </button>
-            <button ion-item (click)="goPaperList()">
-                <ion-icon name="planet" item-left></ion-icon>
-                分类B
+                {{label.name}}
             </button>
         </ion-list>
     </ion-card>

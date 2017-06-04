@@ -24,6 +24,8 @@ import {PaperLabelsPage} from "../pages/paper-labels/paper-labels";
 import {PaperService} from "../services/paper.service";
 import {ToastService} from "../services/toast.service";
 import { PaperCardComponent } from '../components/paper-card/paper-card';
+import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {Clipboard} from "@ionic-native/clipboard";
 
 @NgModule({
     declarations: [
@@ -71,6 +73,8 @@ import { PaperCardComponent } from '../components/paper-card/paper-card';
         SplashScreen,
         ToastService,
         PaperService,
+        InAppBrowser,
+        Clipboard,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })

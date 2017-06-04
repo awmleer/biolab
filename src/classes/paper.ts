@@ -1,4 +1,4 @@
-export class Paper {
+export class PaperBrief {
     title:string;
     labels:[{
         id:number;

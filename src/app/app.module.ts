@@ -23,6 +23,7 @@ import {HttpModule} from "@angular/http";
 import {PaperLabelsPage} from "../pages/paper-labels/paper-labels";
 import {PaperService} from "../services/paper.service";
 import {ToastService} from "../services/toast.service";
+import { PaperCardComponent } from '../components/paper-card/paper-card';
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import {ToastService} from "../services/toast.service";
         PaperLabelsPage,
         PaperDetailPage,
         TabsPage,
-        ReagentCardComponent
+        ReagentCardComponent,
+        PaperCardComponent
     ],
     imports: [
         BrowserModule,

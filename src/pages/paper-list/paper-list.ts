@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {PaperDetailPage} from "../paper-detail/paper-detail";
+import {PaperLabel} from "../../classes/paper-label";
+import {PaperService} from "../../services/paper.service";
 
 
 @Component({
@@ -8,11 +10,28 @@ import {PaperDetailPage} from "../paper-detail/paper-detail";
     templateUrl: 'paper-list.html',
 })
 export class PaperListPage {
+    pageFrom:string;
+    fromLabel:PaperLabel;
+    papers:any[];
 
     constructor(
-        public navCtrl: NavController,
-        public navParams: NavParams
-    ) {}
+        private navCtrl: NavController,
+        private navParams: NavParams,
+        private paperService: PaperService
+    ) {
+        this.pageFrom=navParams.get('pageFrom');
+        if (this.pageFrom == 'label') {
+            this.fromLabel=navParams.get('label');
+        }
+    }
+
+    ionViewWillLoad(){
+        if (this.pageFrom == 'label') {
+            this.paperService.getPapersByLabel(this.fromLabel).then(papers=>{
+                this.papers=papers;
+            });
+        }
+    }
 
     goPaperDetail(){
         this.navCtrl.push(PaperDetailPage);

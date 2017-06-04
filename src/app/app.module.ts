@@ -21,6 +21,7 @@ import {PaperListPage} from "../pages/paper-list/paper-list";
 import {PaperDetailPage} from "../pages/paper-detail/paper-detail";
 import {HttpModule} from "@angular/http";
 import {PaperLabelsPage} from "../pages/paper-labels/paper-labels";
+import {PaperService} from "../services/paper.service";
 
 @NgModule({
     declarations: [
@@ -65,6 +66,7 @@ import {PaperLabelsPage} from "../pages/paper-labels/paper-labels";
     providers: [
         StatusBar,
         SplashScreen,
+        PaperService,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })

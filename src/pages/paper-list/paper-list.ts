@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import {PaperDetailPage} from "../paper-detail/paper-detail";
 import {PaperLabel} from "../../classes/paper-label";
 import {PaperService} from "../../services/paper.service";
+import {Paper} from "../../classes/paper";
 
 
 @Component({
@@ -12,7 +13,7 @@ import {PaperService} from "../../services/paper.service";
 export class PaperListPage {
     pageFrom:string;
     fromLabel:PaperLabel;
-    papers:any[];
+    papers:Paper[];
 
     constructor(
         private navCtrl: NavController,

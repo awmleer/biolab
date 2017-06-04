@@ -6,6 +6,6 @@
 
 
 <ion-content>
-    <paper-card *ngFor="let paper of papers" [paper]="paper" (cardClicked)="goPaperDetail()"></paper-card>
+    <paper-card *ngFor="let paper of papers" [paper]="paper" (cardClicked)="goPaperDetail(paper)"></paper-card>
 
 </ion-content>

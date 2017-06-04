@@ -8,28 +8,26 @@
 
 
 <ion-content padding>
-    <h2>花生红衣中多酚物质的提取和性质研究</h2>
-    <p>
-        <b>作者：</b>丁淑婷，孙舒畅，沈佳炜<br>
-        <b>导师：</b>李霁<br>
-        <b>摘要：</b>本实验主要探究从花生红衣中提取多酚类物质，并对其含量、抗氧化和抑菌性进行一系列的初步研究。实验包括用超声波细胞粉碎机初步提取多酚类物质；以没食子酸为标准物质，用可见光分光光度计制作标准曲线对所得产物进行含量测定；通过自由基清除实验测定其氧化性；研究花生红衣多酚对金黄色葡萄球菌、大肠杆菌、枯草芽孢杆菌和黑曲霉的抑制作用。实验表明花生红衣中提取的多酚类物质的浓度为791.3mg/l，自由基清除率为58.93%，且具有一定的抑菌作用。<br>
-        <b>关键词：</b>花生红衣多酚、自由基清除、抗氧化性、抑菌性<br>
-        <a style="color: #000;font-weight: bold;" (click)="toggleA()">参考文献</a><br>
-        <span style="display: block" [hidden]="!Ashowing">
-            1.xxx<br>
-            2.xxx
-        </span>
-        <!--TODO 参考文献-->
-    </p>
-    <ion-row>
-        <ion-col>
-            <button ion-button block icon-left><ion-icon name="share-alt"></ion-icon>分享</button>
-        </ion-col>
-        <ion-col>
-            <button ion-button block icon-left><ion-icon name="cloud-download"></ion-icon>下载</button>
-        </ion-col>
-        <ion-col>
-            <button ion-button block icon-left><ion-icon name="glasses"></ion-icon>阅读</button>
-        </ion-col>
-    </ion-row>
+    <div *ngIf="paper">
+        <h2>{{paper.title}}</h2>
+        <span class="label" *ngFor="let label of paper.labels">{{label.name}}</span><br>
+        <p>
+            <b>作者：</b>丁淑婷，孙舒畅，沈佳炜<br>
+            <b>指导老师：</b><span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>
+            <b>关键词：</b>{{paper.keyword}}<br>
+            <b>主题：</b>{{paper.subject}}<br>
+            <b>摘要：</b>{{paper.abstract}}<br>
+        </p>
+        <ion-row>
+            <ion-col>
+                <button ion-button block icon-left><ion-icon name="share-alt"></ion-icon>分享</button>
+            </ion-col>
+            <ion-col>
+                <button ion-button block icon-left><ion-icon name="cloud-download"></ion-icon>下载</button>
+            </ion-col>
+            <ion-col>
+                <button ion-button block icon-left><ion-icon name="glasses"></ion-icon>阅读</button>
+            </ion-col>
+        </ion-row>
+    </div>
 </ion-content>

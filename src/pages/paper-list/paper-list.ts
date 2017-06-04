@@ -34,8 +34,10 @@ export class PaperListPage {
         }
     }
 
-    goPaperDetail(){
-        this.navCtrl.push(PaperDetailPage);
+    goPaperDetail(paper){
+        this.navCtrl.push(PaperDetailPage,{
+            paperId:paper.id
+        });
     }
 
 }

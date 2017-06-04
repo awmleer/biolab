@@ -23,4 +23,8 @@ export class PaperService {
         });
     }
 
+    getPaperDetail(paperId){
+        return this.http.get(`${CONFIG.apiUrl}/paper/${paperId}/detail/`).toPromise();
+    }
+
 }

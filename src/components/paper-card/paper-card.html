@@ -4,13 +4,14 @@
     </ion-card-header>
     <ion-card-content>
         丁淑婷，孙舒畅，沈佳炜<br>
-        导师：李霁<br>
-        实验包括用超声波细胞粉碎机初步提取多酚类物质；以没食子酸为标准物质，用可见光分光光度计制作标准曲线对所得产物进行含量测定；通过自由基清除实验测定其氧化性；研究花生红衣多酚对金黄色葡萄球菌、大肠杆菌、枯草芽孢杆菌和黑曲霉...
+        指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}</span><br>
+        关键词：{{paper.keyword}}<br>
+        主题：{{paper.subject}}<br>
     </ion-card-content>
     <div class="card-bottom">
         <ion-row>
             <ion-col>
-                <p><ion-note>年度：2014</ion-note></p>
+                <p><ion-note>年度：{{paper.publishYear}}</ion-note></p>
             </ion-col>
             <ion-col text-center>
                 <p><ion-note>下载次数：19</ion-note></p>

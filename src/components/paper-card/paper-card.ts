@@ -10,7 +10,7 @@ import {PaperBrief} from "../../classes/paper";
 export class PaperCardComponent {
 
     @Input() paper:PaperBrief;
-    expanding:boolean=false;
+    // expanding:boolean=false;
 
     constructor() {}
 
@@ -21,8 +21,8 @@ export class PaperCardComponent {
         this.cardClicked.emit();
     }
 
-    toggleExpand(){
-        this.expanding=!this.expanding;
-    }
+    // toggleExpand(){
+    //     this.expanding=!this.expanding;
+    // }
 
 }

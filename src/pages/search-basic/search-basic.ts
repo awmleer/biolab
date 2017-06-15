@@ -1,8 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, NavParams, Searchbar} from 'ionic-angular';
+import {Label, NavController, NavParams, Searchbar} from 'ionic-angular';
 import {ReagentListPage} from "../reagent-list/reagent-list";
 import {ReagentDetailPage} from "../reagent-detail/reagent-detail";
 import {PaperService} from "../../services/paper.service";
+import {PaperListPage} from "../paper-list/paper-list";
 
 @Component({
     selector: 'page-search-basic',
@@ -12,7 +13,7 @@ export class SearchBasicPage {
     searchInput:string='';
     searchType:string='';
 
-    labels:any[]=[];
+    labels:Label[]=[];
 
     @ViewChild('searchbar') searchbar:Searchbar;
 
@@ -38,6 +39,22 @@ export class SearchBasicPage {
 
     goReagentDetail(){
         this.navCtrl.push(ReagentDetailPage);
+    }
+
+    goPaperListByLabel(label:Label){
+        this.navCtrl.push(PaperListPage,{
+            'pageFrom':'label',
+            'label':label
+        })
+    }
+
+    goSearch(){
+        if (this.searchType == 'paper') {
+            this.navCtrl.push(PaperListPage,{
+                'pageFrom': 'search',
+                'searchText': this.searchInput
+            });
+        }
     }
 
     ionViewDidEnter(){

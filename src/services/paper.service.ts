@@ -33,4 +33,12 @@ export class PaperService {
         });
     }
 
+    searchPaper(searchText:string):Promise<any>{
+        let keywords=searchText.split(/ +/);
+        return this.http.post(`${CONFIG.apiUrl}/paper/search/basic`,JSON.stringify(keywords)).toPromise().then(response=>{
+            console.log(response.json());
+            return response.json();
+        })
+    }
+
 }

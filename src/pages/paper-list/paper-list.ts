@@ -14,6 +14,7 @@ export class PaperListPage {
     pageFrom:string;
     fromLabel:PaperLabel;
     papers:PaperBrief[];
+    searchText: string;
 
     constructor(
         private navCtrl: NavController,
@@ -23,6 +24,8 @@ export class PaperListPage {
         this.pageFrom=navParams.get('pageFrom');
         if (this.pageFrom == 'label') {
             this.fromLabel=navParams.get('label');
+        }else if (this.pageFrom == 'search'){
+            this.searchText=navParams.get('searchText');
         }
     }
 
@@ -31,6 +34,8 @@ export class PaperListPage {
             this.paperService.getPapersByLabel(this.fromLabel).then(papers=>{
                 this.papers=papers;
             });
+        }else if (this.pageFrom == 'search') {
+            this.paperService.searchPaper(this.searchText);
         }
     }
 

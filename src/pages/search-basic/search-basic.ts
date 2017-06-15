@@ -57,12 +57,10 @@ export class SearchBasicPage {
         }
     }
 
-    ionViewDidEnter(){
-        this.searchbar.setFocus();
+    ionViewDidLoad(){
         if (this.searchType == 'paper') {
             this.paperService.getLabelList().then(labels=>{
                 this.labels=labels;
-                console.log(this.labels);
             });
         }
         // console.log(this.navParams.get('type'));

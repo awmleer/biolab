@@ -3,10 +3,15 @@
         {{paper.title}}
     </ion-card-header>
     <ion-card-content>
-        丁淑婷，孙舒畅，沈佳炜<br>
-        指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>
-        关键词：{{paper.keyword}}<br>
-        主题：{{paper.subject}}<br>
+        <a class="normal-text" (click)="showDetail()">
+            指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>
+            关键词：{{paper.keyword}}<br>
+            主题：{{paper.subject}}<br>
+            <hr *ngIf="showingDetail">
+            <span *ngIf="showingDetail">
+                {{detail.abstract}}
+            </span>
+        </a>
     </ion-card-content>
     <div class="card-bottom">
         <ion-row>
@@ -14,7 +19,7 @@
                 <p><ion-note>年度：{{paper.publishYear}}</ion-note></p>
             </ion-col>
             <ion-col text-center>
-                <p><ion-note>下载次数：19</ion-note></p>
+                <p><ion-note>下载次数：{{paper.downloadCount}}</ion-note></p>
             </ion-col>
             <ion-col text-right>
                 <button ion-button icon-left clear small (click)="cardClick()">

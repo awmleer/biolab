@@ -27,4 +27,10 @@ export class PaperService {
         return this.http.get(`${CONFIG.apiUrl}/paper/${paperId}/detail/`).toPromise();
     }
 
+    getLabelList():Promise<any>{
+        return this.http.get(`${CONFIG.apiUrl}/paper/label/list/`).toPromise().then(response=>{
+            return response.json();
+        });
+    }
+
 }

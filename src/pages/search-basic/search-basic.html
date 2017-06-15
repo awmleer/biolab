@@ -12,15 +12,11 @@
             <button ion-item [hidden]="searchInput==''" (click)="goPaperList()">
                 直接搜索 "{{searchInput}}"
             </button>
-            <button ion-item [hidden]="searchInput==''" (click)="goReagentDetail()">
-                正丁醇
-            </button>
-            <button ion-item [hidden]="searchInput==''">
-                aaa
-            </button>
-            <button ion-item [hidden]="searchInput==''">
-                bbb
-            </button>
+            <div *ngIf="searchInput!=''">
+                <button ion-item *ngFor="let label of (labels | fuzzyFilter:{'name':searchInput})">
+                    标签：{{label.name}}
+                </button>
+            </div>
         </ion-list>
     </div>
 </ion-content>

@@ -26,6 +26,7 @@ import {ToastService} from "../services/toast.service";
 import { PaperCardComponent } from '../components/paper-card/paper-card';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {Clipboard} from "@ionic-native/clipboard";
+import {FilterPipe, FuzzyFilterPipe} from "../pipes/filter.pipe";
 
 @NgModule({
     declarations: [
@@ -43,6 +44,8 @@ import {Clipboard} from "@ionic-native/clipboard";
         PaperLabelsPage,
         PaperDetailPage,
         TabsPage,
+        FilterPipe,
+        FuzzyFilterPipe,
         ReagentCardComponent,
         PaperCardComponent
     ],
@@ -73,6 +76,8 @@ import {Clipboard} from "@ionic-native/clipboard";
         SplashScreen,
         ToastService,
         PaperService,
+        FilterPipe,
+        FuzzyFilterPipe,
         InAppBrowser,
         Clipboard,
         {provide: ErrorHandler, useClass: IonicErrorHandler}

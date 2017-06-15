@@ -6,6 +6,8 @@
 
 
 <ion-content>
+    <div padding *ngIf="papers.length>0">
+        共找到 {{papers.length}} 篇符合条件的论文
+    </div>
     <paper-card *ngFor="let paper of papers" [paper]="paper" (cardClicked)="goPaperDetail(paper)"></paper-card>
-
 </ion-content>

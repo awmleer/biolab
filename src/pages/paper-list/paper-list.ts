@@ -8,12 +8,12 @@ import {PaperBrief} from "../../classes/paper";
 
 @Component({
     selector: 'page-paper-list',
-    templateUrl: 'paper-list.html',
+    templateUrl: 'paper-list.html'
 })
 export class PaperListPage {
     pageFrom:string;
     fromLabel:PaperLabel;
-    papers:PaperBrief[];
+    papers:PaperBrief[]=[];
     searchText: string;
 
     constructor(
@@ -35,7 +35,9 @@ export class PaperListPage {
                 this.papers=papers;
             });
         }else if (this.pageFrom == 'search') {
-            this.paperService.searchPaper(this.searchText);
+            this.paperService.searchPaper(this.searchText).then(papers=>{
+                this.papers=papers;
+            });
         }
     }
 

@@ -19,9 +19,15 @@ export class PaperCardComponent {
         private paperService: PaperService
     ) {}
 
-    showDetail(){
-        if (this.showingDetail) {
+    toggleDetail(){
+        if (this.showingDetail){
+            this.showingDetail=false;
             return;
+        }else {
+            if (this.detail) {
+                this.showingDetail=true;
+                return;
+            }
         }
         this.paperService.getPaperDetail(this.paper.id).then(response=>{
             this.detail=response.json();

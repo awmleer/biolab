@@ -3,12 +3,11 @@
         {{paper.title}}
     </ion-card-header>
     <ion-card-content>
-        <a class="normal-text" (click)="showDetail()">
+        <a class="normal-text" (click)="toggleDetail()">
             指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>
             关键词：{{paper.keyword}}<br>
             主题：{{paper.subject}}<br>
-            <hr *ngIf="showingDetail">
-            <span *ngIf="showingDetail">
+            <span *ngIf="showingDetail" style="margin-top: 10px;padding-top: 10px;border-top: solid 0.5px #aeaeae;display: block">
                 {{detail.abstract}}
             </span>
         </a>

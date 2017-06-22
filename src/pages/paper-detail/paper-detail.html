@@ -12,8 +12,8 @@
         <h2>{{paper.title}}</h2>
         <span class="label" *ngFor="let label of paper.labels">{{label.name}}</span><br>
         <p>
-            <b>作者：</b>丁淑婷，孙舒畅，沈佳炜<br>
             <b>指导老师：</b><span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>
+            <b>年份：</b>{{paper.publishYear}}<br>
             <b>关键词：</b>{{paper.keyword}}<br>
             <b>主题：</b>{{paper.subject}}<br>
             <b>摘要：</b>{{paper.abstract}}<br>

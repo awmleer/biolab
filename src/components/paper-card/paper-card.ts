@@ -20,19 +20,20 @@ export class PaperCardComponent {
     ) {}
 
     toggleDetail(){
-        if (this.showingDetail){
-            this.showingDetail=false;
-            return;
-        }else {
-            if (this.detail) {
-                this.showingDetail=true;
-                return;
-            }
-        }
-        this.paperService.getPaperDetail(this.paper.id).then(response=>{
-            this.detail=response.json();
-            this.showingDetail=true;
-        });
+        this.showingDetail=!this.showingDetail;
+        // if (this.showingDetail){
+        //     this.showingDetail=false;
+        //     return;
+        // }else {
+        //     if (this.detail) {
+        //         this.showingDetail=true;
+        //         return;
+        //     }
+        // }
+        // this.paperService.getPaperDetail(this.paper.id).then(response=>{
+        //     this.detail=response.json();
+        //     this.showingDetail=true;
+        // });
     }
 
     @Output() cardClicked:EventEmitter<any> = new EventEmitter();

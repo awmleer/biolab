@@ -5,7 +5,7 @@ export class PaperBrief {
         id: number;
         name: string;
     }];
-    subject:string;
+    abstract:string;
     keyword:string;
     publishYear:number;
     downloadCount:number;

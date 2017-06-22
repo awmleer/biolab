@@ -6,9 +6,10 @@
         <a class="normal-text" (click)="toggleDetail()">
             指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>
             关键词：{{paper.keyword}}<br>
-            主题：{{paper.subject}}<br>
-            <span *ngIf="showingDetail" style="margin-top: 10px;padding-top: 10px;border-top: solid 0.5px #aeaeae;display: block">
-                {{detail.abstract}}
+            <!--摘要：{{detail.abstract}}<br>-->
+            <span [class.limit-line-height]="!showingDetail" style="margin-top: 10px;padding-top: 10px;border-top: solid 0.5px #aeaeae;display: block">
+                <span class="mask" *ngIf="!showingDetail"></span>
+                {{paper.abstract}}
             </span>
         </a>
     </ion-card-content>

@@ -7,13 +7,13 @@
 
 <ion-content padding>
     <!--<ion-searchbar (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" #searchbar [(ngModel)]="searchInput" [placeholder]="searchType=='paper'?'查询论文':searchType=='reagent'?'查询试剂':'查询'"></ion-searchbar>-->
-    <ion-list>
+    <ion-list style="margin-bottom: 20px">
         <ion-item>
             <ion-input type="text" [(ngModel)]="searchInput" placeholder="输入关键词 空格分隔"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>搜索类型</ion-label>
-            <ion-select [(ngModel)]="searchAspect" interface="action-sheet" cancelText="取消">
+            <ion-select [(ngModel)]="searchField" interface="action-sheet" cancelText="取消">
                 <ion-option value="all">全部</ion-option>
                 <ion-option value="keyword">关键词</ion-option>
             </ion-select>
@@ -23,6 +23,11 @@
     <button ion-button block (click)="goSearch()">
         <ion-icon name="search"></ion-icon> 搜索
     </button>
+
+    <div style="margin-top: 20px">
+        <label>历史搜索</label>
+        <a style="display: block;" (click)="goSearch(item)" *ngFor="let item of historyItems">{{item}}</a>
+    </div>
 
     <!--<div>-->
     <!--<ion-list id="quick-list">-->

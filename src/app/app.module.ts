@@ -27,6 +27,7 @@ import { PaperCardComponent } from '../components/paper-card/paper-card';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {Clipboard} from "@ionic-native/clipboard";
 import {FilterPipe, FuzzyFilterPipe} from "../pipes/filter.pipe";
+import {NativeStorage} from "@ionic-native/native-storage";
 
 @NgModule({
     declarations: [
@@ -80,6 +81,7 @@ import {FilterPipe, FuzzyFilterPipe} from "../pipes/filter.pipe";
         FuzzyFilterPipe,
         InAppBrowser,
         Clipboard,
+        NativeStorage,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })

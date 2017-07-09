@@ -4,6 +4,7 @@ import {ReagentListPage} from "../reagent-list/reagent-list";
 import {ReagentDetailPage} from "../reagent-detail/reagent-detail";
 import {PaperService} from "../../services/paper.service";
 import {PaperListPage} from "../paper-list/paper-list";
+import {NativeStorage} from "@ionic-native/native-storage";
 
 @Component({
     selector: 'page-search-basic',
@@ -12,7 +13,8 @@ import {PaperListPage} from "../paper-list/paper-list";
 export class SearchBasicPage {
     searchInput:string='';
     searchType:string='';
-    searchAspect:string='all';
+    searchField:string='all';
+    historyItems:string[]=["afe",'afiweoajoq啊啊啊'];
 
     // labels:Label[]=[];
 
@@ -21,6 +23,7 @@ export class SearchBasicPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
+        private storage: NativeStorage,
         private paperService: PaperService
     ) {
         this.searchType=this.navParams.get('type');
@@ -41,13 +44,50 @@ export class SearchBasicPage {
         })
     }
 
-    goSearch(){
+    goSearch(text?:string){
+        if (!text) {
+            text=this.searchInput;
+            this.addHistoryItems(this.searchInput);
+        }
         if (this.searchType == 'paper') {
             this.navCtrl.push(PaperListPage,{
                 'pageFrom': 'search',
-                'searchText': this.searchInput
+                'searchText': text
             });
         }
+    }
+
+    ionViewWillLoad(){
+        this.getHistoryItems();
+
+    }
+
+    getHistoryItems(){
+        let reference='';
+        if (this.searchType == 'paper') {
+            reference='searchHistoryPaper';
+        }else{
+            reference='searchHistoryReagent';
+        }
+        this.storage.getItem(reference).then(data=>{
+            if (data) {
+                this.historyItems=data;
+            }
+        });
+    }
+
+    addHistoryItems(item){
+        let reference='';
+        if (this.searchType == 'paper') {
+            reference='searchHistoryPaper';
+        }else{
+            reference='searchHistoryReagent';
+        }
+        this.historyItems.unshift(item);
+        if (this.historyItems.length > 5) {
+            this.historyItems.splice(-1,1);
+        }
+        this.storage.setItem(reference,this.historyItems);
     }
 
     ionViewDidLoad(){

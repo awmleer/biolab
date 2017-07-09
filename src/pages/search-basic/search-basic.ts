@@ -12,8 +12,9 @@ import {PaperListPage} from "../paper-list/paper-list";
 export class SearchBasicPage {
     searchInput:string='';
     searchType:string='';
+    searchAspect:string='all';
 
-    labels:Label[]=[];
+    // labels:Label[]=[];
 
     @ViewChild('searchbar') searchbar:Searchbar;
 
@@ -23,14 +24,6 @@ export class SearchBasicPage {
         private paperService: PaperService
     ) {
         this.searchType=this.navParams.get('type');
-    }
-
-    checkFocus(){
-        console.log('focus');
-    }
-
-    checkBlur(){
-        console.log('blur');
     }
 
     goReagentList(){
@@ -58,11 +51,11 @@ export class SearchBasicPage {
     }
 
     ionViewDidLoad(){
-        if (this.searchType == 'paper') {
-            this.paperService.getLabelList().then(labels=>{
-                this.labels=labels;
-            });
-        }
+        // if (this.searchType == 'paper') {
+        //     this.paperService.getLabelList().then(labels=>{
+        //         this.labels=labels;
+        //     });
+        // }
         // console.log(this.navParams.get('type'));
     }
 

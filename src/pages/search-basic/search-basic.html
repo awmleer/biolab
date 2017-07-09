@@ -5,18 +5,35 @@
 </ion-header>
 
 
-<ion-content>
-    <ion-searchbar (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" #searchbar [(ngModel)]="searchInput" [placeholder]="searchType=='paper'?'查询论文':searchType=='reagent'?'查询试剂':'查询'"></ion-searchbar>
-    <div>
-        <ion-list id="quick-list">
-            <button ion-item [hidden]="searchInput==''" (click)="goSearch()">
-                直接搜索 "{{searchInput}}"
-            </button>
-            <div *ngIf="searchInput!=''">
-                <button ion-item *ngFor="let label of (labels | fuzzyFilter:{'name':searchInput})" (click)="goPaperListByLabel(label)">
-                    标签：{{label.name}}
-                </button>
-            </div>
-        </ion-list>
-    </div>
+<ion-content padding>
+    <!--<ion-searchbar (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" #searchbar [(ngModel)]="searchInput" [placeholder]="searchType=='paper'?'查询论文':searchType=='reagent'?'查询试剂':'查询'"></ion-searchbar>-->
+    <ion-list>
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="searchInput" placeholder="输入关键词 空格分隔"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>搜索类型</ion-label>
+            <ion-select [(ngModel)]="searchAspect" interface="action-sheet" cancelText="取消">
+                <ion-option value="all">全部</ion-option>
+                <ion-option value="keyword">关键词</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="goSearch()">
+        <ion-icon name="search"></ion-icon> 搜索
+    </button>
+
+    <!--<div>-->
+    <!--<ion-list id="quick-list">-->
+    <!--&lt;!&ndash;<button ion-item [hidden]="searchInput==''" (click)="goSearch()">&ndash;&gt;-->
+    <!--&lt;!&ndash;直接搜索 "{{searchInput}}"&ndash;&gt;-->
+    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+    <!--<div *ngIf="searchInput!=''">-->
+    <!--<button ion-item *ngFor="let label of (labels | fuzzyFilter:{'name':searchInput})" (click)="goPaperListByLabel(label)">-->
+    <!--标签：{{label.name}}-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</ion-list>-->
+    <!--</div>-->
 </ion-content>

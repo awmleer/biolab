@@ -13,7 +13,7 @@ import {NativeStorage} from "@ionic-native/native-storage";
 export class SearchBasicPage {
     searchInput:string='';
     searchType:string='';
-    searchField:string='all';
+    searchField:"all" | "subject" | "title" | "keyword" | "teacher" | "abstract" | "content" | "publishYear"='all';
     historyItems:string[]=[];
 
     // labels:Label[]=[];

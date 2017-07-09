@@ -14,7 +14,7 @@ export class SearchBasicPage {
     searchInput:string='';
     searchType:string='';
     searchField:string='all';
-    historyItems:string[]=["afe",'afiweoajoq啊啊啊'];
+    historyItems:string[]=[];
 
     // labels:Label[]=[];
 

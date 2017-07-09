@@ -15,6 +15,7 @@ export class PaperListPage {
     fromLabel:PaperLabel;
     papers:PaperBrief[]=[];
     searchText: string;
+    paperCardBrief: boolean=false;
 
     constructor(
         private navCtrl: NavController,

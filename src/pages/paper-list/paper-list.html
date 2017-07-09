@@ -1,6 +1,11 @@
 <ion-header>
     <ion-navbar>
         <ion-title>论文列表<span *ngIf="pageFrom=='label'">-{{fromLabel?.name}}</span></ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="this.paperCardBrief=!this.paperCardBrief;">
+                <ion-icon [name]="paperCardBrief?'ios-reorder':'md-reorder'"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -9,5 +14,10 @@
     <div padding *ngIf="papers.length>0">
         共找到 {{papers.length}} 篇符合条件的论文
     </div>
-    <paper-card *ngFor="let paper of papers" [paper]="paper" (cardClicked)="goPaperDetail(paper)"></paper-card>
+    <paper-card
+        *ngFor="let paper of papers"
+        [paper]="paper"
+        [brief]="paperCardBrief"
+        (cardClicked)="goPaperDetail(paper)"
+    ></paper-card>
 </ion-content>

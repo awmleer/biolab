@@ -13,7 +13,7 @@ export class PaperCardComponent {
     detail;
 
     @Input() paper:PaperBrief;
-    // expanding:boolean=false;
+    @Input() brief: boolean;
 
     constructor(
         private paperService: PaperService

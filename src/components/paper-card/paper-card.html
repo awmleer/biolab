@@ -4,10 +4,10 @@
     </ion-card-header>
     <ion-card-content>
         <a class="normal-text" (click)="toggleDetail()">
-            指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>
+            <!--指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>-->
             关键词：{{paper.keyword}}<br>
             <!--摘要：{{detail.abstract}}<br>-->
-            <span [class.limit-line-height]="!showingDetail" style="margin-top: 10px;padding-top: 10px;border-top: solid 0.5px #aeaeae;display: block">
+            <span *ngIf="!brief" [class.limit-line-height]="!showingDetail" style="margin-top: 10px;padding-top: 10px;border-top: solid 0.5px #aeaeae;display: block">
                 <span class="mask" *ngIf="!showingDetail"></span>
                 {{paper.abstract}}
             </span>

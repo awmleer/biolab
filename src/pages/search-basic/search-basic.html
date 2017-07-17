@@ -19,7 +19,6 @@
                 <ion-option value="title">标题</ion-option>
                 <ion-option value="keyword">关键词</ion-option>
                 <ion-option value="teacher">指导教师</ion-option>
-                <ion-option value="abstract">摘要</ion-option>
                 <ion-option value="content">文章内容</ion-option>
                 <ion-option value="publishYear">发表年份</ion-option>
             </ion-select>
@@ -30,9 +29,10 @@
         <ion-icon name="search"></ion-icon> 搜索
     </button>
 
-    <div style="margin-top: 20px;text-align: center">
+    <div style="margin-top: 20px;text-align: center" *ngIf="historyItems.length>0">
         <label>历史搜索</label>
         <a class="history-item" (click)="goSearch(item)" *ngFor="let item of historyItems">{{item}}</a>
+        <button ion-button clear color="dark" (click)="clearHistory()">清空记录</button>
     </div>
 
     <!--<div>-->

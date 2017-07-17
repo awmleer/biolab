@@ -13,7 +13,7 @@ import {NativeStorage} from "@ionic-native/native-storage";
 export class SearchBasicPage {
     searchInput:string='';
     searchType:string='';
-    searchField:"all" | "subject" | "title" | "keyword" | "teacher" | "abstract" | "content" | "publishYear"='all';
+    searchField:"all" | "subject" | "title" | "keyword" | "teacher" | "content" | "publishYear"='all';
     historyItems:string[]=[];
 
     // labels:Label[]=[];
@@ -74,6 +74,17 @@ export class SearchBasicPage {
                 this.historyItems=data;
             }
         });
+    }
+
+    clearHistory(){
+        this.historyItems=[];
+        let reference='';
+        if (this.searchType == 'paper') {
+            reference='searchHistoryPaper';
+        }else{
+            reference='searchHistoryReagent';
+        }
+        this.storage.setItem(reference,[]);
     }
 
     addHistoryItems(item){

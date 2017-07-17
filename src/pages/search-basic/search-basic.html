@@ -32,7 +32,10 @@
     <div style="margin-top: 20px;text-align: center" *ngIf="historyItems.length>0">
         <label>历史搜索</label>
         <a class="history-item" (click)="goSearch(item)" *ngFor="let item of historyItems">{{item}}</a>
-        <button ion-button clear color="dark" (click)="clearHistory()">清空记录</button>
+        <button ion-button color="light" round (click)="clearHistory()" small>
+            <ion-icon name="trash"></ion-icon>&nbsp;
+            清空记录
+        </button>
     </div>
 
     <!--<div>-->

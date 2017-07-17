@@ -4,7 +4,7 @@ import {ReagentListPage} from "../reagent-list/reagent-list";
 import {ReagentDetailPage} from "../reagent-detail/reagent-detail";
 import {PaperService} from "../../services/paper.service";
 import {PaperListPage} from "../paper-list/paper-list";
-import {NativeStorage} from "@ionic-native/native-storage";
+import {Storage} from "@ionic/storage";
 
 @Component({
     selector: 'page-search-basic',
@@ -23,7 +23,7 @@ export class SearchBasicPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        private storage: NativeStorage,
+        private storage: Storage,
         private paperService: PaperService
     ) {
         this.searchType=this.navParams.get('type');
@@ -69,7 +69,7 @@ export class SearchBasicPage {
         }else{
             reference='searchHistoryReagent';
         }
-        this.storage.getItem(reference).then(data=>{
+        this.storage.get(reference).then(data=>{
             if (data) {
                 this.historyItems=data;
             }
@@ -84,7 +84,7 @@ export class SearchBasicPage {
         }else{
             reference='searchHistoryReagent';
         }
-        this.storage.setItem(reference,[]);
+        this.storage.set(reference,[]);
     }
 
     addHistoryItems(item){
@@ -98,7 +98,7 @@ export class SearchBasicPage {
         if (this.historyItems.length > 5) {
             this.historyItems.splice(-1,1);
         }
-        this.storage.setItem(reference,this.historyItems);
+        this.storage.set(reference,this.historyItems);
     }
 
     ionViewDidLoad(){

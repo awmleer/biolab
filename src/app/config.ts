@@ -1,4 +1,6 @@
+import {isDevMode} from "@angular/core"
+
 export const CONFIG={
-    apiUrl:'/api'
-    // apiUrl:'http://118.89.186.130'
+    // apiUrl:'/api'
+    apiUrl:isDevMode()?'/api':'http://118.89.186.130'
 };

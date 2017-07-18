@@ -4,6 +4,14 @@
     </ion-card-header>
     <ion-card-content>
         <a class="normal-text" (click)="toggleDetail()">
+            <ion-row>
+                <ion-col no-padding>
+                    <p><ion-note>年度：{{paper.publishYear}}</ion-note></p>
+                </ion-col>
+                <ion-col no-padding>
+                    <p><ion-note>下载次数：{{paper.downloadCount}}</ion-note></p>
+                </ion-col>
+            </ion-row>
             <!--指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>-->
             关键词：{{paper.keyword}}<br>
             <!--摘要：{{detail.abstract}}<br>-->
@@ -15,13 +23,13 @@
     </ion-card-content>
     <div class="card-bottom">
         <ion-row>
-            <ion-col>
-                <p><ion-note>年度：{{paper.publishYear}}</ion-note></p>
+            <ion-col text-center>
+                <button ion-button icon-left clear small (click)="cardClick()">
+                    <ion-icon name="book"></ion-icon>
+                    <div>分享</div>
+                </button>
             </ion-col>
             <ion-col text-center>
-                <p><ion-note>下载次数：{{paper.downloadCount}}</ion-note></p>
-            </ion-col>
-            <ion-col text-right>
                 <button ion-button icon-left clear small (click)="cardClick()">
                     <ion-icon name="book"></ion-icon>
                     <div>详情</div>

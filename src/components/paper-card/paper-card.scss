@@ -1,4 +1,7 @@
 paper-card {
+    ion-card-header{
+        padding-bottom: 2px!important;
+    }
     .limit-line-height{
         overflow: hidden;
         text-overflow: ellipsis;

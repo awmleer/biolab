@@ -5,6 +5,7 @@ import {Http} from "@angular/http";
 import {CONFIG} from "../app/config";
 import {PaperLabel} from "../classes/paper-label";
 import {ToastService} from "./toast.service";
+import {GetPapersResult, PaperBrief} from "../classes/paper";
 
 
 @Injectable()
@@ -15,8 +16,19 @@ export class PaperService {
         private toastService: ToastService
     ) {}
 
-    getPapersByLabel(label:PaperLabel){
-        return this.http.get(`${CONFIG.apiUrl}/paper/label/${label.id}/papers/`).toPromise().then(response=>{
+    getPapersByLabel(labelId,page:number):Promise<GetPapersResult>{
+        return this.http.get(`${CONFIG.apiUrl}/paper/label/${labelId}/papers/${page}/`).toPromise().then(response=>{
+            return response.json();
+        },err=>{
+            this.toastService.toast('获取论文列表失败');
+        });
+    }
+
+    getPapersBySearchBasic(searchText:string,searchField:string,page:number):Promise<GetPapersResult>{
+        return this.http.post(`${CONFIG.apiUrl}/paper/search/basic/${page}/`,{
+            searchText: searchText,
+            field: searchField
+        }).toPromise().then(response=>{
             return response.json();
         },err=>{
             this.toastService.toast('获取论文列表失败');
@@ -31,13 +43,6 @@ export class PaperService {
         return this.http.get(`${CONFIG.apiUrl}/paper/label/list/`).toPromise().then(response=>{
             return response.json();
         });
-    }
-
-    searchPaper(searchText:string):Promise<any>{
-        let keywords=searchText.split(/ +/);
-        return this.http.post(`${CONFIG.apiUrl}/paper/search/basic/`,JSON.stringify(keywords)).toPromise().then(response=>{
-            return response.json();
-        })
     }
 
 }

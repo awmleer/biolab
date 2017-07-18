@@ -46,7 +46,9 @@ export class PaperLabelsPage {
     goPaperList(label){
         this.navCtrl.push(PaperListPage,{
             pageFrom:'label',
-            label:label
+            param:{
+                labelId:label.id
+            }
         });
     }
 

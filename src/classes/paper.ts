@@ -30,3 +30,8 @@ export class PaperDetailed {
     downloadCount:number;
 }
 
+
+export interface GetPapersResult {
+    totalPageCount:number,
+    papers:PaperBrief[]
+}

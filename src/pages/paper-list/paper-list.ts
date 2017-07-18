@@ -3,18 +3,19 @@ import { NavController, NavParams } from 'ionic-angular';
 import {PaperDetailPage} from "../paper-detail/paper-detail";
 import {PaperLabel} from "../../classes/paper-label";
 import {PaperService} from "../../services/paper.service";
-import {PaperBrief} from "../../classes/paper";
+import {GetPapersResult, PaperBrief} from "../../classes/paper";
 
 
 @Component({
-    selector: 'page-paper-list',
+    selector: 'currentPage-paper-list',
     templateUrl: 'paper-list.html'
 })
 export class PaperListPage {
-    pageFrom:string;
-    fromLabel:PaperLabel;
+    pageFrom:'searchBasic' | 'label';
     papers:PaperBrief[]=[];
-    searchText: string;
+    currentPage:number=0;
+    totalPageCount:number=0;
+    param:object;
     paperCardBrief: boolean=false;
 
     constructor(
@@ -23,21 +24,25 @@ export class PaperListPage {
         private paperService: PaperService
     ) {
         this.pageFrom=navParams.get('pageFrom');
-        if (this.pageFrom == 'label') {
-            this.fromLabel=navParams.get('label');
-        }else if (this.pageFrom == 'search'){
-            this.searchText=navParams.get('searchText');
-        }
+        this.param=navParams.get('param');
     }
 
     ionViewWillLoad(){
+        this.getMorePapers();
+    }
+
+    getMorePapers(){
         if (this.pageFrom == 'label') {
-            this.paperService.getPapersByLabel(this.fromLabel).then(papers=>{
-                this.papers=papers;
+            this.paperService.getPapersByLabel(this.param['labelId'],this.currentPage).then((result:GetPapersResult)=>{
+                this.currentPage++;
+                this.totalPageCount=result.totalPageCount;
+                this.papers=this.papers.push.apply(result.papers);
             });
-        }else if (this.pageFrom == 'search') {
-            this.paperService.searchPaper(this.searchText).then(papers=>{
-                this.papers=papers;
+        }else if (this.pageFrom == 'searchBasic') {
+            this.paperService.getPapersBySearchBasic(this.param['searchText'],this.param['searchField'],this.currentPage).then((result:GetPapersResult)=>{
+                this.currentPage++;
+                this.totalPageCount=result.totalPageCount;
+                this.papers=this.papers.push.apply(result.papers);
             });
         }
     }

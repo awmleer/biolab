@@ -40,8 +40,10 @@ export class SearchBasicPage {
     goPaperListByLabel(label:Label){
         this.navCtrl.push(PaperListPage,{
             'pageFrom':'label',
-            'label':label
-        })
+            'param':{
+                label:label
+            }
+        });
     }
 
     goSearch(text?:string){
@@ -51,8 +53,11 @@ export class SearchBasicPage {
         }
         if (this.searchType == 'paper') {
             this.navCtrl.push(PaperListPage,{
-                'pageFrom': 'search',
-                'searchText': text
+                'pageFrom': 'searchBasic',
+                'param':{
+                    searchText: text,
+                    searchField: this.searchField
+                }
             });
         }
     }

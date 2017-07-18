@@ -36,13 +36,13 @@ export class PaperListPage {
             this.paperService.getPapersByLabel(this.param['labelId'],this.currentPage).then((result:GetPapersResult)=>{
                 this.currentPage++;
                 this.totalPageCount=result.totalPageCount;
-                this.papers=this.papers.push.apply(result.papers);
+                this.papers.push.apply(this.papers,result.papers);
             });
         }else if (this.pageFrom == 'searchBasic') {
             this.paperService.getPapersBySearchBasic(this.param['searchText'],this.param['searchField'],this.currentPage).then((result:GetPapersResult)=>{
                 this.currentPage++;
                 this.totalPageCount=result.totalPageCount;
-                this.papers=this.papers.push.apply(result.papers);
+                this.papers.push.apply(this.papers,result.papers);
             });
         }
     }

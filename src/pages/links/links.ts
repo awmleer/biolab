@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 @Component({
   selector: 'page-links',
@@ -7,8 +8,15 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+      public navCtrl: NavController,
+      private inAppBrowser: InAppBrowser
+  ) {}
 
+  openLink(link:string){
+      this.inAppBrowser.create(link,'_blank',{
+          zoom:'no'
+      });
   }
 
 }

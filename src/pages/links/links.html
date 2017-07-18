@@ -8,10 +8,20 @@
 
 <ion-content>
     <ion-item-group>
-        <ion-item-divider color="light">A</ion-item-divider>
-        <ion-item>
-            <img src="https://www.google.co.jp/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&cad=rja&uact=8&ved=0ahUKEwivnLWuwZHVAhXHfLwKHaj_DgQQjRwIBw&url=http%3A%2F%2Fwww.kanzhun.com%2Fgso158945.html&psig=AFQjCNH24FhvqzwJJWNG1zBnTNB3-tjT1A&ust=1500421908916007">
-        </ion-item>
-        <ion-item>Argentina</ion-item>
+        <ion-item-divider color="light">通用搜索</ion-item-divider>
+        <button ion-item (click)="openLink('https://www.baidu.com/')">百度</button>
+        <button ion-item (click)="openLink('https://www.google.com/')">Google</button>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">论文搜索</ion-item-divider>
+        <button ion-item (click)="openLink('http://epub.cnki.net/')">知网</button>
+        <button ion-item (click)="openLink('http://www.wanfangdata.com.cn/')">万方</button>
+        <button ion-item (click)="openLink('http://www.cqvip.com/')">维普</button>
+        <button ion-item (click)="openLink('http://xueshu.baidu.com/')">百度学术</button>
+    </ion-item-group>
+    <ion-item-group>
+        <ion-item-divider color="light">试剂搜索</ion-item-divider>
+        <button ion-item (click)="openLink('http://www.labgogo.com/')">中华试剂网</button>
+        <button ion-item (click)="openLink('http://www.aladdin-e.com/')">阿拉丁</button>
     </ion-item-group>
 </ion-content>

@@ -24,33 +24,37 @@ $font-path: "../assets/fonts";
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
+  //primary:    #488aff,
+  primary:    #3498DB,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222
 );
+@function colors($color){
+    @return map-get($colors,$color);
+}
 
+// Tabs
+$tabs-ios-tab-color-active: #ffffff;
+$tabs-md-tab-color-active: #ffffff;
+$tabs-ios-tab-color-inactive: #e5e5e5;
+$tabs-md-tab-color-inactive: #e5e5e5;
+.tabs-ios .tabbar{
+    border-top: none;
+}
 
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
-
-
-
-
-// App Material Design Variables
-// --------------------------------------------------
-// Material Design only Sass variables can go here
-
-
-
-
-// App Windows Variables
-// --------------------------------------------------
-// Windows only Sass variables can go here
-
-
+// NavBar
+ion-navbar{
+    .toolbar-background{
+        background-color: colors(primary);
+    }
+    .toolbar-background-ios{
+        border-bottom:none!important;
+    }
+}
+$toolbar-ios-title-text-color: colors(light);
+$toolbar-md-title-text-color: colors(light);
 
 
 // App Theme
@@ -60,7 +64,7 @@ $colors: (
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";
+//@import "ionic.theme.default";
 
 
 // Ionicons

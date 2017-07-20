@@ -12,11 +12,11 @@
         <h2>{{paper.title}}</h2>
         <span class="label" *ngFor="let label of paper.labels">{{label.name}}</span><br>
         <p>
-            <b>指导老师：</b><span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>
-            <b>年份：</b>{{paper.publishYear}}<br>
-            <b>关键词：</b>{{paper.keyword}}<br>
-            <b>主题：</b>{{paper.subject}}<br>
+            <b>作者：</b>{{paper.author}}<br>
             <b>摘要：</b>{{paper.abstract}}<br>
+            <b>关键词：</b>{{paper.keyword}}<br>
+            <b>年度：</b>{{paper.publishYear}}<br>
+            <b>导师：</b><span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>
         </p>
         <ion-row>
             <ion-col>
@@ -26,7 +26,7 @@
                 <button ion-button block icon-left (click)="download()"><ion-icon name="cloud-download"></ion-icon>下载</button>
             </ion-col>
             <ion-col>
-                <button ion-button block icon-left (click)="read()"><ion-icon name="glasses"></ion-icon>阅读</button>
+                <button ion-button block icon-left (click)="read()"><ion-icon name="book"></ion-icon>阅读</button>
             </ion-col>
         </ion-row>
     </div>

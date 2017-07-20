@@ -15,6 +15,7 @@ export class PaperBrief {
 export class PaperDetailed {
     id:number;
     title:string;
+    author:string;
     labels:[{
         id:number;
         name:string;

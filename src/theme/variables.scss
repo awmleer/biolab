@@ -35,24 +35,14 @@ $colors: (
     @return map-get($colors,$color);
 }
 
-// Tabs
+
 $tabs-ios-tab-color-active: #ffffff;
 $tabs-md-tab-color-active: #ffffff;
 $tabs-ios-tab-color-inactive: #e5e5e5;
 $tabs-md-tab-color-inactive: #e5e5e5;
-.tabs-ios .tabbar{
-    border-top: none;
-}
 
-// NavBar
-ion-navbar{
-    .toolbar-background{
-        background-color: colors(primary);
-    }
-    .toolbar-background-ios{
-        border-bottom:none!important;
-    }
-}
+$toolbar-ios-button-color: colors(light);
+$toolbar-md-button-color: colors(light);
 $toolbar-ios-title-text-color: colors(light);
 $toolbar-md-title-text-color: colors(light);
 

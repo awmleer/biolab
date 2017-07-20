@@ -6,10 +6,13 @@
         <a class="normal-text" (click)="toggleDetail()">
             <ion-row>
                 <ion-col no-padding>
-                    <p><ion-note>年度：{{paper.publishYear}}</ion-note></p>
+                    <p>作者：{{paper.author}}</p>
                 </ion-col>
-                <ion-col no-padding>
-                    <p><ion-note>下载次数：{{paper.downloadCount}}</ion-note></p>
+                <ion-col no-padding text-center>
+                    <p>年度：{{paper.publishYear}}</p>
+                </ion-col>
+                <ion-col no-padding text-right>
+                    <p>{{paper.downloadCount}}次下载</p>
                 </ion-col>
             </ion-row>
             <!--指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>-->

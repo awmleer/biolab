@@ -1,6 +1,7 @@
 export class PaperBrief {
     id:number;
     title:string;
+    author:string;
     teachers:[{
         id: number;
         name: string;

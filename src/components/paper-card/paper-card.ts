@@ -15,6 +15,9 @@ export class PaperCardComponent {
     @Input() paper:PaperBrief;
     @Input() brief: boolean;
 
+    @Output() detailButtonClicked:EventEmitter<any> = new EventEmitter();
+    @Output() shareButtonClicked:EventEmitter<any> = new EventEmitter();
+
     constructor(
         private paperService: PaperService
     ) {}
@@ -36,10 +39,13 @@ export class PaperCardComponent {
         // });
     }
 
-    @Output() cardClicked:EventEmitter<any> = new EventEmitter();
 
-    cardClick() {
-        this.cardClicked.emit();
+    shareButtonClick(){
+        this.shareButtonClicked.emit();
+    }
+
+    detailButtonClick() {
+        this.detailButtonClicked.emit();
     }
 
     // toggleExpand(){

@@ -28,6 +28,8 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {Clipboard} from "@ionic-native/clipboard";
 import {FilterPipe, FuzzyFilterPipe} from "../pipes/filter.pipe";
 import {IonicStorageModule} from "@ionic/storage";
+import {SocialSharing} from "@ionic-native/social-sharing";
+import {ShareService} from "../services/share.service";
 
 
 @NgModule({
@@ -79,10 +81,12 @@ import {IonicStorageModule} from "@ionic/storage";
         SplashScreen,
         ToastService,
         PaperService,
+        ShareService,
         FilterPipe,
         FuzzyFilterPipe,
         InAppBrowser,
         Clipboard,
+        SocialSharing,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })

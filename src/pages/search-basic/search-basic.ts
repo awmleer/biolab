@@ -100,8 +100,9 @@ export class SearchBasicPage {
             reference='searchHistoryReagent';
         }
         this.historyItems.unshift(item);
-        if (this.historyItems.length > 5) {
-            this.historyItems.splice(-1,1);
+        if (this.historyItems.length > 10) {
+            let delta=this.historyItems.length-10;
+            this.historyItems.splice(-delta,delta);
         }
         this.storage.set(reference,this.historyItems);
     }

@@ -5,6 +5,8 @@ import {PaperService} from "../../services/paper.service";
 import {ToastService} from "../../services/toast.service";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {Clipboard} from "@ionic-native/clipboard";
+import {ShareService} from "../../services/share.service";
+
 
 @Component({
     selector: 'page-paper-detail',
@@ -19,6 +21,7 @@ export class PaperDetailPage {
         private toastService: ToastService,
         private paperService: PaperService,
         private inAppBrowser: InAppBrowser,
+        private shareSvc: ShareService,
         private clipboard: Clipboard
     ) {}
 
@@ -32,8 +35,9 @@ export class PaperDetailPage {
     }
 
     share(){
-        this.clipboard.copy(`${this.paper.title} 点击链接阅读：http://118.89.186.130/paper/${this.paper.id}/preview/`);
-        this.toastService.toast('分享链接已复制到剪贴板');
+        this.shareSvc.sharePaper(this.paper.id,this.paper.title);
+        // this.clipboard.copy(`${this.paper.title} 点击链接阅读：http://118.89.186.130/paper/${this.paper.id}/preview/`);
+        // this.toastService.toast('分享链接已复制到剪贴板');
     }
 
     download(){

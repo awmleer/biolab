@@ -1,11 +1,14 @@
 {
-    "name": "bioLab",
-    "app_id": "",
-    "type": "ionic-angular",
-    "proxies": [
-        {
-            "path": "/api",
-            "proxyUrl": "http://118.89.186.130/"
-        }
-    ]
+  "name": "bioLab",
+  "app_id": "",
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://118.89.186.130/"
+    }
+  ],
+  "integrations": {
+    "cordova": {}
+  }
 }

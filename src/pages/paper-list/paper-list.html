@@ -11,15 +11,15 @@
 
 
 <ion-content>
-    <div padding *ngIf="papers.length>0">
+    <div padding *ngIf="totalPaperCount!=-1">
         共找到 {{papers.length}} 篇符合条件的论文
-        <!--TODO fix paper length-->
     </div>
     <paper-card
         *ngFor="let paper of papers"
         [paper]="paper"
         [brief]="paperCardBrief"
-        (cardClicked)="goPaperDetail(paper)"
+        (shareButtonClicked)="sharePaper(paper)"
+        (detailButtonClicked)="goPaperDetail(paper)"
     ></paper-card>
 
     <button ion-button block clear (click)="getMorePapers()" *ngIf="currentPage<totalPageCount">加载更多</button>

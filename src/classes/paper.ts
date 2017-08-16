@@ -34,6 +34,7 @@ export class PaperDetailed {
 
 
 export interface GetPapersResult {
-    totalPageCount:number,
-    papers:PaperBrief[]
+    totalPageCount:number;
+    totalPaperCount:number;
+    papers:PaperBrief[];
 }

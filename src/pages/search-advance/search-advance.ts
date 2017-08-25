@@ -12,7 +12,7 @@ export class SearchAdvancePage {
     }
 
     advanceSearch(){
-        this.navCtrl.push(ReagentListPage);
+        // this.navCtrl.push(ReagentListPage);
     }
 
 

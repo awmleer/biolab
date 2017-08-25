@@ -12,7 +12,7 @@
                     <p>年度：{{paper.publishYear}}</p>
                 </ion-col>
                 <ion-col no-padding text-right>
-                    <p>{{paper.downloadCount}}次下载</p>
+                    <p>导师：{{paper.teachers.length>0?paper.teachers[0].name:'无'}}<span *ngIf="paper.teachers.length>1">等</span></p>
                 </ion-col>
             </ion-row>
             <!--指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>-->
@@ -26,6 +26,9 @@
     </ion-card-content>
     <div class="card-bottom">
         <ion-row>
+            <ion-col style="display: flex;align-items: center;justify-content: center">
+                {{paper.downloadCount}}次下载
+            </ion-col>
             <ion-col text-center>
                 <button ion-button icon-left clear small (click)="shareButtonClick()">
                     <ion-icon name="md-share"></ion-icon>

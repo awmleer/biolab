@@ -13,7 +13,7 @@ import {Storage} from "@ionic/storage";
 export class SearchBasicPage {
     searchInput:string='';
     searchType:string='';
-    searchField:"all" | "subject" | "title" | "keyword" | "teacher" | "content" | "publishYear"='all';
+    searchField:"all" | "subject" | "title" | "keyword" | "teacher" | "content" | "publishYear" | "major"='all';
     historyItems:string[]=[];
 
     // labels:Label[]=[];

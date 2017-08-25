@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import {Http} from "@angular/http";
 
 import 'rxjs/add/operator/toPromise'
-import {CONFIG} from "../../app/config";
+import {CONST} from "../../app/const";
 import {PaperLabel} from "../../classes/paper-label";
 import {PaperListPage} from "../paper-list/paper-list";
 
@@ -30,7 +30,7 @@ export class PaperLabelsPage {
     }
 
     getChildrenLabels(){
-        this.http.get(`${CONFIG.apiUrl}/paper/label/${this.parentLabel.id}/children/`).toPromise().then(response=>{
+        this.http.get(`${CONST.apiUrl}/paper/label/${this.parentLabel.id}/children/`).toPromise().then(response=>{
             this.labels=response.json();
         });
     }

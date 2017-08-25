@@ -4,7 +4,7 @@ import {SearchBasicPage} from "../search-basic/search-basic";
 import {SearchAdvancePage} from "../search-advance/search-advance";
 import {PaperListPage} from "../paper-list/paper-list";
 import {Http} from "@angular/http";
-import {CONFIG} from "../../app/config";
+import {CONST} from "../../app/const";
 
 import 'rxjs/add/operator/toPromise'
 import {PaperLabelsPage} from "../paper-labels/paper-labels";
@@ -24,7 +24,7 @@ export class PaperPage {
     ) {}
 
     ionViewWillEnter(){
-        this.http.get(`${CONFIG.apiUrl}/paper/label/rootLevel/`).toPromise().then(response=>{
+        this.http.get(`${CONST.apiUrl}/paper/label/rootLevel/`).toPromise().then(response=>{
             this.rootLabels=response.json();
         });
     }

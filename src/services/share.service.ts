@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {SocialSharing} from "@ionic-native/social-sharing";
-import {CONFIG} from "../app/config";
+import {CONST} from "../app/const";
 
 @Injectable()
 export class ShareService {
@@ -11,9 +11,9 @@ export class ShareService {
 
     sharePaper(paperId,title):Promise<any>{
         return this.socialSharing.shareWithOptions({
-            message: `${title} 点击链接阅读：${CONFIG.apiUrl}/paper/${paperId}/preview/`,
+            message: `${title} 点击链接阅读：${CONST.apiUrl}/paper/${paperId}/preview/`,
             subject: `${title}`,
-            url: `${CONFIG.apiUrl}/paper/${paperId}/preview/`
+            url: `${CONST.apiUrl}/paper/${paperId}/preview/`
         });
     }
 }

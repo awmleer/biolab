@@ -14,21 +14,22 @@ export class PaperBrief {
 }
 
 
-export class PaperDetailed {
+export class PaperDetail {
     id:number;
     title:string;
-    author:string;
-    labels:[{
-        id:number;
-        name:string;
-    }];
-    teachers:[{
-        id: number;
-        name: string;
-    }];
     subject:string;
     keyword:string;
     abstract:string;
+    author:string;
+    major:string;
+    teachers:{
+        id:number;
+        name:string;
+    }[];
+    labels:{
+        id:number;
+        name:string;
+    }[];
     publishYear:number;
     downloadCount:number;
 }

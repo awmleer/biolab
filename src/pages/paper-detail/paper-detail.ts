@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {PaperDetailed} from "../../classes/paper";
+import {PaperDetail} from "../../classes/paper";
 import {PaperService} from "../../services/paper.service";
 import {ToastService} from "../../services/toast.service";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
@@ -13,7 +13,7 @@ import {ShareService} from "../../services/share.service";
     templateUrl: 'paper-detail.html',
 })
 export class PaperDetailPage {
-    paper:PaperDetailed;
+    paper:PaperDetail;
 
     constructor(
         public navCtrl: NavController,

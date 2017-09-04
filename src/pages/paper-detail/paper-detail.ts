@@ -9,46 +9,46 @@ import {ShareService} from "../../services/share.service";
 
 
 @Component({
-    selector: 'page-paper-detail',
-    templateUrl: 'paper-detail.html',
+  selector: 'page-paper-detail',
+  templateUrl: 'paper-detail.html',
 })
 export class PaperDetailPage {
-    paper:PaperDetail;
+  paper:PaperDetail;
 
-    constructor(
-        public navCtrl: NavController,
-        public navParams: NavParams,
-        private toastService: ToastService,
-        private paperService: PaperService,
-        private inAppBrowser: InAppBrowser,
-        private shareSvc: ShareService,
-        private clipboard: Clipboard
-    ) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private toastService: ToastService,
+    private paperService: PaperService,
+    private inAppBrowser: InAppBrowser,
+    private shareSvc: ShareService,
+    private clipboard: Clipboard
+  ) {}
 
-    ionViewWillLoad(){
-        this.paperService.getPaperDetail(this.navParams.get('paperId')).then(response=>{
-            this.paper=response.json();
-        },err=>{
-            this.toastService.toast('获取论文信息失败');
-            this.navCtrl.pop();
-        });
-    }
+  ionViewWillLoad(){
+    this.paperService.getPaperDetail(this.navParams.get('paperId')).then(data=>{
+      this.paper=data;
+    }).catch(() => {
+      this.toastService.toast('获取论文信息失败');
+      this.navCtrl.pop();
+    });
+  }
 
-    share(){
-        this.shareSvc.sharePaper(this.paper.id,this.paper.title);
-        // this.clipboard.copy(`${this.paper.title} 点击链接阅读：http://118.89.186.130/paper/${this.paper.id}/preview/`);
-        // this.toastService.toast('分享链接已复制到剪贴板');
-    }
+  share(){
+    this.shareSvc.sharePaper(this.paper.id,this.paper.title);
+    // this.clipboard.copy(`${this.paper.title} 点击链接阅读：http://118.89.186.130/paper/${this.paper.id}/preview/`);
+    // this.toastService.toast('分享链接已复制到剪贴板');
+  }
 
-    download(){
-        this.inAppBrowser.create(`http://118.89.186.130/paper/${this.paper.id}/download/`,'_system');
-    }
+  download(){
+    this.inAppBrowser.create(`http://118.89.186.130/paper/${this.paper.id}/download/`,'_system');
+  }
 
-    read(){
-        this.inAppBrowser.create(`http://118.89.186.130/paper/${this.paper.id}/preview/`,'_blank',{
-            location:'no',
-            zoom:'no'
-        });
-    }
+  read(){
+    this.inAppBrowser.create(`http://118.89.186.130/paper/${this.paper.id}/preview/`,'_blank',{
+      location:'no',
+      zoom:'no'
+    });
+  }
 
 }

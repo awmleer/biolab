@@ -14,7 +14,7 @@ export class AboutPage {
   ) {}
 
   openLink(link:string){
-      this.inAppBrowser.create(link,'_blank',{
+      this.inAppBrowser.create(link,'_system',{
           zoom:'no'
       });
   }

@@ -30,6 +30,7 @@ import {FilterPipe, FuzzyFilterPipe} from "../pipes/filter.pipe";
 import {IonicStorageModule} from "@ionic/storage";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {ShareService} from "../services/share.service";
+import {ApiService} from "../services/api.service";
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import {ShareService} from "../services/share.service";
     providers: [
         StatusBar,
         SplashScreen,
+        ApiService,
         ToastService,
         PaperService,
         ShareService,

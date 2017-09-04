@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {Http} from "@angular/http";
 
 import 'rxjs/add/operator/toPromise'
-import {CONST} from "../../app/const";
 import {PaperLabel} from "../../classes/paper-label";
 import {PaperListPage} from "../paper-list/paper-list";
+import {ApiService} from "../../services/api.service";
 
 
 
@@ -20,7 +19,7 @@ export class PaperLabelsPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        private http: Http
+        private apiSvc: ApiService,
     ) {}
 
     ionViewWillLoad(){
@@ -30,8 +29,8 @@ export class PaperLabelsPage {
     }
 
     getChildrenLabels(){
-        this.http.get(`${CONST.apiUrl}/paper/label/${this.parentLabel.id}/children/`).toPromise().then(response=>{
-            this.labels=response.json();
+        this.apiSvc.get(`/paper/label/${this.parentLabel.id}/children/`).then(data=>{
+            this.labels=data;
         });
     }
 

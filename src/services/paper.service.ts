@@ -6,42 +6,39 @@ import {CONST} from "../app/const";
 import {PaperLabel} from "../classes/paper-label";
 import {ToastService} from "./toast.service";
 import {GetPapersResult, PaperBrief} from "../classes/paper";
+import {ApiService} from "./api.service";
 
 
 @Injectable()
 export class PaperService {
 
     constructor(
-        private http: Http,
-        private toastService: ToastService
+        private toastService: ToastService,
+        private apiSvc: ApiService,
     ) {}
 
     getPapersByLabel(labelId,page:number):Promise<GetPapersResult>{
-        return this.http.get(`${CONST.apiUrl}/paper/label/${labelId}/papers/${page}/`).toPromise().then(response=>{
-            return response.json();
-        },err=>{
-            this.toastService.toast('获取论文列表失败');
+        return this.apiSvc.get(`/paper/label/${labelId}/papers/${page}/`).then(data=>{
+            return data;
         });
     }
 
     getPapersBySearchBasic(searchText:string,searchField:string,page:number):Promise<GetPapersResult>{
-        return this.http.post(`${CONST.apiUrl}/paper/search/basic/${page}/`,{
+        return this.apiSvc.post(`/paper/search/basic/${page}/`,{
             searchText: searchText,
             field: searchField
-        }).toPromise().then(response=>{
-            return response.json();
-        },err=>{
-            this.toastService.toast('获取论文列表失败');
+        }).then(data=>{
+            return data;
         });
     }
 
     getPaperDetail(paperId){
-        return this.http.get(`${CONST.apiUrl}/paper/${paperId}/detail/`).toPromise();
+        return this.apiSvc.get(`${CONST.apiUrl}/paper/${paperId}/detail/`);
     }
 
     getLabelList():Promise<any>{
-        return this.http.get(`${CONST.apiUrl}/paper/label/list/`).toPromise().then(response=>{
-            return response.json();
+        return this.apiSvc.get(`${CONST.apiUrl}/paper/label/list/`).then(data=>{
+            return data;
         });
     }
 

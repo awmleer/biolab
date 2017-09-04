@@ -2,13 +2,11 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {SearchBasicPage} from "../search-basic/search-basic";
 import {SearchAdvancePage} from "../search-advance/search-advance";
-import {PaperListPage} from "../paper-list/paper-list";
-import {Http} from "@angular/http";
-import {CONST} from "../../app/const";
 
 import 'rxjs/add/operator/toPromise'
 import {PaperLabelsPage} from "../paper-labels/paper-labels";
 import {PaperLabel} from "../../classes/paper-label";
+import {ApiService} from "../../services/api.service";
 
 
 @Component({
@@ -20,12 +18,12 @@ export class PaperPage {
 
     constructor(
         private navCtrl: NavController,
-        private http: Http
+        private apiSvc: ApiService,
     ) {}
 
     ionViewWillEnter(){
-        this.http.get(`${CONST.apiUrl}/paper/label/rootLevel/`).toPromise().then(response=>{
-            this.rootLabels=response.json();
+        this.apiSvc.get(`/paper/label/rootLevel/`).then(data=>{
+            this.rootLabels=data;
         });
     }
 

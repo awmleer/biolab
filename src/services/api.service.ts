@@ -2,14 +2,12 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {CONST} from "../app/const";
-import {ToastService} from "./toast.service";
 
 @Injectable()
 export class ApiService {
 
   constructor(
     private http: Http,
-    private toastSvc: ToastService,
   ) {}
 
   get(url:string, params:object={}):Promise<any>{
@@ -21,7 +19,6 @@ export class ApiService {
       if (data['status']=='success') {
         return data['payload'];
       }else{
-          this.toastSvc.toast(data['payload']);
           throw new Error(data['payload']);
       }
     });

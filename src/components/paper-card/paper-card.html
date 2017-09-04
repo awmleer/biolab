@@ -1,46 +1,46 @@
 <ion-card>
-    <ion-card-header>
-        {{paper.title}}
-    </ion-card-header>
-    <ion-card-content>
-        <a class="normal-text" (click)="toggleDetail()">
-            <ion-row>
-                <ion-col no-padding>
-                    <p>作者：{{paper.author}}</p>
-                </ion-col>
-                <ion-col no-padding text-center>
-                    <p>年度：{{paper.publishYear}}</p>
-                </ion-col>
-                <ion-col no-padding text-right>
-                    <p>导师：{{paper.teachers.length>0?paper.teachers[0].name:'无'}}<span *ngIf="paper.teachers.length>1">等</span></p>
-                </ion-col>
-            </ion-row>
-            <!--指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>-->
-            关键词：{{paper.keyword}}<br>
-            <!--摘要：{{detail.abstract}}<br>-->
-            <span *ngIf="!brief" [class.limit-line-height]="!showingDetail" style="margin-top: 10px;padding-top: 10px;border-top: solid 0.5px #aeaeae;display: block">
+  <ion-card-header>
+    {{paper.title}}
+  </ion-card-header>
+  <ion-card-content>
+    <a class="normal-text" (click)="toggleDetail()">
+      <ion-row>
+        <ion-col no-padding col-4>
+          <p class="ellipsis">作者：{{paper.author}}</p>
+        </ion-col>
+        <ion-col no-padding text-center col-4>
+          <p class="ellipsis">年度：{{paper.publishYear}}</p>
+        </ion-col>
+        <ion-col no-padding text-right col-4>
+          <p class="ellipsis">导师：{{paper.teachers.length>0?paper.teachers[0].name:'无'}}<span *ngIf="paper.teachers.length>1">等</span></p>
+        </ion-col>
+      </ion-row>
+      <!--指导老师：<span *ngFor="let teacher of paper.teachers">{{teacher.name}}&nbsp;</span><br>-->
+      关键词：{{paper.keyword}}<br>
+      <!--摘要：{{detail.abstract}}<br>-->
+      <span *ngIf="!brief" [class.limit-line-height]="!showingDetail" style="margin-top: 10px;padding-top: 10px;border-top: solid 0.5px #aeaeae;display: block">
                 <span class="mask" *ngIf="!showingDetail"></span>
                 {{paper.abstract}}
             </span>
-        </a>
-    </ion-card-content>
-    <div class="card-bottom">
-        <ion-row>
-            <ion-col style="display: flex;align-items: center;justify-content: center">
-                {{paper.downloadCount}}次下载
-            </ion-col>
-            <ion-col text-center>
-                <button ion-button icon-left clear small (click)="shareButtonClick()">
-                    <ion-icon name="md-share"></ion-icon>
-                    <div>分享</div>
-                </button>
-            </ion-col>
-            <ion-col text-center>
-                <button ion-button icon-left clear small (click)="detailButtonClick()">
-                    <ion-icon name="book"></ion-icon>
-                    <div>详情</div>
-                </button>
-            </ion-col>
-        </ion-row>
-    </div>
+    </a>
+  </ion-card-content>
+  <div class="card-bottom">
+    <ion-row>
+      <ion-col style="display: flex;align-items: center;justify-content: center">
+        {{paper.downloadCount}}次下载
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button icon-left clear small (click)="shareButtonClick()">
+          <ion-icon name="md-share"></ion-icon>
+          <div>分享</div>
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button icon-left clear small (click)="detailButtonClick()">
+          <ion-icon name="book"></ion-icon>
+          <div>详情</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-card>

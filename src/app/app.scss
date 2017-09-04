@@ -18,34 +18,40 @@
 @import "../theme/variables";
 
 a.normal-text{
-    color: #000;
-    display: block;
+  color: #000;
+  display: block;
 }
 
 span.label{
-    display: inline-block;
-    border-radius:0.3em;
-    background-color: #747474;
-    color: #ffffff;
-    padding:0.1em 0.3em;
-    margin: 0.2em 1em 0.3em 0;
+  display: inline-block;
+  border-radius:0.3em;
+  background-color: #747474;
+  color: #ffffff;
+  padding:0.1em 0.3em;
+  margin: 0.2em 1em 0.3em 0;
 }
 
 
 // Tabs
 .tabs-ios .tabbar{
-    border-top: none;
+  border-top: none;
 }
 .tabbar{
-    background-color: colors(primary)!important;
+  background-color: colors(primary)!important;
 }
 
 // NavBar
 ion-navbar{
-    .toolbar-background{
-        background-color: colors(primary);
-    }
-    .toolbar-background-ios{
-        border-bottom:none!important;
-    }
+  .toolbar-background{
+    background-color: colors(primary);
+  }
+  .toolbar-background-ios{
+    border-bottom:none!important;
+  }
+}
+
+.ellipsis{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
 }

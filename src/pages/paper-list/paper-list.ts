@@ -4,6 +4,7 @@ import {PaperDetailPage} from "../paper-detail/paper-detail";
 import {PaperService} from "../../services/paper.service";
 import {GetPapersResult, PaperBrief} from "../../classes/paper";
 import {ShareService} from "../../services/share.service";
+import {ToastService} from "../../services/toast.service";
 
 
 @Component({
@@ -21,7 +22,8 @@ export class PaperListPage {
     private navCtrl: NavController,
     private navParams: NavParams,
     private paperService: PaperService,
-    private shareSvc: ShareService
+    private shareSvc: ShareService,
+    private toastSvc: ToastService,
   ) {}
 
   get pageFrom():('search' | 'label'){
@@ -33,16 +35,20 @@ export class PaperListPage {
   }
 
   ionViewWillLoad(){
-    this.getMorePapers();
+    this.getMorePapers().catch(() => {
+      this.navCtrl.pop().then(() => {
+        this.toastSvc.toast('获取论文列表失败');
+      });
+    });
   }
 
-  getMorePapers(){
+  getMorePapers():Promise<null>{
     if (this.pageFrom == 'label') {
-      this.paperService.getPapersByLabel(this.param['labelId'],this.currentPage).then((result:GetPapersResult)=>{
+      return this.paperService.getPapersByLabel(this.param['labelId'],this.currentPage).then((result:GetPapersResult)=>{
         this.handleGetPapersResult(result);
       });
     }else if (this.pageFrom == 'search') {
-      this.paperService.getPapersBySearch(this.param,this.currentPage).then((result:GetPapersResult)=>{
+      return this.paperService.getPapersBySearch(this.param,this.currentPage).then((result:GetPapersResult)=>{
         this.handleGetPapersResult(result);
       });
     }

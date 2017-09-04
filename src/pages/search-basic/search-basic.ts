@@ -7,114 +7,114 @@ import {PaperListPage} from "../paper-list/paper-list";
 import {Storage} from "@ionic/storage";
 
 @Component({
-    selector: 'page-search-basic',
-    templateUrl: 'search-basic.html',
+  selector: 'page-search-basic',
+  templateUrl: 'search-basic.html',
 })
 export class SearchBasicPage {
-    searchInput:string='';
-    searchType:string='';
-    searchField:"all" | "subject" | "title" | "keyword" | "teacher" | "content" | "publishYear" | "major"='all';
-    historyItems:string[]=[];
+  searchInput:string='';
+  searchType:string='';
+  searchField:"all" | "subject" | "title" | "keyword" | "teacher" | "content" | "publishYear" | "major"='all';
+  historyItems:string[]=[];
 
-    // labels:Label[]=[];
+  // labels:Label[]=[];
 
-    @ViewChild('searchbar') searchbar:Searchbar;
+  @ViewChild('searchbar') searchbar:Searchbar;
 
-    constructor(
-        public navCtrl: NavController,
-        public navParams: NavParams,
-        private storage: Storage,
-        private paperService: PaperService
-    ) {
-        this.searchType=this.navParams.get('type');
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private storage: Storage,
+    private paperService: PaperService
+  ) {
+    this.searchType=this.navParams.get('type');
+  }
+
+  goReagentList(){
+    this.navCtrl.push(ReagentListPage);
+  }
+
+  goReagentDetail(){
+    this.navCtrl.push(ReagentDetailPage);
+  }
+
+  goPaperListByLabel(label:Label){
+    this.navCtrl.push(PaperListPage,{
+      'pageFrom':'label',
+      'param':{
+        label:label
+      }
+    });
+  }
+
+  goSearch(text?:string){
+    if (!text) {
+      text=this.searchInput;
+      this.addHistoryItems(this.searchInput);
     }
-
-    goReagentList(){
-        this.navCtrl.push(ReagentListPage);
+    if (this.searchType == 'paper') {
+      this.navCtrl.push(PaperListPage,{
+        'pageFrom': 'search',
+        'param':[{
+          field:this.searchField,
+          value:text
+        }]
+      });
     }
+  }
 
-    goReagentDetail(){
-        this.navCtrl.push(ReagentDetailPage);
+  ionViewWillLoad(){
+    this.getHistoryItems();
+
+  }
+
+  getHistoryItems(){
+    let reference='';
+    if (this.searchType == 'paper') {
+      reference='searchHistoryPaper';
+    }else{
+      reference='searchHistoryReagent';
     }
+    this.storage.get(reference).then(data=>{
+      if (data) {
+        this.historyItems=data;
+      }
+    });
+  }
 
-    goPaperListByLabel(label:Label){
-        this.navCtrl.push(PaperListPage,{
-            'pageFrom':'label',
-            'param':{
-                label:label
-            }
-        });
+  clearHistory(){
+    this.historyItems=[];
+    let reference='';
+    if (this.searchType == 'paper') {
+      reference='searchHistoryPaper';
+    }else{
+      reference='searchHistoryReagent';
     }
+    this.storage.set(reference,[]);
+  }
 
-    goSearch(text?:string){
-        if (!text) {
-            text=this.searchInput;
-            this.addHistoryItems(this.searchInput);
-        }
-        if (this.searchType == 'paper') {
-            this.navCtrl.push(PaperListPage,{
-                'pageFrom': 'searchBasic',
-                'param':{
-                    searchText: text,
-                    searchField: this.searchField
-                }
-            });
-        }
+  addHistoryItems(item){
+    let reference='';
+    if (this.searchType == 'paper') {
+      reference='searchHistoryPaper';
+    }else{
+      reference='searchHistoryReagent';
     }
-
-    ionViewWillLoad(){
-        this.getHistoryItems();
-
+    this.historyItems.unshift(item);
+    if (this.historyItems.length > 10) {
+      let delta=this.historyItems.length-10;
+      this.historyItems.splice(-delta,delta);
     }
+    this.storage.set(reference,this.historyItems);
+  }
 
-    getHistoryItems(){
-        let reference='';
-        if (this.searchType == 'paper') {
-            reference='searchHistoryPaper';
-        }else{
-            reference='searchHistoryReagent';
-        }
-        this.storage.get(reference).then(data=>{
-            if (data) {
-                this.historyItems=data;
-            }
-        });
-    }
-
-    clearHistory(){
-        this.historyItems=[];
-        let reference='';
-        if (this.searchType == 'paper') {
-            reference='searchHistoryPaper';
-        }else{
-            reference='searchHistoryReagent';
-        }
-        this.storage.set(reference,[]);
-    }
-
-    addHistoryItems(item){
-        let reference='';
-        if (this.searchType == 'paper') {
-            reference='searchHistoryPaper';
-        }else{
-            reference='searchHistoryReagent';
-        }
-        this.historyItems.unshift(item);
-        if (this.historyItems.length > 10) {
-            let delta=this.historyItems.length-10;
-            this.historyItems.splice(-delta,delta);
-        }
-        this.storage.set(reference,this.historyItems);
-    }
-
-    ionViewDidLoad(){
-        // if (this.searchType == 'paper') {
-        //     this.paperService.getLabelList().then(labels=>{
-        //         this.labels=labels;
-        //     });
-        // }
-        // console.log(this.navParams.get('type'));
-    }
+  ionViewDidLoad(){
+    // if (this.searchType == 'paper') {
+    //     this.paperService.getLabelList().then(labels=>{
+    //         this.labels=labels;
+    //     });
+    // }
+    // console.log(this.navParams.get('type'));
+  }
 
 
 }

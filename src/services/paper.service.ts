@@ -4,6 +4,7 @@ import 'rxjs/add/operator/toPromise'
 import {ToastService} from "./toast.service";
 import {GetPapersResult, PaperBrief} from "../classes/paper";
 import {ApiService} from "./api.service";
+import {PaperSearchParam} from "../classes/search-param";
 
 
 @Injectable()
@@ -25,6 +26,12 @@ export class PaperService {
       searchText: searchText,
       field: searchField
     }).then(data=>{
+      return data;
+    });
+  }
+
+  getPapersBySearch(searchParam:PaperSearchParam[],page:number):Promise<GetPapersResult>{
+    return this.apiSvc.post(`/paper/search/${page}/`,searchParam).then(data=>{
       return data;
     });
   }

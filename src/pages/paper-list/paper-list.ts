@@ -7,58 +7,62 @@ import {ShareService} from "../../services/share.service";
 
 
 @Component({
-    selector: 'currentPage-paper-list',
-    templateUrl: 'paper-list.html'
+  selector: 'currentPage-paper-list',
+  templateUrl: 'paper-list.html'
 })
 export class PaperListPage {
-    pageFrom:'searchBasic' | 'label';
-    papers:PaperBrief[]=[];
-    currentPage:number=1;
-    totalPageCount:number=0;
-    totalPaperCount:number=-1;
-    param:object;
-    paperCardBrief: boolean=false;
+  papers:PaperBrief[]=[];
+  currentPage:number=1;
+  totalPageCount:number=0;
+  totalPaperCount:number=-1;
+  paperCardBrief: boolean=false;
 
-    constructor(
-        private navCtrl: NavController,
-        private navParams: NavParams,
-        private paperService: PaperService,
-        private shareSvc: ShareService
-    ) {
-        this.pageFrom=navParams.get('pageFrom');
-        this.param=navParams.get('param');
-    }
+  constructor(
+    private navCtrl: NavController,
+    private navParams: NavParams,
+    private paperService: PaperService,
+    private shareSvc: ShareService
+  ) {}
 
-    ionViewWillLoad(){
-        this.getMorePapers();
-    }
+  get pageFrom():('search' | 'label'){
+    return this.navParams.get('pageFrom');
+  }
 
-    getMorePapers(){
-        if (this.pageFrom == 'label') {
-            this.paperService.getPapersByLabel(this.param['labelId'],this.currentPage).then((result:GetPapersResult)=>{
-                this.currentPage++;
-                this.totalPageCount=result.totalPageCount;
-                this.totalPaperCount=result.totalPaperCount;
-                this.papers.push.apply(this.papers,result.papers);
-            });
-        }else if (this.pageFrom == 'searchBasic') {
-            this.paperService.getPapersBySearchBasic(this.param['searchText'],this.param['searchField'],this.currentPage).then((result:GetPapersResult)=>{
-                this.currentPage++;
-                this.totalPageCount=result.totalPageCount;
-                this.totalPaperCount=result.totalPaperCount;
-                this.papers.push.apply(this.papers,result.papers);
-            });
-        }
-    }
+  get param():any{
+    return this.navParams.get('param');
+  }
 
-    goPaperDetail(paper){
-        this.navCtrl.push(PaperDetailPage,{
-            paperId:paper.id
-        });
-    }
+  ionViewWillLoad(){
+    this.getMorePapers();
+  }
 
-    sharePaper(paper){
-        this.shareSvc.sharePaper(paper.id,paper.title);
+  getMorePapers(){
+    if (this.pageFrom == 'label') {
+      this.paperService.getPapersByLabel(this.param['labelId'],this.currentPage).then((result:GetPapersResult)=>{
+        this.handleGetPapersResult(result);
+      });
+    }else if (this.pageFrom == 'search') {
+      this.paperService.getPapersBySearch(this.param,this.currentPage).then((result:GetPapersResult)=>{
+        this.handleGetPapersResult(result);
+      });
     }
+  }
+
+  handleGetPapersResult(result:GetPapersResult){
+    this.currentPage++;
+    this.totalPageCount=result.totalPageCount;
+    this.totalPaperCount=result.totalPaperCount;
+    this.papers.push.apply(this.papers,result.papers);
+  }
+
+  goPaperDetail(paper){
+    this.navCtrl.push(PaperDetailPage,{
+      paperId:paper.id
+    });
+  }
+
+  sharePaper(paper){
+    this.shareSvc.sharePaper(paper.id,paper.title);
+  }
 
 }

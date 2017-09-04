@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {PaperDetailPage} from "../paper-detail/paper-detail";
-import {PaperLabel} from "../../classes/paper-label";
 import {PaperService} from "../../services/paper.service";
 import {GetPapersResult, PaperBrief} from "../../classes/paper";
 import {ShareService} from "../../services/share.service";
@@ -14,7 +13,7 @@ import {ShareService} from "../../services/share.service";
 export class PaperListPage {
     pageFrom:'searchBasic' | 'label';
     papers:PaperBrief[]=[];
-    currentPage:number=0;
+    currentPage:number=1;
     totalPageCount:number=0;
     totalPaperCount:number=-1;
     param:object;

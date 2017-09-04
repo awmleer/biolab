@@ -22,6 +22,6 @@
         (detailButtonClicked)="goPaperDetail(paper)"
     ></paper-card>
 
-    <button ion-button block clear (click)="getMorePapers()" *ngIf="currentPage<totalPageCount">加载更多</button>
+    <button ion-button block clear (click)="getMorePapers()" *ngIf="currentPage<=totalPageCount">加载更多</button>
 
 </ion-content>

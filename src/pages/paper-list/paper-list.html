@@ -12,7 +12,7 @@
 
 <ion-content>
     <div padding *ngIf="totalPaperCount!=-1">
-        共找到 {{papers.length}} 篇符合条件的论文
+        共找到 {{totalPaperCount}} 篇符合条件的论文
     </div>
     <paper-card
         *ngFor="let paper of papers"

@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-search-advance',
-  templateUrl: 'search-advance.html',
+  selector: 'page-paper-search-advance',
+  templateUrl: 'paper-search-advance.html',
 })
-export class SearchAdvancePage {
+export class PaperSearchAdvancePage {
 
   constructor(
     public navCtrl: NavController,

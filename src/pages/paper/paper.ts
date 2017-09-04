@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {SearchBasicPage} from "../search-basic/search-basic";
-import {SearchAdvancePage} from "../search-advance/search-advance";
 
 import 'rxjs/add/operator/toPromise'
 import {PaperLabelsPage} from "../paper-labels/paper-labels";
 import {PaperLabel} from "../../classes/paper-label";
 import {ApiService} from "../../services/api.service";
+import {PaperSearchAdvancePage} from "../paper-search-advance/paper-search-advance";
 
 
 @Component({
@@ -34,7 +34,7 @@ export class PaperPage {
     }
 
     goSearchAdvance(){
-        this.navCtrl.push(SearchAdvancePage);
+        this.navCtrl.push(PaperSearchAdvancePage);
     }
 
     goChildrenLabels(label){

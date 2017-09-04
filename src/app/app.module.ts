@@ -15,7 +15,6 @@ import {SearchBasicPage} from "../pages/search-basic/search-basic";
 import {ReagentListPage} from "../pages/reagent-list/reagent-list";
 import {ReagentCardComponent} from "../components/reagent-card/reagent-card";
 import {ReagentDetailPage} from "../pages/reagent-detail/reagent-detail";
-import {SearchAdvancePage} from "../pages/search-advance/search-advance";
 import {PaperPage} from "../pages/paper/paper";
 import {PaperListPage} from "../pages/paper-list/paper-list";
 import {PaperDetailPage} from "../pages/paper-detail/paper-detail";
@@ -31,65 +30,65 @@ import {IonicStorageModule} from "@ionic/storage";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {ShareService} from "../services/share.service";
 import {ApiService} from "../services/api.service";
+import {PaperSearchAdvancePageModule} from "../pages/paper-search-advance/paper-search-advance.module";
 
 
 @NgModule({
-    declarations: [
-        MyApp,
-        AboutPage,
-        ContactPage,
-        KnowledgeBasePage,
-        ReagentPage,
-        SearchBasicPage,
-        SearchAdvancePage,
-        ReagentListPage,
-        ReagentDetailPage,
-        PaperPage,
-        PaperListPage,
-        PaperLabelsPage,
-        PaperDetailPage,
-        TabsPage,
-        FilterPipe,
-        FuzzyFilterPipe,
-        ReagentCardComponent,
-        PaperCardComponent
-    ],
-    imports: [
-        BrowserModule,
-        HttpModule,
-        IonicModule.forRoot(MyApp),
-        IonicStorageModule.forRoot()
-    ],
-    bootstrap: [IonicApp],
-    entryComponents: [
-        MyApp,
-        AboutPage,
-        ContactPage,
-        KnowledgeBasePage,
-        ReagentPage,
-        SearchBasicPage,
-        SearchAdvancePage,
-        ReagentListPage,
-        ReagentDetailPage,
-        PaperPage,
-        PaperListPage,
-        PaperLabelsPage,
-        PaperDetailPage,
-        TabsPage
-    ],
-    providers: [
-        StatusBar,
-        SplashScreen,
-        ApiService,
-        ToastService,
-        PaperService,
-        ShareService,
-        FilterPipe,
-        FuzzyFilterPipe,
-        InAppBrowser,
-        Clipboard,
-        SocialSharing,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
-    ]
+  declarations: [
+    MyApp,
+    AboutPage,
+    ContactPage,
+    KnowledgeBasePage,
+    ReagentPage,
+    SearchBasicPage,
+    ReagentListPage,
+    ReagentDetailPage,
+    PaperPage,
+    PaperListPage,
+    PaperLabelsPage,
+    PaperDetailPage,
+    TabsPage,
+    FilterPipe,
+    FuzzyFilterPipe,
+    ReagentCardComponent,
+    PaperCardComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
+    PaperSearchAdvancePageModule,
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    AboutPage,
+    ContactPage,
+    KnowledgeBasePage,
+    ReagentPage,
+    SearchBasicPage,
+    ReagentListPage,
+    ReagentDetailPage,
+    PaperPage,
+    PaperListPage,
+    PaperLabelsPage,
+    PaperDetailPage,
+    TabsPage
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    ApiService,
+    ToastService,
+    PaperService,
+    ShareService,
+    FilterPipe,
+    FuzzyFilterPipe,
+    InAppBrowser,
+    Clipboard,
+    SocialSharing,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
+  ]
 })
 export class AppModule {}

@@ -9,52 +9,53 @@ import {ApiService} from "../../services/api.service";
 
 
 @Component({
-    selector: 'page-paper-labels',
-    templateUrl: 'paper-labels.html',
+  selector: 'page-paper-labels',
+  templateUrl: 'paper-labels.html',
 })
 export class PaperLabelsPage {
-    parentLabel:PaperLabel;
-    labels:PaperLabel[]=[];
+  parentLabel:PaperLabel;
+  labels:PaperLabel[]=[];
 
-    constructor(
-        public navCtrl: NavController,
-        public navParams: NavParams,
-        private apiSvc: ApiService,
-    ) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private apiSvc: ApiService,
+  ) {}
 
-    ionViewWillLoad(){
-        console.log('will load');
-        this.parentLabel=this.navParams.get('parentLabel');
-        this.getChildrenLabels();
+  ionViewWillLoad(){
+    console.log('will load');
+    this.parentLabel=this.navParams.get('parentLabel');
+    this.getChildrenLabels();
+  }
+
+  getChildrenLabels(){
+    this.apiSvc.get(`/paper/label/${this.parentLabel.id}/children/`).then(data=>{
+      this.labels=data;
+    });
+  }
+
+  labelClick(label){
+    if (label.hasChildren) {
+      this.goChildrenLabels(label);
+    }else {
+      this.goPaperList(label);
     }
+  }
 
-    getChildrenLabels(){
-        this.apiSvc.get(`/paper/label/${this.parentLabel.id}/children/`).then(data=>{
-            this.labels=data;
-        });
-    }
+  goPaperList(label){
+    this.navCtrl.push(PaperListPage,{
+      pageFrom:'label',
+      param:{
+        labelId:label.id,
+        labelName:label.name
+      }
+    });
+  }
 
-    labelClick(label){
-        if (label.hasChildren) {
-            this.goChildrenLabels(label);
-        }else {
-            this.goPaperList(label);
-        }
-    }
-
-    goPaperList(label){
-        this.navCtrl.push(PaperListPage,{
-            pageFrom:'label',
-            param:{
-                labelId:label.id
-            }
-        });
-    }
-
-    goChildrenLabels(label){
-        this.navCtrl.push(PaperLabelsPage,{
-            parentLabel:label
-        });
-    }
+  goChildrenLabels(label){
+    this.navCtrl.push(PaperLabelsPage,{
+      parentLabel:label
+    });
+  }
 
 }

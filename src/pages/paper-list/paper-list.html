@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>论文列表<span *ngIf="pageFrom=='label'">-{{fromLabel?.name}}</span></ion-title>
+        <ion-title>论文列表<span *ngIf="pageFrom=='label'">-{{param.labelName}}</span></ion-title>
         <ion-buttons end>
             <button ion-button icon-only (click)="this.paperCardBrief=!this.paperCardBrief;">
                 <ion-icon [name]="paperCardBrief?'ios-reorder':'md-reorder'"></ion-icon>

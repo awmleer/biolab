@@ -12,7 +12,6 @@ import {Storage} from "@ionic/storage";
 })
 export class SearchBasicPage {
   searchInput:string='';
-  searchType:string='';
   searchField:"all" | "subject" | "title" | "keyword" | "teacher" | "content" | "publishYear" | "major"='all';
   historyItems:string[]=[];
 
@@ -25,8 +24,10 @@ export class SearchBasicPage {
     public navParams: NavParams,
     private storage: Storage,
     private paperService: PaperService
-  ) {
-    this.searchType=this.navParams.get('type');
+  ) {}
+
+  get searchType():'reagent'|'paper'{
+    return this.navParams.get('type');
   }
 
   goReagentList(){

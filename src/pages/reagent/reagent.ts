@@ -2,29 +2,40 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {SearchBasicPage} from "../search-basic/search-basic";
 import {ReagentListPage} from "../reagent-list/reagent-list";
+import {ReagentLabel} from "../../classes/reagent-label";
+import {ApiService} from "../../services/api.service";
 
 @Component({
-    selector: 'page-reagent',
-    templateUrl: 'reagent.html'
+  selector: 'page-reagent',
+  templateUrl: 'reagent.html'
 })
 export class ReagentPage {
-    constructor(
-        public navCtrl: NavController
-    ) {}
+  rootLabels:ReagentLabel[];
 
-    goSearchBasic(){
-        this.navCtrl.push(SearchBasicPage,{
-            type:'reagent'
-        });
-    }
+  constructor(
+    public navCtrl: NavController,
+    private apiSvc: ApiService,
+  ) {}
 
-    goSearchAdvance(){
-        // this.navCtrl.push(SearchAdvancePage);
-    }
+  ionViewWillEnter(){
+    this.apiSvc.get(`/reagent/label/rootLevel/`).then(data=>{
+      this.rootLabels=data;
+    });
+  }
 
-    goReagentList(){
-        this.navCtrl.push(ReagentListPage);
-    }
+  goSearchBasic(){
+    this.navCtrl.push(SearchBasicPage,{
+      type:'reagent'
+    });
+  }
+
+  goSearchAdvance(){
+    // this.navCtrl.push(SearchAdvancePage);
+  }
+
+  goReagentList(){
+    this.navCtrl.push(ReagentListPage);
+  }
 
 
 

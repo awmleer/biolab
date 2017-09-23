@@ -13,7 +13,7 @@
         </ion-item>
         <ion-item>
             <ion-label>搜索类型</ion-label>
-            <ion-select [(ngModel)]="searchField" cancelText="取消" okText="确定">
+            <ion-select [(ngModel)]="searchField" cancelText="取消" okText="确定" *ngIf="searchType=='paper'">
                 <ion-option value="all">全部</ion-option>
                 <ion-option value="subject">主题</ion-option>
                 <ion-option value="title">篇名</ion-option>
@@ -23,6 +23,16 @@
                 <ion-option value="teacher">指导教师</ion-option>
                 <!--<ion-option value="content">文章内容</ion-option>-->
             </ion-select>
+          <ion-select [(ngModel)]="searchField" cancelText="取消" okText="确定" *ngIf="searchType=='reagent'">
+            <ion-option value="all">全部</ion-option>
+            <ion-option value="subject">主题</ion-option>
+            <ion-option value="title">篇名</ion-option>
+            <ion-option value="keyword">关键词</ion-option>
+            <ion-option value="major">作者专业</ion-option>
+            <ion-option value="publishYear">论文年度</ion-option>
+            <ion-option value="teacher">指导教师</ion-option>
+            <!--<ion-option value="content">文章内容</ion-option>-->
+          </ion-select>
         </ion-item>
     </ion-list>
 

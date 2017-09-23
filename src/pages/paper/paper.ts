@@ -10,42 +10,42 @@ import {PaperSearchAdvancePage} from "../paper-search-advance/paper-search-advan
 
 
 @Component({
-    selector: 'page-paper',
-    templateUrl: 'paper.html'
+  selector: 'page-paper',
+  templateUrl: 'paper.html'
 })
 export class PaperPage {
-    rootLabels:PaperLabel[]=[];
+  rootLabels:PaperLabel[]=[];
 
-    constructor(
-        private navCtrl: NavController,
-        private apiSvc: ApiService,
-    ) {}
+  constructor(
+    private navCtrl: NavController,
+    private apiSvc: ApiService,
+  ) {}
 
-    ionViewWillEnter(){
-        this.apiSvc.get(`/paper/label/rootLevel/`).then(data=>{
-            this.rootLabels=data;
-        });
-    }
+  ionViewWillEnter(){
+    this.apiSvc.get(`/paper/label/rootLevel/`).then(data=>{
+      this.rootLabels=data;
+    });
+  }
 
-    goSearchBasic(){
-        this.navCtrl.push(SearchBasicPage,{
-            type:'paper'
-        });
-    }
+  goSearchBasic(){
+    this.navCtrl.push(SearchBasicPage,{
+      type:'paper'
+    });
+  }
 
-    goSearchAdvance(){
-        this.navCtrl.push(PaperSearchAdvancePage);
-    }
+  goSearchAdvance(){
+    this.navCtrl.push(PaperSearchAdvancePage);
+  }
 
-    goChildrenLabels(label){
-        this.navCtrl.push(PaperLabelsPage,{
-            parentLabel:label
-        });
-    }
+  goChildrenLabels(label){
+    this.navCtrl.push(PaperLabelsPage,{
+      parentLabel:label
+    });
+  }
 
-    // goPaperList(){
-    //     this.navCtrl.push(PaperListPage);
-    // }
+  // goPaperList(){
+  //     this.navCtrl.push(PaperListPage);
+  // }
 
 
 

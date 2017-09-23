@@ -30,7 +30,7 @@ export class PaperService {
     });
   }
 
-  getPapersBySearch(searchParam:PaperSearchParam[],page:number):Promise<GetPapersResult>{
+  getPapersBySearch(searchParam:PaperSearchParam,page:number):Promise<GetPapersResult>{
     return this.apiSvc.post(`/paper/search/${page}/`,searchParam).then(data=>{
       return data;
     });

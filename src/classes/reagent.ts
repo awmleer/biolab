@@ -26,3 +26,9 @@ export interface ReagentPicture {
   description: string;
   url: uri;
 }
+
+export interface GetReagentsResult {
+  totalPageCount:number;
+  totalReagentCount:number;
+  reagents:ReagentBrief[];
+}

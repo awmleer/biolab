@@ -31,6 +31,7 @@ import {SocialSharing} from "@ionic-native/social-sharing";
 import {ShareService} from "../services/share.service";
 import {ApiService} from "../services/api.service";
 import {PaperSearchAdvancePageModule} from "../pages/paper-search-advance/paper-search-advance.module";
+import {ReagentService} from "../services/reagent.service";
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import {PaperSearchAdvancePageModule} from "../pages/paper-search-advance/paper-
     ApiService,
     ToastService,
     PaperService,
+    ReagentService,
     ShareService,
     FilterPipe,
     FuzzyFilterPipe,

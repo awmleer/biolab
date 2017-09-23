@@ -12,7 +12,7 @@ import {Storage} from "@ionic/storage";
 })
 export class SearchBasicPage {
   searchInput:string='';
-  searchField:"all" | "subject" | "title" | "keyword" | "teacher" | "content" | "publishYear" | "major"='all';
+  searchField:string;
   historyItems:string[]=[];
 
   // labels:Label[]=[];
@@ -24,7 +24,13 @@ export class SearchBasicPage {
     public navParams: NavParams,
     private storage: Storage,
     private paperService: PaperService
-  ) {}
+  ) {
+    if (this.searchType == 'paper') {
+      this.searchField='all';
+    }else{
+      this.searchField='name';
+    }
+  }
 
   get searchType():'reagent'|'paper'{
     return this.navParams.get('type');
@@ -54,6 +60,14 @@ export class SearchBasicPage {
     }
     if (this.searchType == 'paper') {
       this.navCtrl.push(PaperListPage,{
+        'pageFrom': 'search',
+        'param':[{
+          field:this.searchField,
+          value:text
+        }]
+      });
+    }else{
+      this.navCtrl.push(ReagentListPage,{
         'pageFrom': 'search',
         'param':[{
           field:this.searchField,

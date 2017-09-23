@@ -6,7 +6,23 @@
 
 
 <ion-content>
-    <reagent-card (cardClicked)="goReagentDetail()"></reagent-card>
-    <reagent-card (cardClicked)="goReagentDetail()"></reagent-card>
-    <reagent-card (cardClicked)="goReagentDetail()"></reagent-card>
+  <div padding *ngIf="totalReagentCount!=-1">
+    共找到 {{totalReagentCount}} 篇符合条件的论文
+  </div>
+  <reagent-card
+    *ngFor="let reagent of reagents"
+    (cardClicked)="goReagentDetail()"
+  ></reagent-card>
+
+  <ion-infinite-scroll *ngIf="currentPage<=totalPageCount" (ionInfinite)="$event.waitFor(getMoreReagents())">
+    <ion-infinite-scroll-content loadingSpinner="dots">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <!--<reagent-card-->
+    <!--*ngFor="let reagent of reagents"-->
+    <!--[reagent]="reagent"-->
+    <!--[brief]="reagentCardBrief"-->
+    <!--(shareButtonClicked)="shareReagent(reagent)"-->
+    <!--(detailButtonClicked)="goReagentDetail(reagent)"-->
+  <!--&gt;</reagent-card>-->
 </ion-content>

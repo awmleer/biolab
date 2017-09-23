@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ReagentBrief} from "../../classes/reagent";
 
 
 @Component({
@@ -8,7 +9,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 export class ReagentCardComponent {
     expanding:boolean=false;
     constructor() {}
-    // @Input()
+    @Input() reagent:ReagentBrief;
     // percent:number;
 
     @Output()

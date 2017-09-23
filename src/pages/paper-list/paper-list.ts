@@ -8,7 +8,7 @@ import {ToastService} from "../../services/toast.service";
 
 
 @Component({
-  selector: 'currentPage-paper-list',
+  selector: 'page-paper-list',
   templateUrl: 'paper-list.html'
 })
 export class PaperListPage {

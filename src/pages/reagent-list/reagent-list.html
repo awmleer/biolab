@@ -7,10 +7,12 @@
 
 <ion-content>
   <div padding *ngIf="totalReagentCount!=-1">
-    共找到 {{totalReagentCount}} 篇符合条件的论文
+    共找到 {{totalReagentCount}} 种符合条件的试剂
   </div>
+
   <reagent-card
     *ngFor="let reagent of reagents"
+    [reagent]="reagent"
     (cardClicked)="goReagentDetail()"
   ></reagent-card>
 

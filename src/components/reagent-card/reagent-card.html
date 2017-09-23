@@ -1,15 +1,19 @@
 <ion-card class="reagent-card" [class.expanding]="expanding">
-    <button class="expand-control-button" ion-button clear icon-only (click)="toggleExpand()">
-        <ion-icon [name]="expanding?'arrow-dropup':'arrow-dropdown'"></ion-icon>
-    </button>
-    <ion-card-content no-padding>
-        <div class="reagent-picture"></div>
-        <a class="reagent-info" (click)="cardClick()">
-            <h2>正丁醇</h2>
-            <p>一些描述一些描述一些描述一些描述一些描述一些描述</p>
-        </a>
-    </ion-card-content>
-    <ion-card-content class="reagent-info-more" *ngIf="expanding">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ipsam nemo possimus! Delectus hic omnis voluptatem voluptates! Blanditiis, qui, recusandae? Alias aspernatur consectetur culpa minima nisi omnis saepe veniam voluptas!
-    </ion-card-content>
+  <button class="expand-control-button" ion-button clear icon-only (click)="toggleExpand()">
+    <ion-icon [name]="expanding?'arrow-dropup':'arrow-dropdown'"></ion-icon>
+  </button>
+  <ion-card-content no-padding>
+    <div class="reagent-picture" *ngIf="reagent?.pictures?.length>0" [style.background-image]="'url('+reagent.pictures[0].url+'?imageView2/0/h/100)'"></div>
+    <div class="reagent-picture"></div>
+    <a class="reagent-info" (click)="cardClick()">
+      <h2>{{reagent.chineseName}}</h2>
+      <p>
+        {{reagent.englishName}}<br>
+        {{reagent.alias}}
+      </p>
+    </a>
+  </ion-card-content>
+  <ion-card-content class="reagent-info-more" *ngIf="expanding">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ipsam nemo possimus! Delectus hic omnis voluptatem voluptates! Blanditiis, qui, recusandae? Alias aspernatur consectetur culpa minima nisi omnis saepe veniam voluptas!
+  </ion-card-content>
 </ion-card>

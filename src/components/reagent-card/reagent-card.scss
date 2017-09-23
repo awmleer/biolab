@@ -1,42 +1,44 @@
 reagent-card{
-    .reagent-card.expanding{
-        height:auto!important;
-    }
-    .reagent-card{
-        height:100px;
-        position: relative;
+  .reagent-card.expanding{
+    height:auto!important;
+  }
+  .reagent-card{
+    height:100px;
+    position: relative;
 
-        .expand-control-button{
-            position: absolute;
-            bottom: -5px;
-            right: -5px;
-            z-index:10;
-        }
-
-        .reagent-picture{
-            background: #9698ff;
-            width:100px;
-            height:100px;
-            display: inline-block;
-        }
-        .reagent-info{
-            vertical-align: top;
-            display: inline-block;
-            position: absolute;
-            left:100px;
-            top:0;
-            padding:10px;
-            width:calc(100% - 100px);
-            height:100px;
-            h2{
-                color: #000;
-            }
-        }
-        .reagent-info:active{
-            background: rgba(0,0,0,0.1);
-        }
-        .reagent-info-more{
-            padding:5px 10px 15px;
-        }
+    .expand-control-button{
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      z-index:10;
     }
+
+    .reagent-picture{
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width:100px;
+      height:100px;
+      display: inline-block;
+    }
+    .reagent-info{
+      vertical-align: top;
+      display: inline-block;
+      position: absolute;
+      left:100px;
+      top:0;
+      padding:10px;
+      width:calc(100% - 100px);
+      height:100px;
+      h2{
+        color: #000;
+      }
+    }
+    .reagent-info:active{
+      background: rgba(0,0,0,0.1);
+    }
+    .reagent-info-more{
+      padding:5px 10px 15px;
+    }
+  }
 }

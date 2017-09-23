@@ -14,10 +14,10 @@ export class ReagentBrief extends ReagentEntry {
   molecularFormulaParsed: html;
   molecularWeight: string;
   dangerous: null | string;
+  pictures: ReagentPicture[];
 }
 
 export class ReagentDetail extends ReagentBrief {
-  pictures: ReagentPicture[];
   description: string;
 }
 

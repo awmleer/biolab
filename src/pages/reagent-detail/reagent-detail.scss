@@ -1,15 +1,18 @@
 page-reagent-detail {
-    .reagent-picture{
-        width:100%;
-        height:150px;
-        background: #9698ff;
-        position: relative;
-        h2{
-            position: absolute;
-            color: #fff;
-            bottom:8px;
-            left:10px;
-        }
+  .reagent-picture{
+    width:100%;
+    height:150px;
+    background: #9698ff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    h2{
+      position: absolute;
+      color: #fff;
+      bottom:8px;
+      left:10px;
     }
+  }
 
 }

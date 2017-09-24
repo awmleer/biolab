@@ -4,6 +4,7 @@ import {SearchBasicPage} from "../search-basic/search-basic";
 import {ReagentListPage} from "../reagent-list/reagent-list";
 import {ReagentLabel} from "../../classes/reagent-label";
 import {ApiService} from "../../services/api.service";
+import {ReagentLabelsPage} from "../reagent-labels/reagent-labels";
 
 @Component({
   selector: 'page-reagent',
@@ -37,6 +38,11 @@ export class ReagentPage {
     this.navCtrl.push(ReagentListPage);
   }
 
+  goChildrenLabels(label){
+    this.navCtrl.push(ReagentLabelsPage,{
+      parentLabel:label
+    });
+  }
 
 
 }

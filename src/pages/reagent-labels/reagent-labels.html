@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>分类浏览</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="padding: 0 12px 5px;">
+    <button ion-button block (click)="goReagentList(parentLabel)">查看"{{parentLabel.name}}"的相关文章</button>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      "{{parentLabel.name}}"的子分类
+    </ion-card-header>
+    <ion-list>
+      <button ion-item (click)="labelClick(label)" *ngFor="let label of labels">
+        <ion-icon name="md-pricetag" item-left></ion-icon>
+        {{label.name}}
+      </button>
+    </ion-list>
+  </ion-card>
+</ion-content>

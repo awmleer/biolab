@@ -12,7 +12,7 @@
     <div class="head">
       <ion-slides pager>
         <ion-slide *ngFor="let picture of reagent.pictures" >
-          <a [style.background-image]="'url('+picture.url+'?imageView2/2/w/500)'"></a>
+          <a (click)="viewPicture(picture.url,picture.description)" [style.background-image]="'url('+picture.url+'?imageView2/2/w/500)'"></a>
           <!--<h2>Slide 1</h2>-->
         </ion-slide>
       </ion-slides>

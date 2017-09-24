@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import {ReagentDetail} from "../../classes/reagent";
 import {ReagentService} from "../../services/reagent.service";
 import {ToastService} from "../../services/toast.service";
+import {PhotoViewer} from "@ionic-native/photo-viewer";
 
 @Component({
   selector: 'page-reagent-detail',
@@ -17,6 +18,7 @@ export class ReagentDetailPage {
     public navParams: NavParams,
     private reagentService: ReagentService,
     private toastService: ToastService,
+    private photoViewer: PhotoViewer,
   ) {}
 
   ionViewWillLoad(){
@@ -27,5 +29,10 @@ export class ReagentDetailPage {
       this.navCtrl.pop();
     });
   }
+
+  viewPicture(url,title){
+    this.photoViewer.show(url,title);
+  }
+
 
 }

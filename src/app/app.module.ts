@@ -33,6 +33,7 @@ import {ApiService} from "../services/api.service";
 import {PaperSearchAdvancePageModule} from "../pages/paper-search-advance/paper-search-advance.module";
 import {ReagentService} from "../services/reagent.service";
 import {PipesModule} from "../pipes/pipes.module";
+import {PhotoViewer} from "@ionic-native/photo-viewer";
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import {PipesModule} from "../pipes/pipes.module";
     InAppBrowser,
     Clipboard,
     SocialSharing,
+    PhotoViewer,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

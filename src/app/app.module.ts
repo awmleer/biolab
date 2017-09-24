@@ -32,7 +32,7 @@ import {ShareService} from "../services/share.service";
 import {ApiService} from "../services/api.service";
 import {PaperSearchAdvancePageModule} from "../pages/paper-search-advance/paper-search-advance.module";
 import {ReagentService} from "../services/reagent.service";
-import { SanitizeHtmlPipe } from '../pipes/sanitize-html/sanitize-html';
+import {PipesModule} from "../pipes/pipes.module";
 
 
 @NgModule({
@@ -54,7 +54,6 @@ import { SanitizeHtmlPipe } from '../pipes/sanitize-html/sanitize-html';
     FuzzyFilterPipe,
     ReagentCardComponent,
     PaperCardComponent,
-    SanitizeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -62,6 +61,7 @@ import { SanitizeHtmlPipe } from '../pipes/sanitize-html/sanitize-html';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     PaperSearchAdvancePageModule,
+    PipesModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

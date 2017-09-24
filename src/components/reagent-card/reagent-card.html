@@ -8,12 +8,16 @@
     <a class="reagent-info" (click)="cardClick()">
       <h2>{{reagent.chineseName}}</h2>
       <p>
-        {{reagent.englishName}}<br>
-        {{reagent.alias}}
+        <span [innerHtml]="reagent.molecularFormulaParsed | sanitizeHtml"></span><br>
+        <span *ngIf="reagent.dangerous" ion-text color="danger">
+          <ion-icon name="warning"></ion-icon> {{reagent.dangerous}}
+        </span>
       </p>
     </a>
   </ion-card-content>
   <ion-card-content class="reagent-info-more" *ngIf="expanding">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ipsam nemo possimus! Delectus hic omnis voluptatem voluptates! Blanditiis, qui, recusandae? Alias aspernatur consectetur culpa minima nisi omnis saepe veniam voluptas!
+    英文名：{{reagent.englishName}}<br>
+    别名：{{reagent.alias}}<br>
+    分子量：{{reagent.molecularWeight}}<br>
   </ion-card-content>
 </ion-card>

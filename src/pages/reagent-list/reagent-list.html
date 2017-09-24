@@ -13,7 +13,7 @@
   <reagent-card
     *ngFor="let reagent of reagents"
     [reagent]="reagent"
-    (cardClicked)="goReagentDetail()"
+    (cardClicked)="goReagentDetail(reagent.id)"
   ></reagent-card>
 
   <ion-infinite-scroll *ngIf="currentPage<=totalPageCount" (ionInfinite)="$event.waitFor(getMoreReagents())">

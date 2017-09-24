@@ -1,16 +1,35 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>reagentDetail</ion-title>
+    <ion-title>试剂详情</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-  <div class="reagent-picture" [style.background-image]="'url('+reagent.pictures[0].url+'?imageView2/0/h/100)'">
-    <h2>{{reagent.chineseName}}</h2>
+
+  <div *ngIf="reagent">
+
+    <div class="head">
+      <ion-slides pager>
+        <ion-slide *ngFor="let picture of reagent.pictures" >
+          <a [style.background-image]="'url('+picture.url+'?imageView2/2/w/500)'"></a>
+          <!--<h2>Slide 1</h2>-->
+        </ion-slide>
+      </ion-slides>
+      <h2>{{reagent.chineseName}}</h2>
+    </div>
+
+    <div padding>
+      <span *ngIf="reagent.dangerous" ion-text color="danger">
+        <ion-icon name="warning"></ion-icon> {{reagent.dangerous}}<br>
+      </span>
+      英文名：{{reagent.englishName}}<br>
+      别名：{{reagent.alias}}<br>
+      分子式：<span [innerHtml]="reagent.molecularFormulaParsed | sanitizeHtml"></span><br>
+      分子量：{{reagent.molecularWeight}}<br>
+      描述：{{reagent.description}}<br>
+    </div>
+
   </div>
-  <div padding>
-    简介<br>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa cupiditate dolore facere magni obcaecati saepe sed. A assumenda blanditiis, consequatur cum debitis ea eaque eius hic laboriosam, perferendis totam.
-  </div>
+
 </ion-content>

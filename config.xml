@@ -90,4 +90,5 @@
     <engine name="ios" spec="~4.1.1" />
     <engine name="browser" spec="~4.1.0" />
     <engine name="android" spec="~5.2.2" />
+    <plugin name="com-sarriaroman-photoviewer" spec="~1.1.10" />
 </widget>

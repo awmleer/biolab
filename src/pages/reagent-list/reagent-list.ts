@@ -59,8 +59,10 @@ export class ReagentListPage {
     this.reagents.push.apply(this.reagents,result.reagents);
   }
 
-  goReagentDetail(){
-    this.navCtrl.push(ReagentDetailPage);
+  goReagentDetail(reagentId){
+    this.navCtrl.push(ReagentDetailPage,{
+      'reagentId':reagentId
+    });
   }
 
 }

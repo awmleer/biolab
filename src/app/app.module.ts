@@ -32,6 +32,7 @@ import {ShareService} from "../services/share.service";
 import {ApiService} from "../services/api.service";
 import {PaperSearchAdvancePageModule} from "../pages/paper-search-advance/paper-search-advance.module";
 import {ReagentService} from "../services/reagent.service";
+import { SanitizeHtmlPipe } from '../pipes/sanitize-html/sanitize-html';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import {ReagentService} from "../services/reagent.service";
     FilterPipe,
     FuzzyFilterPipe,
     ReagentCardComponent,
-    PaperCardComponent
+    PaperCardComponent,
+    SanitizeHtmlPipe
   ],
   imports: [
     BrowserModule,

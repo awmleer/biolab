@@ -35,6 +35,7 @@ import {ReagentService} from "../services/reagent.service";
 import {PipesModule} from "../pipes/pipes.module";
 import {PhotoViewer} from "@ionic-native/photo-viewer";
 import {ReagentLabelsPageModule} from "../pages/reagent-labels/reagent-labels.module";
+import {BbsListPageModule} from "../pages/bbs-list/bbs-list.module";
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import {ReagentLabelsPageModule} from "../pages/reagent-labels/reagent-labels.mo
     IonicStorageModule.forRoot(),
     PaperSearchAdvancePageModule,
     ReagentLabelsPageModule,
+    BbsListPageModule,
     PipesModule,
   ],
   bootstrap: [IonicApp],

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PostBrief} from "../../classes/post";
+import {BbsService} from "../../services/bbs.service";
 
 
 @IonicPage()
@@ -12,11 +13,20 @@ export class BbsListPage {
 
   posts:PostBrief[]=[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private bbsSvc: BbsService,
+  ) {}
+
+  ionViewWillLoad() {
+    this.bbsSvc.postList().then((posts) => {
+      this.posts=posts;
+    });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BbsListPage');
+  viewDetail(postId:number){
+    
   }
 
 }

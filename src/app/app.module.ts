@@ -36,6 +36,7 @@ import {PipesModule} from "../pipes/pipes.module";
 import {PhotoViewer} from "@ionic-native/photo-viewer";
 import {ReagentLabelsPageModule} from "../pages/reagent-labels/reagent-labels.module";
 import {BbsListPageModule} from "../pages/bbs-list/bbs-list.module";
+import {BbsService} from "../services/bbs.service";
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import {BbsListPageModule} from "../pages/bbs-list/bbs-list.module";
     PaperService,
     ReagentService,
     ShareService,
+    BbsService,
     FilterPipe,
     FuzzyFilterPipe,
     InAppBrowser,

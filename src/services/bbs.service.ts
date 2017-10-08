@@ -10,11 +10,11 @@ export class BbsService {
   ) {}
 
   postList():Promise<PostBrief[]>{
-    return this.apiSvc.get('/post/list/');
+    return this.apiSvc.get('/bbs/list/');
   }
 
   postDetail(postId):Promise<PostDetail>{
-    return this.apiSvc.get(`/post/${postId}/detail/`);
+    return this.apiSvc.get(`/bbs/${postId}/detail/`);
   }
 
 }

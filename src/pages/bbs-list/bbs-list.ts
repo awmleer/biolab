@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PostBrief} from "../../classes/post";
 import {BbsService} from "../../services/bbs.service";
+import {BbsDetailPage} from "../bbs-detail/bbs-detail";
 
 
 @IonicPage()
@@ -26,7 +27,9 @@ export class BbsListPage {
   }
 
   viewDetail(postId:number){
-    
+    this.navCtrl.push(BbsDetailPage,{
+      'postId':postId
+    });
   }
 
 }

@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>讨论详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="post">
+    <h2>{{post.title}}</h2>
+    <p>
+      {{post.author}}<br>
+      {{post.time}}
+    </p>
+    <div style="margin-top: 1.5rem">
+      {{post.content}}
+    </div>
+    <div *ngFor="let reply of post.replies" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
+      {{reply.author}}
+      <hr>
+      {{reply.content}}
+    </div>
+  </div>
+</ion-content>

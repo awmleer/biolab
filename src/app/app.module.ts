@@ -37,6 +37,7 @@ import {PhotoViewer} from "@ionic-native/photo-viewer";
 import {ReagentLabelsPageModule} from "../pages/reagent-labels/reagent-labels.module";
 import {BbsListPageModule} from "../pages/bbs-list/bbs-list.module";
 import {BbsService} from "../services/bbs.service";
+import {BbsDetailPageModule} from "../pages/bbs-detail/bbs-detail.module";
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import {BbsService} from "../services/bbs.service";
     PaperSearchAdvancePageModule,
     ReagentLabelsPageModule,
     BbsListPageModule,
+    BbsDetailPageModule,
     PipesModule,
   ],
   bootstrap: [IonicApp],

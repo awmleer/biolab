@@ -14,7 +14,7 @@ export class BbsService {
   }
 
   postDetail(postId):Promise<PostDetail>{
-    return this.apiSvc.get(`/bbs/${postId}/detail/`);
+    return this.apiSvc.get(`/bbs/${postId}/view/`);
   }
 
 }

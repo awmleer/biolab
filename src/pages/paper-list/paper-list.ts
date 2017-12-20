@@ -42,7 +42,7 @@ export class PaperListPage {
     });
   }
 
-  getMorePapers():Promise<null>{
+  getMorePapers():Promise<void>{
     if (this.pageFrom == 'label') {
       return this.paperService.getPapersByLabel(this.param['labelId'],this.currentPage).then((result:GetPapersResult)=>{
         this.handleGetPapersResult(result);

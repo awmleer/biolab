@@ -40,7 +40,7 @@ export class ReagentListPage {
     });
   }
 
-  getMoreReagents():Promise<null>{
+  getMoreReagents():Promise<void>{
     if (this.pageFrom == 'label') {
       return this.reagentService.getReagentsByLabel(this.param['labelId'],this.currentPage).then((result:GetReagentsResult)=>{
         this.handleGetReagentsResult(result);

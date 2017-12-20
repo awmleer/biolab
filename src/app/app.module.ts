@@ -62,7 +62,7 @@ import {BbsDetailPageModule} from "../pages/bbs-detail/bbs-detail.module";
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpModule, //TODO replace this with HttpClientModule
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     PaperSearchAdvancePageModule,

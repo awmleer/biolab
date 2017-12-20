@@ -10,10 +10,9 @@
   <div *ngIf="reagent">
 
     <div class="head">
-      <ion-slides pager>
-        <ion-slide *ngFor="let picture of reagent.pictures" >
-          <a (click)="viewPicture(picture.url,picture.description)" [style.background-image]="'url('+picture.url+'?imageView2/2/w/500)'"></a>
-          <!--<h2>Slide 1</h2>-->
+      <ion-slides pager paginationType="progress">
+        <ion-slide *ngFor="let picture of reagent.pictures">
+          <a class="picture" (click)="viewPicture(picture.url,picture.description)" [style.background-image]="'url('+picture.url+'?imageView2/2/w/500)'"></a>
         </ion-slide>
       </ion-slides>
       <h2>{{reagent.chineseName}}</h2>

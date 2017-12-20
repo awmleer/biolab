@@ -1,7 +1,7 @@
 page-reagent-detail {
   div.head{
     width:100%;
-    height:40vh;
+    height:120vw;
     position: relative;
     ion-slide{
       width:100%;
@@ -10,21 +10,29 @@ page-reagent-detail {
         width:100%;
         height:100%;
       }
-      a{
+      a.picture{
         display: block;
         width:100%;
         height:100%;
         //background: #9698ff;
         background-repeat: no-repeat;
         background-position: center;
-        background-size: cover;
+        background-size: contain;
       }
+    }
+    div.swiper-pagination.swiper-pagination-progress{
+      top: auto;
+      bottom: 0;
     }
     h2{
       position: absolute;
       color: #fff;
-      bottom:16px;
-      left:16px;
+      background-color: rgba(0,0,0,0.4);
+      margin: 0;
+      bottom:4px;
+      left:0;
+      width: 100%;
+      padding: 16px;
       z-index: 100;
     }
   }

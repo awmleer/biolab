@@ -25,7 +25,11 @@ export class ApiService {
         return data['payload'];
       }else{
         if(messageOnError){
-          this.toastSvc.toast(data['payload']);
+          if(data['payload']=='NEED_LOGIN'){
+            this.toastSvc.toast('请先登录');
+          }else{
+            this.toastSvc.toast(data['payload']);
+          }
         }
         throw new Error(data['payload']);
       }

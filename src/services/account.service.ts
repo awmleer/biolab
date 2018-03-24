@@ -27,7 +27,7 @@ export class AccountService {
   }
 
   getUserInfo(userId:number=null){
-    let p = this.apiSvc.get(`/user/${userId==null?userId+'/':''}info/`);
+    let p = this.apiSvc.get(`/user/${userId==null?'':userId+'/'}info/`);
     if(userId==null){
       p =p.then((userInfo: UserInfo) => {
         this.user=userInfo;

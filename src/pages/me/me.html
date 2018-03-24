@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      我的
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>用户</ion-list-header>
+    <ion-item *ngIf="accountSvc.user">
+      <ion-icon name="contact" item-left></ion-icon>
+      <h2>{{accountSvc.user.name}}</h2>
+      <p>{{accountSvc.user.phone}}</p>
+    </ion-item>
+    <button *ngIf="accountSvc.user" ion-item (click)="accountSvc.logout()">
+      退出登录
+      <ion-icon name="log-out" item-right=""></ion-icon>
+    </button>
+    <ion-item *ngIf="!accountSvc.user">
+      <ion-icon name="contact" item-left></ion-icon>
+      未登录
+    </ion-item>
+    <button *ngIf="!accountSvc.user" ion-item (click)="showLoginModal()">
+      登录
+      <ion-icon name="log-in" item-right></ion-icon>
+    </button>
+    <!--<button ion-item (click)="openHelpPage()">-->
+      <!--查看使用帮助-->
+      <!--<ion-icon ios="ios-help-circle-outline" md="md-help-circle" item-right></ion-icon>-->
+    <!--</button>-->
+    <!--<button ion-item (click)="openFeedbackPage()">-->
+      <!--反馈&交流-->
+      <!--<ion-icon ios="ios-chatboxes-outline" md="md-chatboxes" item-right></ion-icon>-->
+    <!--</button>-->
+  </ion-list>
+
+
+  <ion-list>
+    <ion-list-header>设置</ion-list-header>
+    <ion-item>
+      <ion-label>一些设置</ion-label>
+      <ion-toggle></ion-toggle>
+    </ion-item>
+    <button ion-item>
+      关于
+    </button>
+  </ion-list>
+</ion-content>

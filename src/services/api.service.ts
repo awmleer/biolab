@@ -2,18 +2,21 @@ import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import {CONST} from "../app/const";
 import {HttpClient} from "@angular/common/http";
+import {ToastService} from "./toast.service";
 
 @Injectable()
 export class ApiService {
 
   constructor(
     private http: HttpClient,
+    private toastSvc: ToastService,
   ) {}
 
-  //TODO 添加message on error参数
-  get(url:string, params:{
-    [param: string]: any;
-  }=null):Promise<any>{
+  get(
+    url:string, params:{
+      [param: string]: any;
+    }=null,
+    messageOnError:boolean=true):Promise<any>{
     console.log(CONST.apiUrl + url);
     return this.http.get(CONST.apiUrl+url,{
       params:params
@@ -21,12 +24,15 @@ export class ApiService {
       if (data['status']=='success') {
         return data['payload'];
       }else{
-          throw new Error(data['payload']);
+        if(messageOnError){
+          this.toastSvc.toast(data['payload']);
+        }
+        throw new Error(data['payload']);
       }
     });
   }
 
-  post(url:string, body:object={}):Promise<any>{
+  post(url:string, body:object={}, messageOnError:boolean=true):Promise<any>{
     return this.http.post(CONST.apiUrl+url, body).toPromise().then((data)=>{
       if (data['status']=='success') {
         return data['payload'];

@@ -38,6 +38,7 @@ import {ReagentLabelsPageModule} from "../pages/reagent-labels/reagent-labels.mo
 import {BbsListPageModule} from "../pages/bbs-list/bbs-list.module";
 import {BbsService} from "../services/bbs.service";
 import {BbsDetailPageModule} from "../pages/bbs-detail/bbs-detail.module";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import {BbsDetailPageModule} from "../pages/bbs-detail/bbs-detail.module";
   ],
   imports: [
     BrowserModule,
-    HttpModule, //TODO replace this with HttpClientModule
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     PaperSearchAdvancePageModule,

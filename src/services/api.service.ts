@@ -1,21 +1,23 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {CONST} from "../app/const";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class ApiService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
   ) {}
 
-  get(url:string, params:object={}):Promise<any>{
+  //TODO 添加message on error参数
+  get(url:string, params:{
+    [param: string]: any;
+  }=null):Promise<any>{
     console.log(CONST.apiUrl + url);
     return this.http.get(CONST.apiUrl+url,{
       params:params
-    }).toPromise().then((response:Response)=>{
-      let data = response.json();
+    }).toPromise().then((data)=>{
       if (data['status']=='success') {
         return data['payload'];
       }else{
@@ -25,8 +27,7 @@ export class ApiService {
   }
 
   post(url:string, body:object={}):Promise<any>{
-    return this.http.post(CONST.apiUrl+url, body).toPromise().then((response:Response)=>{
-      let data = response.json();
+    return this.http.post(CONST.apiUrl+url, body).toPromise().then((data)=>{
       if (data['status']=='success') {
         return data['payload'];
       }else{

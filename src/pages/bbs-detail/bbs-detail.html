@@ -11,14 +11,15 @@
   <div *ngIf="post">
     <h2>{{post.title}}</h2>
     <p>
-      {{post.author}}<br>
+      {{post.user?.name}}<br>
       {{post.time}}
     </p>
     <div style="margin-top: 1.5rem">
       {{post.content}}
     </div>
+    <!--TODO image type reply-->
     <div *ngFor="let reply of post.replies" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
-      {{reply.author}}
+      {{reply.user?.name}}
       <hr>
       {{reply.content}}
     </div>

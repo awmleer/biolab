@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {PostBrief} from "../../classes/post";
 import {BbsService} from "../../services/bbs.service";
 import {BbsDetailPage} from "../bbs-detail/bbs-detail";
+import {Page} from "../../classes/page";
 
 
 @IonicPage()
@@ -13,6 +14,9 @@ import {BbsDetailPage} from "../bbs-detail/bbs-detail";
 export class BbsListPage {
 
   posts:PostBrief[]=[];
+  currentPage:number = 1;
+  totalPageCount:number=0;
+  totalPostCount:number=-1;
 
   constructor(
     public navCtrl: NavController,
@@ -21,14 +25,21 @@ export class BbsListPage {
   ) {}
 
   ionViewWillLoad() {
-    this.bbsSvc.postList().then((posts) => {
-      this.posts=posts;
-    });
+    this.loadMore();
   }
 
   viewDetail(postId:number){
     this.navCtrl.push(BbsDetailPage,{
       'postId':postId
+    });
+  }
+
+  loadMore(){
+    this.bbsSvc.postList(this.currentPage, 'hot').then((page:Page<PostBrief>)=>{
+      this.currentPage++;
+      this.totalPageCount=page.totalPageCount;
+      this.totalPostCount=page.totalItemCount;
+      this.posts.push.apply(this.posts,page.items);
     });
   }
 

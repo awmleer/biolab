@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { BbsListPage } from './bbs-list';
+import {ServicesModule} from "../../services/services.module";
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { BbsListPage } from './bbs-list';
   ],
   imports: [
     IonicPageModule.forChild(BbsListPage),
+    ServicesModule,
   ],
   exports: [
     BbsListPage

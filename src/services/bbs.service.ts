@@ -11,6 +11,7 @@ export class BbsService {
   ) {}
 
   postList(pageNumber:number, orderBy:string='id'):Promise<Page<PostBrief>>{
+    console.log(pageNumber);
     return this.apiSvc.get(`/bbs/post/list/${pageNumber}/`,{
       orderBy: orderBy
     });
@@ -18,6 +19,12 @@ export class BbsService {
 
   postDetail(postId):Promise<PostDetail>{
     return this.apiSvc.get(`/bbs/post/${postId}/`);
+  }
+
+  replyText(postId:number, content:string){
+    return this.apiSvc.post(`/bbs/post/${postId}/reply-text/`,{
+      content:content
+    });
   }
 
 }

@@ -35,6 +35,7 @@ export class BbsListPage {
   }
 
   loadMore(){
+    console.log(this.currentPage);;
     this.bbsSvc.postList(this.currentPage, 'hot').then((page:Page<PostBrief>)=>{
       this.currentPage++;
       this.totalPageCount=page.totalPageCount;

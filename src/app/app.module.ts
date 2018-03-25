@@ -34,6 +34,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MePageModule} from "../pages/me/me.module";
 import {LoginPageModule} from "../pages/login/login.module";
 import {ServicesModule} from "../services/services.module";
+import {BbsReplyTextPageModule} from "../pages/bbs-reply-text/bbs-reply-text.module";
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import {ServicesModule} from "../services/services.module";
     LoginPageModule,
     PipesModule,
     ServicesModule,
+    BbsReplyTextPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

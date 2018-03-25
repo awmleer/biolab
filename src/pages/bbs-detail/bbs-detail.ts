@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {BbsService} from "../../services/bbs.service";
 import {PostDetail} from "../../classes/post";
+import {BbsReplyTextPage} from "../bbs-reply-text/bbs-reply-text";
 
 
 @IonicPage()
@@ -17,6 +18,7 @@ export class BbsDetailPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private bbsSvc: BbsService,
+    private modalCtrl: ModalController,
   ) {}
 
   get postId():number{
@@ -24,8 +26,22 @@ export class BbsDetailPage {
   }
 
   ionViewWillLoad() {
+    this.fetchPost();
+  }
+
+  fetchPost(){
     this.bbsSvc.postDetail(this.postId).then((post) => {
       this.post=post;
+    });
+  }
+
+  replyText(){
+    let modal = this.modalCtrl.create(BbsReplyTextPage,{
+      postId: this.post.id
+    });
+    modal.present();
+    modal.onWillDismiss(() => {
+      this.fetchPost();
     });
   }
 

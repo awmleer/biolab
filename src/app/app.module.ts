@@ -35,13 +35,14 @@ import {MePageModule} from "../pages/me/me.module";
 import {LoginPageModule} from "../pages/login/login.module";
 import {ServicesModule} from "../services/services.module";
 import {BbsReplyTextPageModule} from "../pages/bbs-reply-text/bbs-reply-text.module";
+import {BbsPostAddPageModule} from "../pages/bbs-post-add/bbs-post-add.module";
+import {KnowledgeBaseModule} from "../pages/knowledge-base/knowledge-base.module";
 
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    KnowledgeBasePage,
     ReagentPage,
     SearchBasicPage,
     ReagentListPage,
@@ -70,12 +71,13 @@ import {BbsReplyTextPageModule} from "../pages/bbs-reply-text/bbs-reply-text.mod
     PipesModule,
     ServicesModule,
     BbsReplyTextPageModule,
+    BbsPostAddPageModule,
+    KnowledgeBaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     AboutPage,
-    KnowledgeBasePage,
     ReagentPage,
     SearchBasicPage,
     ReagentListPage,
@@ -95,7 +97,7 @@ import {BbsReplyTextPageModule} from "../pages/bbs-reply-text/bbs-reply-text.mod
     Clipboard,
     SocialSharing,
     PhotoViewer,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    // {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}

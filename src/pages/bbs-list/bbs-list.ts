@@ -4,6 +4,7 @@ import {PostBrief} from "../../classes/post";
 import {BbsService} from "../../services/bbs.service";
 import {BbsDetailPage} from "../bbs-detail/bbs-detail";
 import {Page} from "../../classes/page";
+import {BbsPostAddPage} from "../bbs-post-add/bbs-post-add";
 
 
 @IonicPage()
@@ -14,9 +15,9 @@ import {Page} from "../../classes/page";
 export class BbsListPage {
 
   posts:PostBrief[]=[];
-  currentPage:number = 1;
-  totalPageCount:number=0;
-  totalPostCount:number=-1;
+  currentPage:number;
+  totalPageCount:number;
+  totalPostCount:number;
 
   constructor(
     public navCtrl: NavController,
@@ -24,7 +25,11 @@ export class BbsListPage {
     private bbsSvc: BbsService,
   ) {}
 
-  ionViewWillLoad() {
+  ionViewWillEnter() {
+    this.posts=[];
+    this.currentPage = 1;
+    this.totalPageCount=0;
+    this.totalPostCount=-1;
     this.loadMore();
   }
 
@@ -44,4 +49,9 @@ export class BbsListPage {
     });
   }
 
+  addPost(){
+    this.navCtrl.push(BbsPostAddPage);
+  }
+
 }
+

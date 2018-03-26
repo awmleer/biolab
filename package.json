@@ -44,7 +44,8 @@
     "ionicons": "3.x",
     "rxjs": "5.5.x",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.x"
+    "zone.js": "0.8.x",
+    "cordova-plugin-console": "1.0.5"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.x",

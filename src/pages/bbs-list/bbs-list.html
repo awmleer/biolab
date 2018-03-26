@@ -13,10 +13,14 @@
     <button ion-item *ngFor="let post of posts" (click)="viewDetail(post.id)" class="post-item">
       <h2>{{post.title}}</h2>
       <p>{{post.time}}</p>
-    </button>
+    </button> 
   </ion-list>
 
   <button ion-button block clear (click)="loadMore()" *ngIf="currentPage<=totalPageCount">加载更多</button>
   <!--TODO use infinite scroll-->
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="addPost()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 
 </ion-content>

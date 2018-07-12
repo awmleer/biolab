@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {ReagentPage} from "../reagent/reagent";
 import {PaperPage} from "../paper/paper";
 import {BbsListPage} from "../bbs-list/bbs-list";
+import {InstrumentPage} from '../instrument/instrument'
 
 @Component({
   selector: 'page-knowledge-base',
@@ -24,6 +25,10 @@ export class KnowledgeBasePage {
 
   goBBS(){
     this.navCtrl.push(BbsListPage);
+  }
+
+  goInstrument(){
+    this.navCtrl.push(InstrumentPage);
   }
 
 }

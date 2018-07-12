@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      仪器
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      搜索
+    </ion-card-header>
+    <ion-list>
+      <button ion-item (click)="goSearchBasic()">
+        <ion-icon name="search" item-left></ion-icon>
+        基础搜索
+      </button>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      分类浏览
+    </ion-card-header>
+    <ion-list>
+      <button ion-item (click)="goChildrenLabels(label)" *ngFor="let label of rootLabels">
+        <ion-icon name="md-pricetag" item-left></ion-icon>
+        {{label.name}}
+      </button>
+    </ion-list>
+  </ion-card>
+
+</ion-content>

@@ -1,6 +1,6 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { TabsPage } from '../pages/tabs/tabs';
@@ -36,6 +36,8 @@ import {LinksPageModule} from "../pages/links/links.module";
 import {PaperPageModule} from "../pages/paper/paper.module";
 import {PaperDetailPageModule} from "../pages/paper-detail/paper-detail.module";
 import {PaperLabelsPageModule} from "../pages/paper-labels/paper-labels.module";
+import {InstrumentPageModule} from '../pages/instrument/instrument.module'
+import {InstrumentListPageModule} from '../pages/instrument-list/instrument-list.module'
 
 
 @NgModule({
@@ -72,6 +74,8 @@ import {PaperLabelsPageModule} from "../pages/paper-labels/paper-labels.module";
     PaperPageModule,
     PaperDetailPageModule,
     PaperLabelsPageModule,
+    InstrumentPageModule,
+    InstrumentListPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/links/links';
-import { KnowledgeBasePage } from '../pages/knowledge-base/knowledge-base';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -14,10 +12,7 @@ import {SearchBasicPage} from "../pages/search-basic/search-basic";
 import {ReagentListPage} from "../pages/reagent-list/reagent-list";
 import {ReagentCardComponent} from "../components/reagent-card/reagent-card";
 import {ReagentDetailPage} from "../pages/reagent-detail/reagent-detail";
-import {PaperPage} from "../pages/paper/paper";
 import {PaperListPage} from "../pages/paper-list/paper-list";
-import {PaperDetailPage} from "../pages/paper-detail/paper-detail";
-import {PaperLabelsPage} from "../pages/paper-labels/paper-labels";
 import { PaperCardComponent } from '../components/paper-card/paper-card';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {Clipboard} from "@ionic-native/clipboard";
@@ -36,21 +31,21 @@ import {LoginPageModule} from "../pages/login/login.module";
 import {ServicesModule} from "../services/services.module";
 import {BbsReplyTextPageModule} from "../pages/bbs-reply-text/bbs-reply-text.module";
 import {BbsPostAddPageModule} from "../pages/bbs-post-add/bbs-post-add.module";
-import {KnowledgeBaseModule} from "../pages/knowledge-base/knowledge-base.module";
+import {KnowledgeBasePageModule} from "../pages/knowledge-base/knowledge-base.module";
+import {LinksPageModule} from "../pages/links/links.module";
+import {PaperPageModule} from "../pages/paper/paper.module";
+import {PaperDetailPageModule} from "../pages/paper-detail/paper-detail.module";
+import {PaperLabelsPageModule} from "../pages/paper-labels/paper-labels.module";
 
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     ReagentPage,
     SearchBasicPage,
     ReagentListPage,
     ReagentDetailPage,
-    PaperPage,
     PaperListPage,
-    PaperLabelsPage,
-    PaperDetailPage,
     TabsPage,
     FilterPipe,
     FuzzyFilterPipe,
@@ -72,20 +67,20 @@ import {KnowledgeBaseModule} from "../pages/knowledge-base/knowledge-base.module
     ServicesModule,
     BbsReplyTextPageModule,
     BbsPostAddPageModule,
-    KnowledgeBaseModule,
+    KnowledgeBasePageModule,
+    LinksPageModule,
+    PaperPageModule,
+    PaperDetailPageModule,
+    PaperLabelsPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     ReagentPage,
     SearchBasicPage,
     ReagentListPage,
     ReagentDetailPage,
-    PaperPage,
     PaperListPage,
-    PaperLabelsPage,
-    PaperDetailPage,
     TabsPage
   ],
   providers: [

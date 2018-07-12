@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AboutPage } from '../links/links';
+import { LinksPage } from '../links/links';
 import { KnowledgeBasePage } from '../knowledge-base/knowledge-base';
 import {MePage} from "../me/me";
 
@@ -10,7 +10,7 @@ import {MePage} from "../me/me";
 export class TabsPage {
 
   tab1Root = KnowledgeBasePage;
-  tab2Root = AboutPage;
+  tab2Root = LinksPage;
   tab3Root = MePage;
 
   constructor() {

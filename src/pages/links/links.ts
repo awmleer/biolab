@@ -6,7 +6,7 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
   selector: 'page-links',
   templateUrl: './links.html'
 })
-export class AboutPage {
+export class LinksPage {
 
   constructor(
       public navCtrl: NavController,

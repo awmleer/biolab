@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import {ServicesModule} from "../../services/services.module";
-import {KnowledgeBasePage} from "./knowledge-base";
+import {PaperLabelsPage} from "./paper-labels";
 
 @NgModule({
   declarations: [
-    KnowledgeBasePage,
+    PaperLabelsPage,
   ],
   imports: [
-    IonicPageModule.forChild(KnowledgeBasePage),
+    IonicPageModule.forChild(PaperLabelsPage),
     ServicesModule,
   ],
+  exports: [
+    PaperLabelsPage
+  ]
 })
-export class KnowledgeBasePageModule {}
+export class PaperLabelsPageModule {}

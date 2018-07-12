@@ -27,7 +27,7 @@ export class KnowledgeBasePage {
     this.navCtrl.push(BbsListPage);
   }
 
-  goInstrument(){
+  goInstrumentPage(){
     this.navCtrl.push(InstrumentPage);
   }
 

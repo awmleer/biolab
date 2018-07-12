@@ -39,9 +39,9 @@ export class InstrumentPage {
   }
 
   goChildrenLabels(label){
-    this.navCtrl.push(InstrumentLabelsPage,{
-      parentLabel:label
-    });
+    // this.navCtrl.push(InstrumentLabelsPage,{
+    //   parentLabel:label
+    // });
   }
 
 

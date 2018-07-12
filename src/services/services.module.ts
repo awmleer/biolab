@@ -6,6 +6,7 @@ import {PaperService} from "./paper.service";
 import {ReagentService} from "./reagent.service";
 import {ShareService} from "./share.service";
 import {ToastService} from "./toast.service";
+import {InstrumentService} from './instrument.service'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {ToastService} from "./toast.service";
     ReagentService,
     ShareService,
     ToastService,
+    InstrumentService,
   ]
 })
 export class ServicesModule {}

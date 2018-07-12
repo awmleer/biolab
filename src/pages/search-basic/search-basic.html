@@ -29,6 +29,11 @@
             <ion-option value="englishName">英文名</ion-option>
             <ion-option value="alias">别名</ion-option>
           </ion-select>
+          <ion-select [(ngModel)]="searchField" cancelText="取消" okText="确定" *ngIf="searchType=='instrument'">
+            <ion-option value="chineseName">中文名</ion-option>
+            <ion-option value="englishName">英文名</ion-option>
+            <ion-option value="modelNumber">型号</ion-option>
+          </ion-select>
         </ion-item>
     </ion-list>
 

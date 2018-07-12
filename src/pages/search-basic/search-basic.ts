@@ -5,6 +5,7 @@ import {ReagentDetailPage} from "../reagent-detail/reagent-detail";
 import {PaperService} from "../../services/paper.service";
 import {PaperListPage} from "../paper-list/paper-list";
 import {Storage} from "@ionic/storage";
+import {InstrumentListPage} from '../instrument-list/instrument-list'
 
 @Component({
   selector: 'page-search-basic',
@@ -27,30 +28,15 @@ export class SearchBasicPage {
   ) {
     if (this.searchType == 'paper') {
       this.searchField='all';
+    }else if (this.searchType == 'instrument') {
+      this.searchField='chineseName';
     }else{
       this.searchField='name';
     }
   }
 
-  get searchType():'reagent'|'paper'{
+  get searchType():'reagent'|'paper'|'instrument'{
     return this.navParams.get('type');
-  }
-
-  goReagentList(){
-    this.navCtrl.push(ReagentListPage);
-  }
-
-  goReagentDetail(){
-    this.navCtrl.push(ReagentDetailPage);
-  }
-
-  goPaperListByLabel(label:Label){
-    this.navCtrl.push(PaperListPage,{
-      'pageFrom':'label',
-      'param':{
-        label:label
-      }
-    });
   }
 
   goSearch(text?:string){
@@ -60,6 +46,14 @@ export class SearchBasicPage {
     }
     if (this.searchType == 'paper') {
       this.navCtrl.push(PaperListPage,{
+        'pageFrom': 'search',
+        'param':[{
+          field:this.searchField,
+          value:text
+        }]
+      });
+    }else if (this.searchType == 'instrument') {
+      this.navCtrl.push(InstrumentListPage,{
         'pageFrom': 'search',
         'param':[{
           field:this.searchField,
@@ -79,13 +73,14 @@ export class SearchBasicPage {
 
   ionViewWillLoad(){
     this.getHistoryItems();
-
   }
 
   getHistoryItems(){
     let reference='';
     if (this.searchType == 'paper') {
       reference='searchHistoryPaper';
+    }else if (this.searchType == 'instrument') {
+      reference='searchHistoryInstrument';
     }else{
       reference='searchHistoryReagent';
     }
@@ -101,6 +96,8 @@ export class SearchBasicPage {
     let reference='';
     if (this.searchType == 'paper') {
       reference='searchHistoryPaper';
+    }else if (this.searchType == 'instrument') {
+      reference='searchHistoryInstrument';
     }else{
       reference='searchHistoryReagent';
     }
@@ -111,6 +108,8 @@ export class SearchBasicPage {
     let reference='';
     if (this.searchType == 'paper') {
       reference='searchHistoryPaper';
+    }else if (this.searchType == 'instrument') {
+      reference='searchHistoryInstrument';
     }else{
       reference='searchHistoryReagent';
     }

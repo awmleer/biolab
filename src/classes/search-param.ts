@@ -7,3 +7,8 @@ export type ReagentSearchParam={
   field: "chineseName" | "englishName" | "alias" | "name";
   value: string;
 }[];
+
+export type InstrumentSearchParam={
+  field: "chineseName" | "englishName" | "modelNumber";
+  value: string;
+}[];

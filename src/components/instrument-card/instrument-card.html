@@ -1,0 +1,12 @@
+<ion-card class="instrument-card" [class.expanding]="expanding">
+  <ion-card-content no-padding>
+    <div class="instrument-picture" [style.background-image]="instrument?.coverImg?'url('+instrument?.coverImg+'?imageView2/0/h/100)':'none'"></div>
+    <a class="instrument-info" (click)="cardClick()">
+      <h2>{{instrument.chineseName}}</h2>
+      <p>
+        英文名：{{instrument.englishName}}<br>
+        型号：{{instrument.modelNumber}}
+      </p>
+    </a>
+  </ion-card-content>
+</ion-card>

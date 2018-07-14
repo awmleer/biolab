@@ -30,18 +30,18 @@ export class InstrumentPage {
     });
   }
 
-  goSearchAdvance(){
-    // this.navCtrl.push(SearchAdvancePage);
-  }
+  // goSearchAdvance(){
+  //   // this.navCtrl.push(SearchAdvancePage);
+  // }
 
   goInstrumentList(){
     this.navCtrl.push(InstrumentListPage);
   }
 
   goChildrenLabels(label){
-    // this.navCtrl.push(InstrumentLabelsPage,{
-    //   parentLabel:label
-    // });
+    this.navCtrl.push(InstrumentLabelsPage,{
+      parentLabel:label
+    });
   }
 
 

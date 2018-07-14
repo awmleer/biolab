@@ -30,7 +30,9 @@ export class BbsListPage {
     this.currentPage = 1;
     this.totalPageCount=0;
     this.totalPostCount=-1;
-    this.loadMore();
+    this.loadMore().catch(() => {
+      this.navCtrl.pop()
+    });
   }
 
   viewDetail(postId:number){
@@ -39,9 +41,9 @@ export class BbsListPage {
     });
   }
 
-  loadMore(){
-    console.log(this.currentPage);;
-    this.bbsSvc.postList(this.currentPage, 'hot').then((page:Page<PostBrief>)=>{
+  async loadMore(){
+    // console.log(this.currentPage);
+    return await this.bbsSvc.postList(this.currentPage, 'hot').then((page:Page<PostBrief>)=>{
       this.currentPage++;
       this.totalPageCount=page.totalPageCount;
       this.totalPostCount=page.totalItemCount;

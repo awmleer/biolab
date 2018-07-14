@@ -1,24 +1,26 @@
 import {html,uri} from "./types";
 import {InstrumentLabel} from "./instrument-label";
 
-export class InstrumentEntry {
+
+export class InstrumentEntry { //TODO implements LabeledItem
   id: number;
   chineseName: string;
   englishName: string;
-  alias: string;
   labels: InstrumentLabel[];
 }
 
 export class InstrumentBrief extends InstrumentEntry {
-  molecularFormula: string;
-  molecularFormulaParsed: html;
-  molecularWeight: string;
-  dangerous: null | string;
-  pictures: InstrumentPicture[];
+  coverImg: string;//url
+  modelNumber: string;
 }
 
 export class InstrumentDetail extends InstrumentBrief {
-  description: string;
+  content: {
+    outer: string;
+    inner: string;
+    instructions: string;
+    attentions: string;
+  };//HTML
 }
 
 export interface InstrumentPicture {
@@ -29,6 +31,6 @@ export interface InstrumentPicture {
 
 export interface GetInstrumentsResult {
   totalPageCount:number;
-  totalInstrumentCount:number;
-  instruments:InstrumentBrief[];
+  totalItemCount:number;
+  items:InstrumentBrief[];
 }

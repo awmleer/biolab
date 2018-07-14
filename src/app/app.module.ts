@@ -38,6 +38,8 @@ import {PaperDetailPageModule} from "../pages/paper-detail/paper-detail.module";
 import {PaperLabelsPageModule} from "../pages/paper-labels/paper-labels.module";
 import {InstrumentPageModule} from '../pages/instrument/instrument.module'
 import {InstrumentListPageModule} from '../pages/instrument-list/instrument-list.module'
+import {InstrumentDetailPageModule} from '../pages/instrument-detail/instrument-detail.module'
+import {InstrumentLabelsPageModule} from '../pages/instrument-labels/instrument-labels.module'
 
 
 @NgModule({
@@ -76,6 +78,8 @@ import {InstrumentListPageModule} from '../pages/instrument-list/instrument-list
     PaperLabelsPageModule,
     InstrumentPageModule,
     InstrumentListPageModule,
+    InstrumentDetailPageModule,
+    InstrumentLabelsPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -40,6 +40,7 @@ import {InstrumentPageModule} from '../pages/instrument/instrument.module'
 import {InstrumentListPageModule} from '../pages/instrument-list/instrument-list.module'
 import {InstrumentDetailPageModule} from '../pages/instrument-detail/instrument-detail.module'
 import {InstrumentLabelsPageModule} from '../pages/instrument-labels/instrument-labels.module'
+import {ImagePicker} from '@ionic-native/image-picker'
 
 
 @NgModule({
@@ -100,6 +101,7 @@ import {InstrumentLabelsPageModule} from '../pages/instrument-labels/instrument-
     Clipboard,
     SocialSharing,
     PhotoViewer,
+    ImagePicker,
     // {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

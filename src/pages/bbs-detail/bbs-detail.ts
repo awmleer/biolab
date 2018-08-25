@@ -19,6 +19,7 @@ export class BbsDetailPage {
     public navParams: NavParams,
     private bbsSvc: BbsService,
     private modalCtrl: ModalController,
+
   ) {}
 
   get postId():number{
@@ -41,6 +42,12 @@ export class BbsDetailPage {
     });
     modal.present();
     modal.onWillDismiss(() => {
+      this.fetchPost();
+    });
+  }
+
+  replyImage() {
+    this.bbsSvc.replyImage(this.post.id).then(() => {
       this.fetchPost();
     });
   }

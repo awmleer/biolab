@@ -1,4 +1,5 @@
 import {UserInfo} from "./user";
+import {Label, LabeledItem} from './label'
 
 export class Reply{
   id:number;
@@ -8,16 +9,23 @@ export class Reply{
   content:string;//plain text or picture url
   voteCount:number;
 }
-export class PostBrief{
+export class PostBrief {
   id:number;
   title:string;
   time:string;
   user:UserInfo;
   voteCount:number;
   viewCount:number;
+  group?: PostGroup;
+  labels: string[];
 }
 
-export class PostDetail extends PostBrief{
+export class PostDetail extends PostBrief {
   content:string;
   replies:Reply[];//no pagination
+}
+
+export class PostGroup {
+  id: number;
+  name: string;
 }

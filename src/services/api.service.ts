@@ -1,8 +1,11 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import {CONST} from "../app/const";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {ToastService} from "./toast.service";
+import {Observable} from 'rxjs'
+import {ApiError} from '../classes/error'
+import {Storage} from '@ionic/storage'
 
 @Injectable()
 export class ApiService {
@@ -10,40 +13,74 @@ export class ApiService {
   constructor(
     private http: HttpClient,
     private toastSvc: ToastService,
+    private storage: Storage,
   ) {}
 
-  get(
-    url:string, params:{
-      [param: string]: any;
-    }=null,
-    messageOnError:boolean=true):Promise<any>{
-    console.log(CONST.apiUrl + url);
-    return this.http.get(CONST.apiUrl+url,{
-      params:params
-    }).toPromise().then((data)=>{
-      if (data['status']=='success') {
-        return data['payload'];
+  get sessionId():Promise<string>{
+    return this.storage.get('sessionId').then((s) => {
+      if(s){
+        return s;
       }else{
-        if(messageOnError){
-          if(data['payload']=='NEED_LOGIN'){
-            this.toastSvc.toast('请先登录');
-          }else{
-            this.toastSvc.toast(data['payload']);
-          }
-        }
-        throw new Error(data['payload']);
+        return '';
       }
     });
   }
 
-  post(url:string, body:object={}, messageOnError:boolean=true):Promise<any>{
-    return this.http.post(CONST.apiUrl+url, body).toPromise().then((data)=>{
-      if (data['status']=='success') {
+  private handleHttp(request:Observable<Object>){
+    return request.toPromise().catch((error:HttpErrorResponse) => {
+      let messageText;
+      if (error.status === 403) {
+        messageText='您没有权限进行该操作';
+      }else{
+        console.error(error);
+        messageText='出错了';
+      }
+      throw new ApiError(messageText);
+    }).then(async (res:HttpResponse<object>)=>{
+      const data = res.body;
+      const sessionId = res.headers.get('App-Set-Session-Id');
+      if (sessionId){
+        await this.storage.set('sessionId', sessionId);
+      }
+      if (data['status']==='success') {
         return data['payload'];
       }else{
-        throw new Error(data['payload']);
+        throw new ApiError(data['payload']);
       }
+    }).catch((error) => {
+      if(error instanceof ApiError){
+        this.toastSvc.toast(error.message);
+      }
+      throw error;
     });
+  }
+
+  async get(
+    url:string,
+    params:{
+      [param: string]: any;
+    }=null
+  ):Promise<any>{
+    let request=this.http.get(CONST.apiUrl+url,{
+      params:params,
+      observe: 'response',
+      headers: {
+        'App-Session-Id': await this.sessionId
+      },
+      withCredentials:true
+    });
+    return this.handleHttp(request);
+  }
+
+  async post(url:string, body:object=null):Promise<any>{
+    let request=this.http.post(CONST.apiUrl+url, body,{
+      observe: 'response',
+      headers: {
+        'App-Session-Id': await this.sessionId
+      },
+      withCredentials:true
+    });
+    return this.handleHttp(request);
   }
 
 

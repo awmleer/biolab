@@ -27,10 +27,16 @@
       </button>
     </ion-col>
     <ion-col col-4 no-padding>
-      <button class="big-button" style="background-color: #246D96"></button>
+      <button class="big-button" (click)="goNoticeListPage()" style="background-color: #246D96">
+        <ion-icon name="logo-rss"></ion-icon>
+        <label>公告</label>
+      </button>
     </ion-col>
     <ion-col col-4 no-padding>
-      <button class="big-button" style="background-color: #1D5C80"></button>
+      <button class="big-button" style="background-color: #1D5C80">
+        <ion-icon name="ios-calendar"></ion-icon>
+        <label>预约</label>
+      </button>
     </ion-col>
     <ion-col col-4 no-padding>
       <button class="big-button" style="background-color: #246D96"></button>

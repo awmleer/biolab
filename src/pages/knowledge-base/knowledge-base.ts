@@ -4,6 +4,8 @@ import {ReagentPage} from "../reagent/reagent";
 import {PaperPage} from "../paper/paper";
 import {BbsListPage} from "../bbs-list/bbs-list";
 import {InstrumentPage} from '../instrument/instrument'
+import {BbsService} from '../../services/bbs.service'
+import {NoticeListPage} from '../notice-list/notice-list'
 
 @Component({
   selector: 'page-knowledge-base',
@@ -11,9 +13,10 @@ import {InstrumentPage} from '../instrument/instrument'
 })
 export class KnowledgeBasePage {
 
-  constructor(public navCtrl: NavController) {
-
-  }
+  constructor(
+    public navCtrl: NavController,
+    public bbsSvc: BbsService,
+  ) {}
 
   goReagentPage(){
     this.navCtrl.push(ReagentPage);
@@ -29,6 +32,14 @@ export class KnowledgeBasePage {
 
   goInstrumentPage(){
     this.navCtrl.push(InstrumentPage);
+  }
+
+  goNoticeListPage() {
+    this.navCtrl.push(NoticeListPage);
+  }
+
+  testImagePicker() {
+    this.bbsSvc.replyImage(1);
   }
 
 }

@@ -29,7 +29,9 @@ export class ApiService {
   private handleHttp(request:Observable<Object>){
     return request.toPromise().catch((error:HttpErrorResponse) => {
       let messageText;
-      if (error.status === 403) {
+      if (error.status === 401) {
+        messageText='请先登录';
+      }else if (error.status === 403) {
         messageText='您没有权限进行该操作';
       }else{
         console.error(error);

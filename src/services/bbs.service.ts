@@ -36,7 +36,9 @@ export class BbsService {
     };
     let results = await this.imagePicker.getPictures(options);
     console.log(results);
-
+    if (results.length == 0) return;
+    const image = results[0];
+    return await this.apiSvc.post(`/bbs/post/${postId}/reply-picture/`, image);
   }
 
 }

@@ -5,6 +5,9 @@ page-notice-list {
       text-overflow:ellipsis;
       overflow:hidden;
     }
+    &.starred {
+      background: #fffcc8;
+    }
   }
 
 }

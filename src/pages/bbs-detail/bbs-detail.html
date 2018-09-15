@@ -17,7 +17,6 @@
     <div style="margin-top: 1.5rem">
       {{post.content}}
     </div>
-    <!--TODO image type reply-->
     <div *ngFor="let reply of post.replies" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
       {{reply.user?.name}}
       <hr>
@@ -32,6 +31,6 @@
     <ion-fab-list side="top">
       <button ion-fab color="primary" (click)="replyText()"><ion-icon name="create"></ion-icon></button>
       <button ion-fab color="primary" (click)="replyImage()"><ion-icon name="image"></ion-icon></button>
-    </ion-fab-list>|
+    </ion-fab-list>
   </ion-fab>
 </ion-content>

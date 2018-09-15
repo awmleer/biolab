@@ -16,6 +16,6 @@ export class NoticeService {
   }
 
   noticeDetail(noticeId):Promise<NoticeDetail>{
-    return this.apiSvc.get(`/notice/${noticeId}/`);
+    return this.apiSvc.get(`/notice/${noticeId}/detail/`);
   }
 }

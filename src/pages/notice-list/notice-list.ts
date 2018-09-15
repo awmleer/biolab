@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {NoticeService} from '../../services/notice.service'
 import {Page} from '../../classes/page'
 import {NoticeBrief} from '../../classes/notice'
+import {NoticeDetailPage} from '../notice-detail/notice-detail'
 
 @IonicPage()
 @Component({
@@ -34,7 +35,9 @@ export class NoticeListPage {
   }
 
   viewDetail(noticeId: number) {
-    
+    this.navCtrl.push(NoticeDetailPage, {
+      noticeId
+    });
   }
 
 }

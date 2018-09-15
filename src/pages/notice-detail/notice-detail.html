@@ -1,0 +1,16 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>公告详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="notice">
+    <h2>{{notice.title}}</h2>
+    <p>{{notice.time}}</p>
+    <div [innerHtml]="notice.content | sanitizeHtml"></div>
+  </div>
+</ion-content>

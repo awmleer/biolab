@@ -43,6 +43,7 @@ import {InstrumentLabelsPageModule} from '../pages/instrument-labels/instrument-
 import {ImagePicker} from '@ionic-native/image-picker'
 import {NoticeListPageModule} from '../pages/notice-list/notice-list.module'
 import {NoticeService} from '../services/notice.service'
+import {NoticeDetailPageModule} from '../pages/notice-detail/notice-detail.module'
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import {NoticeService} from '../services/notice.service'
     InstrumentDetailPageModule,
     InstrumentLabelsPageModule,
     NoticeListPageModule,
+    NoticeDetailPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

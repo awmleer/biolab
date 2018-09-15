@@ -42,6 +42,7 @@ import {InstrumentDetailPageModule} from '../pages/instrument-detail/instrument-
 import {InstrumentLabelsPageModule} from '../pages/instrument-labels/instrument-labels.module'
 import {ImagePicker} from '@ionic-native/image-picker'
 import {NoticeListPageModule} from '../pages/notice-list/notice-list.module'
+import {NoticeService} from '../services/notice.service'
 
 
 @NgModule({
@@ -104,6 +105,7 @@ import {NoticeListPageModule} from '../pages/notice-list/notice-list.module'
     SocialSharing,
     PhotoViewer,
     ImagePicker,
+    NoticeService,
     // {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

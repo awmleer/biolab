@@ -4,17 +4,15 @@ import {NoticeBrief, NoticeDetail} from "../classes/notice";
 import {Page} from "../classes/page";
 
 @Injectable()
-export class BbsService {
+export class NoticeService {
 
   constructor(
     private apiSvc: ApiService,
   ) {}
 
-  noticeList(pageNumber:number, orderBy:string='id'):Promise<Page<NoticeBrief>>{
+  noticeList(pageNumber:number):Promise<Page<NoticeBrief>>{
     console.log(pageNumber);
-    return this.apiSvc.get(`/notice/list/${pageNumber}/`,{
-      orderBy: orderBy
-    });
+    return this.apiSvc.get(`/notice/list/${pageNumber}/`);
   }
 
   noticeDetail(noticeId):Promise<NoticeDetail>{

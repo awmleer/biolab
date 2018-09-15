@@ -1,3 +1,10 @@
 page-notice-list {
+  .notice-item{
+    h2{
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      overflow:hidden;
+    }
+  }
 
 }

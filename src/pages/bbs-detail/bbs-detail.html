@@ -21,7 +21,10 @@
     <div *ngFor="let reply of post.replies" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
       {{reply.user?.name}}
       <hr>
-      {{reply.content}}
+      <p *ngIf="reply.mode === 'text'">
+        {{reply.content}}
+      </p>
+      <img *ngIf="reply.mode === 'picture'" [src]="reply.content"/>
     </div>
   </div>
   <ion-fab right bottom>

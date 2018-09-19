@@ -17,7 +17,6 @@ export class LabreserveService {
   ) {}
 
   personalReservationListByLabID(labID:number):Promise<Reservation[]>{
-    console.log(pageNumber);
     return this.apiSvc.get(`/lab-reserve/lab/${labID}/reservation/mine/`);
   }
 

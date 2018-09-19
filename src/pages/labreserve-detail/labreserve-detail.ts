@@ -29,10 +29,10 @@ export class LabDetailPage {
     return this.navParams.get('labId');
   }
 
-  ionViewWillLoad() {
+  async ionViewWillLoad() {
     this.fetchPersonalReservations();
     this.fetchAllReservations();
-    this.lab = this.labSvc.getLab(this.labId);
+    this.lab = await this.labSvc.getLab(this.labId);
   }
 
   fetchPersonalReservations(){

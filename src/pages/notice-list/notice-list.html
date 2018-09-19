@@ -10,7 +10,7 @@
 <ion-content>
 
   <ion-list *ngIf="page">
-    <button ion-item *ngFor="let notice of page.items" (click)="viewDetail(notice.id)" class="notice-item">
+    <button ion-item *ngFor="let notice of page.items" (click)="viewDetail(notice.id)" class="notice-item" [class.starred]="notice.starred">
       <h2>{{notice.title}}</h2>
       <p>{{notice.time}}</p>
     </button>

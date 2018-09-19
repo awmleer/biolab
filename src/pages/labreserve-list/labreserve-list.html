@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>实验室列表</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <button ion-item *ngFor="let lab of labs" (click)="viewDetail(lab.id)" class="post-item">
+      <h2>{{lab.code}}</h2>
+      <p>{{lab.description}}</p>
+    </button>
+  </ion-list>
+
+</ion-content>

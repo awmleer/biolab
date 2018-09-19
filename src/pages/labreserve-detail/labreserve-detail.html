@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>讨论详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="lab">
+    <h2>{{lab.code}}</h2>
+    <p>
+      容量：{{lab.capacity}}
+    </p>
+    <div style="margin-top: 1.5rem">
+      {{lab.description}}
+    </div>
+    <div *ngFor="let reservation of reservationsAll" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
+      <p>
+        {{reservation.startTime | date: 'yyyy-MM-dd hh:mm'}}<br>
+        {{reservation.endTime | date: 'yyyy-MM-dd hh:mm'}}
+      </p>
+      <hr>
+      {{reservation.description}}
+    </div>
+  </div>
+  <ion-fab right bottom>
+    <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="primary" (click)="addMyReservation()"><ion-icon name="create"></ion-icon></button>
+    </ion-fab-list>|
+  </ion-fab>
+</ion-content>

@@ -13,7 +13,7 @@ export class LabreserveService {
   constructor(
     private toastService: ToastService,
     private apiSvc: ApiService,
-    private dpipe: DatePipe,
+    private datePipe: DatePipe,
   ) {}
 
   personalReservationListByLabID(labID:number):Promise<Reservation[]>{
@@ -30,8 +30,8 @@ export class LabreserveService {
 
   addReservation (startTime:Date, endTime:Date, labID:number, description:string): Promise<number> {
     let data = {
-      startTime: this.dpipe.transform(startTime, 'yyyy-MM-dd hh:mm'),
-      endTime: this.dpipe.transform(endTime, 'yyyy-MM-dd hh:mm'),
+      startTime: this.datePipe.transform(startTime, 'yyyy-MM-dd hh:mm'),
+      endTime: this.datePipe.transform(endTime, 'yyyy-MM-dd hh:mm'),
       labId: labID,
       description: description,
     };

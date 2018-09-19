@@ -8,14 +8,13 @@
 
 
 <ion-content padding>
-  <div *ngIf="reservationsAll" *ngFor="let reservation of reservationsAll">
-    <h2>{{reservation.id}}</h2>
+  <div *ngIf="lab">
+    <h2>{{lab.code}}</h2>
     <p>
-      {{reservation.startTime | date: 'yyyy-MM-dd hh:mm'}}<br>
-      {{reservation.endTime | date: 'yyyy-MM-dd hh:mm'}}
+      容量：{{lab.capacity}}
     </p>
     <div style="margin-top: 1.5rem">
-      {{reservation.description}}
+      {{lab.description}}
     </div>
     <div *ngFor="let reservation of reservationsAll" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
       <p>

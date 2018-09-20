@@ -6,12 +6,12 @@ import {LabreserveService} from "../../services/labreserve.service";
 import {ToastService} from "../../services/toast.service";
 
 @Component({
-  selector: 'page-instrument-list',
+  selector: 'page-labreserve-list',
   templateUrl: 'labreserve-list.html',
 })
 export class LabListPage {
 
-  labs:Lab[]=[];
+  labs:Lab[];
 
 
   constructor(
@@ -21,20 +21,20 @@ export class LabListPage {
     private toastSvc: ToastService,
   ) {}
 
-  get pageFrom():('search' | 'label'){
-    return this.navParams.get('pageFrom');
-  }
-
   get param():any{
     return this.navParams.get('param');
   }
 
   ionViewWillLoad(){
-    this.LabService.labList().catch(() => {
+    this.getLabList().catch(() => {
       this.navCtrl.pop().then(() => {
         this.toastSvc.toast('获取实验室列表失败');
       });
     });
+  }
+
+  async getLabList() {
+    this.labs = await this.LabService.labList()
   }
 
   viewDetail(labId){

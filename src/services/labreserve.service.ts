@@ -39,7 +39,7 @@ export class LabreserveService {
   }
 
   getLab (labID:number): Promise<Lab> {
-    return this.apiSvc.get(`/lab-reserve/labs/${labID}`);
+    return this.apiSvc.get(`/lab-reserve/lab/${labID}`);
   }
 
 }

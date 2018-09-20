@@ -44,6 +44,12 @@ import {ImagePicker} from '@ionic-native/image-picker'
 import {NoticeListPageModule} from '../pages/notice-list/notice-list.module'
 import {NoticeService} from '../services/notice.service'
 import {NoticeDetailPageModule} from '../pages/notice-detail/notice-detail.module'
+import {LabListPage} from "../pages/labreserve-list/labreserve-list";
+import {LabListPageModule} from "../pages/labreserve-list/labreserve-list.module";
+import {LabDetailPageModule} from "../pages/labreserve-detail/labreserve-detail.module";
+import {LabAddPageModule} from "../pages/labreserve-add/labreserve-add.module";
+import {LabreserveService} from "../services/labreserve.service";
+import {DatePipe} from "@angular/common";
 
 
 @NgModule({
@@ -86,6 +92,9 @@ import {NoticeDetailPageModule} from '../pages/notice-detail/notice-detail.modul
     InstrumentLabelsPageModule,
     NoticeListPageModule,
     NoticeDetailPageModule,
+    LabListPageModule,
+    LabDetailPageModule,
+    LabAddPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -95,7 +104,8 @@ import {NoticeDetailPageModule} from '../pages/notice-detail/notice-detail.modul
     ReagentListPage,
     ReagentDetailPage,
     PaperListPage,
-    TabsPage
+    TabsPage,
+    LabListPage
   ],
   providers: [
     StatusBar,
@@ -108,6 +118,8 @@ import {NoticeDetailPageModule} from '../pages/notice-detail/notice-detail.modul
     PhotoViewer,
     ImagePicker,
     NoticeService,
+    LabreserveService,
+    DatePipe
     // {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

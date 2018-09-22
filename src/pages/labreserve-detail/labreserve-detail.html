@@ -16,7 +16,7 @@
     <div style="margin-top: 1.5rem">
       {{lab.description}}
     </div>
-    <div *ngFor="let reservation of reservationsAll" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
+    <div *ngFor="let reservation of reservationsPersonal" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
       <p>
         {{reservation.startTime | date: 'yyyy-MM-dd hh:mm'}}<br>
         {{reservation.endTime | date: 'yyyy-MM-dd hh:mm'}}

@@ -4,6 +4,7 @@ import {LabreserveService} from "../../services/labreserve.service";
 import {PostDetail} from "../../classes/post";
 import {BbsReplyTextPage} from "../bbs-reply-text/bbs-reply-text";
 import {Reservation} from "../../classes/reservation";
+import {Lab} from "../../classes/lab";
 
 
 @IonicPage()
@@ -15,6 +16,8 @@ export class LabAddPage {
 
   reservationsAll:Reservation[];
   reservationsPersonal:Reservation[];
+  lab: Lab;
+  newReservation: Reservation;
 
   constructor(
     public navCtrl: NavController,
@@ -28,9 +31,10 @@ export class LabAddPage {
     return this.navParams.get('labId');
   }
 
-  ionViewWillLoad() {
+  async ionViewWillLoad() {
     this.fetchPersonalReservations();
     this.fetchAllReservations();
+    this.lab = await this.labSvc.getLab(this.labId);
   }
 
   fetchPersonalReservations(){
@@ -45,11 +49,7 @@ export class LabAddPage {
     });
   }
 
-  addMyReservation() {
-    this.navCtrl.push(LabAddPage, {
-      labId: this.labId,
-    });
+  async submitReservation() {
+    await this.labSvc.addReservation(this.newReservation.startTime, this.newReservation.endTime, this.lab.id, this.newReservation.description);
   }
-
-
 }

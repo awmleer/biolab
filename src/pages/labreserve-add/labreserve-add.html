@@ -8,14 +8,13 @@
 
 
 <ion-content padding>
-  <div *ngIf="reservationsAll">
-    <h2>{{reservationsAll.title}}</h2>
+  <div *ngIf="lab">
+    <h2>{{lab.code}}</h2>
     <p>
-      {{reservationsAll.user?.name}}<br>
-      {{reservationsAll.time}}
+      容量：{{lab.capacity}}
     </p>
     <div style="margin-top: 1.5rem">
-      {{reservationsAll.content}}
+      {{lab.description}}
     </div>
     <div *ngFor="let reply of reservationsAll.replies" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
       {{reply.user?.name}}
@@ -23,10 +22,18 @@
       {{reply.content}}
     </div>
   </div>
-  <ion-fab right bottom>
-    <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
-    <ion-fab-list side="top">
-      <button ion-fab color="primary" (click)="replyText()"><ion-icon name="create"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
+  <div>
+    <ion-item>
+      <ion-label>开始时间</ion-label>
+      <ion-datetime displayFormat="yyyy-MM-dd hh:mm" pickerFormat="yyyy-MM-dd hh:mm" [(ngModel)]="newReservation.startTime"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>结束时间</ion-label>
+      <ion-datetime displayFormat="yyyy-MM-dd hh:mm" pickerFormat="yyyy-MM-dd hh:mm" [(ngModel)]="newReservation.endTime"></ion-datetime>
+    </ion-item>
+    留言：<textarea>{{newReservation.description}}</textarea>
+  </div>
+  <button ion-button block (click)="submitReservation()">
+    <ion-icon name="send"></ion-icon> 发布
+  </button>
 </ion-content>

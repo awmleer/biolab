@@ -10,7 +10,7 @@
       <p>
         <span [innerHtml]="reagent.molecularFormulaParsed | sanitizeHtml"></span><br>
         <span *ngIf="reagent.dangerous" ion-text color="danger">
-          <ion-icon name="warning"></ion-icon> {{reagent.dangerous}}
+          <ion-icon name="warning"></ion-icon> 危化品
         </span>
       </p>
     </a>

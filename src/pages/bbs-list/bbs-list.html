@@ -12,7 +12,11 @@
   <ion-list>
     <button ion-item *ngFor="let post of posts" (click)="viewDetail(post.id)" class="post-item">
       <h2>{{post.title}}</h2>
-      <p>{{post.time}}</p>
+      <p>
+        {{post.time}}
+        &nbsp;
+        {{post.group?.name}}
+      </p>
     </button>
   </ion-list>
 

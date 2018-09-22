@@ -3,6 +3,7 @@ import {ApiService} from "./api.service";
 import {PostBrief, PostDetail} from "../classes/post";
 import {Page} from "../classes/page";
 import {ImagePicker, ImagePickerOptions} from '@ionic-native/image-picker'
+import {PostGroup} from '../classes/bbs'
 
 @Injectable()
 export class BbsService {
@@ -21,6 +22,19 @@ export class BbsService {
 
   postDetail(postId):Promise<PostDetail>{
     return this.apiSvc.get(`/bbs/post/${postId}/`);
+  }
+
+  addPost(title, content, groupId, labels): Promise<number> {
+    return this.apiSvc.post(`/bbs/post/add/`, {
+      title,
+      content,
+      groupId,
+      labels
+    });
+  }
+
+  getGroups(): Promise<PostGroup[]> {
+    return this.apiSvc.get('/bbs/group/all/');
   }
 
   replyText(postId:number, content:string){

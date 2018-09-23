@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {LabreserveService} from "../../services/labreserve.service";
-import {PostDetail} from "../../classes/post";
-import {BbsReplyTextPage} from "../bbs-reply-text/bbs-reply-text";
 import {Reservation} from "../../classes/reservation";
 import {Lab} from "../../classes/lab";
 
 
 @IonicPage()
 @Component({
-  selector: 'page-labreserve-detail',
+  selector: 'page-labreserve-add',
   templateUrl: 'labreserve-add.html',
 })
 export class LabAddPage {

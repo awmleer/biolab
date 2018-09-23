@@ -69,12 +69,16 @@ export class MyReservationsListPage {
           text: '确认',
           handler: () => {
             console.log('用户确认');
-            this.labSvc.removeReservation(reservation.id);
+            this.doDeletion(reservation.id);
           }
         }
       ]
     });
     confirm.present();
+  }
+
+  async doDeletion(reservationID: number) {
+    await this.labSvc.removeReservation(reservationID);
   }
 
 }

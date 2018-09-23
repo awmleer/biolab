@@ -2,23 +2,22 @@
 
   <ion-navbar>
     <ion-title>预约详情</ion-title>
-    <div class="buttons">
-      <button class="button" (click)="viewMyReservations()" >我的预约</button>
-    </div>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
   <div *ngIf="lab">
-    <h2>{{lab.code}}</h2>
+    <h2>实验室：{{lab.code}}</h2>
     <p>
       容量：{{lab.capacity}}
     </p>
     <div style="margin-top: 1.5rem">
       {{lab.description}}
     </div>
+
     <div *ngIf="!reservationsAll">
       <p>无活动的预约信息！</p>
     </div>
@@ -38,4 +37,5 @@
       <button ion-fab color="primary" (click)="addMyReservation()"><ion-icon name="create"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
+  <button ion-button block (click)="viewMyReservations()" >我的预约</button>
 </ion-content>

@@ -3,6 +3,7 @@ import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angula
 import {LabreserveService} from "../../services/labreserve.service";
 import {Reservation} from "../../classes/reservation";
 import {Lab} from "../../classes/lab";
+import {MyReservationsListPage} from "../labreserve-myreservations-list/labreserve-myreservations-list";
 
 
 @IonicPage()
@@ -39,5 +40,9 @@ export class LabAddPage {
   async submitReservation() {
     console.log(this.newReservation.description);
     await this.labSvc.addReservation(this.newReservation.startTime, this.newReservation.endTime, this.lab.id, this.newReservation.description);
+    this.navCtrl.pop();
+    this.navCtrl.push(MyReservationsListPage, {
+      'labId':this.labId,
+    });
   }
 }

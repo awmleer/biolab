@@ -29,12 +29,16 @@ export class LabreserveService {
   }
 
   addReservation(startTime: Date, endTime: Date, labID: number, description: string): Promise<number> {
+    console.log(startTime);
+    console.log(endTime);
+    console.log(description);
     let data = {
-      startTime: this.datePipe.transform(startTime, 'yyyy-MM-dd hh:mm'),
-      endTime: this.datePipe.transform(endTime, 'yyyy-MM-dd hh:mm'),
+      startTime: new Date(startTime).getTime(),//this.datePipe.transform(startTime, 'yyyy-MM-dd hh:mm'),
+      endTime: new Date(endTime).getTime(),//this.datePipe.transform(endTime, 'yyyy-MM-dd hh:mm'),
       labId: labID,
       description: description,
     };
+    console.log(data);
     return this.apiSvc.post(`/lab-reserve/create/`, data);
   }
 

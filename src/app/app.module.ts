@@ -108,7 +108,6 @@ import {MyReservationsListPageModule} from "../pages/labreserve-myreservations-l
     ReagentDetailPage,
     PaperListPage,
     TabsPage,
-    LabListPage,
   ],
   providers: [
     StatusBar,

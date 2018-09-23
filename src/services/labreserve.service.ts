@@ -43,4 +43,8 @@ export class LabreserveService {
     return this.apiSvc.get(`/lab-reserve/lab/${labID}/`);
   }
 
+  removeReservation (reservationID:number): Promise<void> {
+    return this.apiSvc.get(`/lab-reserve/reservation/${reservationID}/remove/`);
+  }
+
 }

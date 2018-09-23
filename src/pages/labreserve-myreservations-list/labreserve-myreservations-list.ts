@@ -70,6 +70,7 @@ export class MyReservationsListPage {
           handler: () => {
             console.log('用户确认');
             this.doDeletion(reservation.id);
+            this.getReservationList();
           }
         }
       ]

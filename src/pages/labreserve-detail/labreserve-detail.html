@@ -2,6 +2,9 @@
 
   <ion-navbar>
     <ion-title>预约详情</ion-title>
+    <div class="buttons">
+      <button class="button" (click)="viewMyReservations()" >我的预约</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
@@ -16,10 +19,14 @@
     <div style="margin-top: 1.5rem">
       {{lab.description}}
     </div>
-    <div *ngFor="let reservation of reservationsPersonal" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
+    <div *ngIf="!reservationsAll">
+      <p>无活动的预约信息！</p>
+    </div>
+    <div *ngFor="let reservation of reservationsAll" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
+      预约 #{{reservation.id}}
       <p>
-        {{reservation.startTime | date: 'yyyy-MM-dd hh:mm'}}<br>
-        {{reservation.endTime | date: 'yyyy-MM-dd hh:mm'}}
+        开始时间：{{reservation.startTime | date: 'yyyy-MM-dd HH:mm'}}<br>
+        结束时间：{{reservation.endTime | date: 'yyyy-MM-dd HH:mm'}}
       </p>
       <hr>
       {{reservation.description}}

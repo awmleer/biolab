@@ -24,8 +24,11 @@ export class LabAddPage {
     public navParams: NavParams,
     private labSvc: LabreserveService,
     private modalCtrl: ModalController,
-
-  ) {}
+  ) {
+    this.newReservation = new Reservation();
+    this.newReservation.startTime = new Date();
+    this.newReservation.endTime = new Date();
+  }
 
   get labId():number{
     return this.navParams.get('labId');
@@ -50,6 +53,7 @@ export class LabAddPage {
   }
 
   async submitReservation() {
+    console.log(this.newReservation.description);
     await this.labSvc.addReservation(this.newReservation.startTime, this.newReservation.endTime, this.lab.id, this.newReservation.description);
   }
 }

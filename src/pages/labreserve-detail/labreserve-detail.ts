@@ -4,6 +4,7 @@ import {LabreserveService} from "../../services/labreserve.service";
 import {Reservation} from "../../classes/reservation";
 import {LabAddPage} from "../labreserve-add/labreserve-add";
 import {Lab} from "../../classes/lab";
+import {MyReservationsListPage} from "../labreserve-myreservations-list/labreserve-myreservations-list";
 
 
 @IonicPage()
@@ -30,15 +31,8 @@ export class LabDetailPage {
   }
 
   async ionViewWillLoad() {
-    this.fetchPersonalReservations();
     this.fetchAllReservations();
     this.lab = await this.labSvc.getLab(this.labId);
-  }
-
-  fetchPersonalReservations(){
-    this.labSvc.personalReservationListByLabID(this.labId).then((r) => {
-      this.reservationsAll=r;
-    });
   }
 
   fetchAllReservations(){
@@ -49,6 +43,12 @@ export class LabDetailPage {
 
   addMyReservation() {
     this.navCtrl.push(LabAddPage, {
+      labId: this.labId,
+    });
+  }
+
+  viewMyReservations() {
+    this.navCtrl.push(MyReservationsListPage, {
       labId: this.labId,
     });
   }

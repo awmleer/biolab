@@ -50,6 +50,8 @@ import {LabDetailPageModule} from "../pages/labreserve-detail/labreserve-detail.
 import {LabAddPageModule} from "../pages/labreserve-add/labreserve-add.module";
 import {LabreserveService} from "../services/labreserve.service";
 import {DatePipe} from "@angular/common";
+import {MyReservationsListPage} from "../pages/labreserve-myreservations-list/labreserve-myreservations-list";
+import {MyReservationsListPageModule} from "../pages/labreserve-myreservations-list/labreserve-myreservations-list.module";
 
 
 @NgModule({
@@ -94,7 +96,8 @@ import {DatePipe} from "@angular/common";
     NoticeDetailPageModule,
     LabListPageModule,
     LabDetailPageModule,
-    LabAddPageModule
+    LabAddPageModule,
+    MyReservationsListPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -105,7 +108,7 @@ import {DatePipe} from "@angular/common";
     ReagentDetailPage,
     PaperListPage,
     TabsPage,
-    LabListPage
+    LabListPage,
   ],
   providers: [
     StatusBar,

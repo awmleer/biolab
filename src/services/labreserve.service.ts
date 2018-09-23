@@ -21,7 +21,8 @@ export class LabreserveService {
   }
 
   allReservationListByLabID(labID:number):Promise<Reservation[]> {
-    return this.apiSvc.get(`/lab-reserve/lab/${labID}/reservation/all/`)
+    let d = new Date();
+    return this.apiSvc.get(`/lab-reserve/lab/${labID}/reservation/all/`, {'date': this.datePipe.transform(d, 'yyyy-MM-dd')});
   }
 
   labList (): Promise<Lab[]>{

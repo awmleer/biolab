@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>实验室列表</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <h2 *ngIf="lab">实验室：{{lab.code}}</h2>
+  <ion-list>
+    <button ion-item *ngFor="let reservation of Reservations" (click)="editReservation(reservation.id)" class="post-item">
+      <p>
+        起始时间：{{reservation.startTime | date:'yyyy-MM-dd HH:mm'}}<br>
+        结束时间：{{reservation.endTime | date:'yyyy-MM-dd HH:mm'}}
+      </p>
+      <p>{{reservation.status}}</p>
+      <p>{{reservation.description}}</p>
+    </button>
+  </ion-list>
+
+</ion-content>

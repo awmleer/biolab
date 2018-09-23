@@ -17,6 +17,7 @@ export class LabDetailPage {
   reservationsAll:Reservation[];
   reservationsPersonal:Reservation[];
   lab: Lab;
+  curDate: Date;
 
   constructor(
     public navCtrl: NavController,
@@ -31,12 +32,12 @@ export class LabDetailPage {
   }
 
   async ionViewWillLoad() {
-    this.fetchAllReservations();
+    this.fetchAllReservations(new Date());
     this.lab = await this.labSvc.getLab(this.labId);
   }
 
-  fetchAllReservations(){
-    this.labSvc.allReservationListByLabID(this.labId).then((r) => {
+  fetchAllReservations(d:Date){
+    this.labSvc.allReservationListByLabID(d, this.labId).then((r) => {
       this.reservationsPersonal=r;
     });
   }
@@ -51,6 +52,10 @@ export class LabDetailPage {
     this.navCtrl.push(MyReservationsListPage, {
       labId: this.labId,
     });
+  }
+
+  flushDate(){
+    this.fetchAllReservations(this.curDate);
   }
 
 

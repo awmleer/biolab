@@ -35,21 +35,7 @@ export class LabAddPage {
   }
 
   async ionViewWillLoad() {
-    this.fetchPersonalReservations();
-    this.fetchAllReservations();
     this.lab = await this.labSvc.getLab(this.labId);
-  }
-
-  fetchPersonalReservations(){
-    this.labSvc.personalReservationListByLabID(this.labId).then((r) => {
-      this.reservationsAll=r;
-    });
-  }
-
-  fetchAllReservations(){
-    this.labSvc.allReservationListByLabID(this.labId).then((r) => {
-      this.reservationsPersonal=r;
-    });
   }
 
   async submitReservation() {

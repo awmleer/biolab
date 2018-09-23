@@ -17,7 +17,10 @@
     <div style="margin-top: 1.5rem">
       {{lab.description}}
     </div>
-
+    <ion-item>
+      <ion-label>预约日期</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="curDate" (ngModelChange)="flushDate()"></ion-datetime>
+    </ion-item>
     <div *ngIf="!reservationsAll">
       <p>暂无预约记录</p>
     </div>

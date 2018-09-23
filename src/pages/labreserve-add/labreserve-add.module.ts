@@ -13,4 +13,4 @@ import { LabAddPage } from './labreserve-add';
     LabAddPage
   ]
 })
-export class BbsDetailPageModule {}
+export class LabAddPageModule {}

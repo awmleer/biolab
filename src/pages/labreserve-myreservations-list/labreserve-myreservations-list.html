@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的申请</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <h2 *ngIf="lab">实验室：{{lab.code}}</h2>
+  长按申请来删除
+  <ion-list>
+    <button ion-item *ngFor="let reservation of Reservations" (press)="confirmDeletion(reservation)" class="post-item">
+      <p>
+        起始时间：{{reservation.startTime | date:'yyyy-MM-dd HH:mm'}}<br>
+        结束时间：{{reservation.endTime | date:'yyyy-MM-dd HH:mm'}}
+      </p>
+      <p *ngIf="reservation.status === 'init'">待审批</p>
+      <p *ngIf="reservation.status === 'approved'">已通过</p>
+      <p *ngIf="reservation.status === 'rejected'">已回绝</p>
+      <p>{{reservation.description}}</p>
+    </button>
+  </ion-list>
+
+</ion-content>

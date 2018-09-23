@@ -20,26 +20,34 @@ export class LabreserveService {
     return this.apiSvc.get(`/lab-reserve/lab/${labID}/reservation/mine/`);
   }
 
-  allReservationListByLabID(labID:number):Promise<Reservation[]> {
-    return this.apiSvc.get(`/lab-reserve/lab/${labID}/reservation/all/`)
+  allReservationListByLabID(d:Date, labID:number):Promise<Reservation[]> {
+    return this.apiSvc.get(`/lab-reserve/lab/${labID}/reservation/all/`, {'date': this.datePipe.transform(d, 'yyyy-MM-dd')});
   }
 
   labList (): Promise<Lab[]>{
     return this.apiSvc.get('/lab-reserve/lab/all/');
   }
 
-  addReservation (startTime:Date, endTime:Date, labID:number, description:string): Promise<number> {
+  addReservation(startTime: Date, endTime: Date, labID: number, description: string): Promise<number> {
+    console.log(startTime);
+    console.log(endTime);
+    console.log(description);
     let data = {
-      startTime: this.datePipe.transform(startTime, 'yyyy-MM-dd hh:mm'),
-      endTime: this.datePipe.transform(endTime, 'yyyy-MM-dd hh:mm'),
+      startTime: new Date(startTime).getTime(),//this.datePipe.transform(startTime, 'yyyy-MM-dd hh:mm'),
+      endTime: new Date(endTime).getTime(),//this.datePipe.transform(endTime, 'yyyy-MM-dd hh:mm'),
       labId: labID,
       description: description,
     };
+    console.log(data);
     return this.apiSvc.post(`/lab-reserve/create/`, data);
   }
 
   getLab (labID:number): Promise<Lab> {
-    return this.apiSvc.get(`/lab-reserve/labs/${labID}`);
+    return this.apiSvc.get(`/lab-reserve/lab/${labID}/`);
+  }
+
+  removeReservation (reservationID:number): Promise<void> {
+    return this.apiSvc.get(`/lab-reserve/reservation/${reservationID}/remove/`);
   }
 
 }

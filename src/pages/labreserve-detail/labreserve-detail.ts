@@ -4,6 +4,7 @@ import {LabreserveService} from "../../services/labreserve.service";
 import {Reservation} from "../../classes/reservation";
 import {LabAddPage} from "../labreserve-add/labreserve-add";
 import {Lab} from "../../classes/lab";
+import {MyReservationsListPage} from "../labreserve-myreservations-list/labreserve-myreservations-list";
 
 
 @IonicPage()
@@ -16,6 +17,7 @@ export class LabDetailPage {
   reservationsAll:Reservation[];
   reservationsPersonal:Reservation[];
   lab: Lab;
+  curDate: Date;
 
   constructor(
     public navCtrl: NavController,
@@ -30,19 +32,12 @@ export class LabDetailPage {
   }
 
   async ionViewWillLoad() {
-    this.fetchPersonalReservations();
-    this.fetchAllReservations();
+    this.fetchAllReservations(new Date());
     this.lab = await this.labSvc.getLab(this.labId);
   }
 
-  fetchPersonalReservations(){
-    this.labSvc.personalReservationListByLabID(this.labId).then((r) => {
-      this.reservationsAll=r;
-    });
-  }
-
-  fetchAllReservations(){
-    this.labSvc.allReservationListByLabID(this.labId).then((r) => {
+  fetchAllReservations(d:Date){
+    this.labSvc.allReservationListByLabID(d, this.labId).then((r) => {
       this.reservationsPersonal=r;
     });
   }
@@ -51,6 +46,16 @@ export class LabDetailPage {
     this.navCtrl.push(LabAddPage, {
       labId: this.labId,
     });
+  }
+
+  viewMyReservations() {
+    this.navCtrl.push(MyReservationsListPage, {
+      labId: this.labId,
+    });
+  }
+
+  flushDate(){
+    this.fetchAllReservations(this.curDate);
   }
 
 

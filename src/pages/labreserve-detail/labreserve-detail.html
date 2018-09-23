@@ -19,7 +19,7 @@
     </div>
 
     <div *ngIf="!reservationsAll">
-      <p>无活动的预约信息！</p>
+      <p>暂无预约记录</p>
     </div>
     <div *ngFor="let reservation of reservationsAll" style="border: solid 1px #000;margin-top: 1.5rem;padding: 1rem">
       预约 #{{reservation.id}}
@@ -31,11 +31,8 @@
       {{reservation.description}}
     </div>
   </div>
+  <button ion-button block (click)="viewMyReservations()">我的预约</button>
   <ion-fab right bottom>
-    <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
-    <ion-fab-list side="top">
-      <button ion-fab color="primary" (click)="addMyReservation()"><ion-icon name="create"></ion-icon></button>
-    </ion-fab-list>
+    <button ion-fab color="primary" (click)="addMyReservation()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
-  <button ion-button block (click)="viewMyReservations()" >我的预约</button>
 </ion-content>

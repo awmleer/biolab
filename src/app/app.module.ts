@@ -53,6 +53,7 @@ import {DatePipe} from "@angular/common";
 import {MyReservationsListPage} from "../pages/labreserve-myreservations-list/labreserve-myreservations-list";
 import {MyReservationsListPageModule} from "../pages/labreserve-myreservations-list/labreserve-myreservations-list.module";
 import {CoursewareListPageModule} from '../pages/courseware-list/courseware-list.module'
+import {CoursewareService} from '../services/courseware.service';
 
 
 @NgModule({
@@ -123,7 +124,8 @@ import {CoursewareListPageModule} from '../pages/courseware-list/courseware-list
     ImagePicker,
     NoticeService,
     LabreserveService,
-    DatePipe
+    CoursewareService,
+    DatePipe,
     // {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

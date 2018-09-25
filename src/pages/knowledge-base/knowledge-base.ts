@@ -7,6 +7,7 @@ import {InstrumentPage} from '../instrument/instrument'
 import {BbsService} from '../../services/bbs.service'
 import {NoticeListPage} from '../notice-list/notice-list'
 import {LabListPage} from '../labreserve-list/labreserve-list'
+import {CoursewareListPage} from '../courseware-list/courseware-list'
 
 @Component({
   selector: 'page-knowledge-base',
@@ -43,8 +44,8 @@ export class KnowledgeBasePage {
     this.navCtrl.push(LabListPage);
   }
 
-  testImagePicker() {
-    this.bbsSvc.replyImage(1);
+  goCoursewarePage() {
+    this.navCtrl.push(CoursewareListPage);
   }
 
 }

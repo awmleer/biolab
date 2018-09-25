@@ -52,6 +52,7 @@ import {LabreserveService} from "../services/labreserve.service";
 import {DatePipe} from "@angular/common";
 import {MyReservationsListPage} from "../pages/labreserve-myreservations-list/labreserve-myreservations-list";
 import {MyReservationsListPageModule} from "../pages/labreserve-myreservations-list/labreserve-myreservations-list.module";
+import {CoursewareListPageModule} from '../pages/courseware-list/courseware-list.module'
 
 
 @NgModule({
@@ -98,6 +99,7 @@ import {MyReservationsListPageModule} from "../pages/labreserve-myreservations-l
     LabDetailPageModule,
     LabAddPageModule,
     MyReservationsListPageModule,
+    CoursewareListPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

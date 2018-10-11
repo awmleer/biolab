@@ -14,10 +14,10 @@
         <ion-icon name="folder" item-start></ion-icon>
         {{file.name}}
       </button>
-      <a ion-item [href]="coursewareSvc.getDownloadLink(file)" download>
+      <button ion-item (click)="coursewareSvc.download(file)">
         <ion-icon name="document" item-start></ion-icon>
         {{file.name}}
-      </a>
+      </button>
     </ng-container>
   </ion-list>
   <div padding text-center *ngIf="files?.length === 0">

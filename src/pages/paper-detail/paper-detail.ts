@@ -20,7 +20,6 @@ export class PaperDetailPage {
     public navParams: NavParams,
     private toastService: ToastService,
     private paperService: PaperService,
-    private inAppBrowser: InAppBrowser,
     private shareSvc: ShareService,
     private clipboard: Clipboard
   ) {}

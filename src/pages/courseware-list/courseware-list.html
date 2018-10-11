@@ -10,11 +10,11 @@
 <ion-content>
   <ion-list *ngIf="files">
     <ng-container *ngFor="let file of files">
-      <button ion-item (click)="openFolder(file)">
+      <button ion-item (click)="openFolder(file)" *ngIf="file.isFolder">
         <ion-icon name="folder" item-start></ion-icon>
         {{file.name}}
       </button>
-      <button ion-item (click)="coursewareSvc.download(file)">
+      <button ion-item (click)="coursewareSvc.download(file)" *ngIf="!file.isFolder">
         <ion-icon name="document" item-start></ion-icon>
         {{file.name}}
       </button>

@@ -41,14 +41,11 @@ export class PaperDetailPage {
   }
 
   download(){
-    this.inAppBrowser.create(`http://118.89.186.130/paper/${this.paper.id}/download/`,'_system');
+    this.paperService.download(this.paper);
   }
 
   read(){
-    this.inAppBrowser.create(`http://118.89.186.130/paper/${this.paper.id}/preview/`,'_blank',{
-      location:'no',
-      zoom:'no'
-    });
+    this.paperService.read(this.paper);
   }
 
 }

@@ -14,24 +14,12 @@ export class PaperBrief {
 }
 
 
-export class PaperDetail {
-    id:number;
-    title:string;
+export class PaperDetail extends PaperBrief {
     subject:string;
-    keyword:string;
-    abstract:string;
-    author:string;
-    major:string;
-    teachers:{
-        id:number;
-        name:string;
-    }[];
     labels:{
         id:number;
         name:string;
     }[];
-    publishYear:number;
-    downloadCount:number;
 }
 
 

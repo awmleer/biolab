@@ -5,6 +5,8 @@ import {ToastService} from "./toast.service";
 import {GetPapersResult, PaperBrief} from "../classes/paper";
 import {ApiService} from "./api.service";
 import {PaperSearchParam} from "../classes/search-param";
+import {InAppBrowser} from '@ionic-native/in-app-browser';
+import {CONST} from '../app/const';
 
 
 @Injectable()
@@ -13,6 +15,7 @@ export class PaperService {
   constructor(
     private toastService: ToastService,
     private apiSvc: ApiService,
+    private inAppBrowser: InAppBrowser,
   ) {}
 
   getPapersByLabel(labelId,page:number):Promise<GetPapersResult>{
@@ -45,5 +48,18 @@ export class PaperService {
       return data;
     });
   }
+
+  download(paper: PaperBrief) {
+    this.inAppBrowser.create(`${CONST.apiUrl}/paper/${paper.id}/download/`,'_system');
+  }
+
+  read(paper: PaperBrief) {
+    this.inAppBrowser.create(`${CONST.apiUrl}/paper/${paper.id}/preview/`,'_blank',{
+      location:'no',
+      zoom:'no'
+    });
+  }
+
+
 
 }

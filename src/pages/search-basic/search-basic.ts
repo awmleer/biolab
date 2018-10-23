@@ -105,6 +105,7 @@ export class SearchBasicPage {
   }
 
   addHistoryItems(item){
+    if (this.historyItems.length && this.historyItems[0] === item) return;
     let reference='';
     if (this.searchType == 'paper') {
       reference='searchHistoryPaper';

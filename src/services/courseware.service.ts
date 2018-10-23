@@ -19,7 +19,7 @@ export class CoursewareService {
   }
 
   download(file: BioFile) {
-    this.inAppBrowser.create(`${CONST.apiUrl}/courseware/${file.id}/download/?token=${file.token}`,'_system');
+    this.inAppBrowser.create(`${CONST.apiUrl}/courseware/${file.id}/download/`,'_system');
   }
 
 }

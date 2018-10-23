@@ -14,7 +14,6 @@ export class BbsService {
   ) {}
 
   postList(pageNumber:number, orderBy:string='id'):Promise<Page<PostBrief>>{
-    console.log(pageNumber);
     return this.apiSvc.get(`/bbs/post/list/${pageNumber}/`,{
       orderBy: orderBy
     });

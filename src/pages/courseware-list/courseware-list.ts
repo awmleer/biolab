@@ -24,6 +24,10 @@ export class CoursewareListPage {
     return this.navParams.get('folderId');
   }
 
+  get folderName():any{
+    return this.navParams.get('folderName');
+  }
+
   async ionViewDidLoad() {
     const data = await this.coursewareSvc.ls(this.folderId);
     this.files = data.files;
@@ -32,6 +36,7 @@ export class CoursewareListPage {
 
   openFolder(file: BioFile) {
     this.navCtrl.push(CoursewareListPage, {
+      folderName: file.name,
       folderId: file.id
     });
   }

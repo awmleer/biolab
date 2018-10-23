@@ -10,8 +10,11 @@
 <ion-content>
 
   <ion-list *ngIf="page">
-    <button ion-item *ngFor="let notice of page.items" (click)="viewDetail(notice.id)" class="notice-item" [class.starred]="notice.starred">
-      <h2>{{notice.title}}</h2>
+    <button ion-item *ngFor="let notice of page.items" (click)="viewDetail(notice.id)" class="notice-item">
+      <h2>
+        <ion-icon *ngIf="notice.starred" name="star" color="striking"></ion-icon>
+        {{notice.title}}
+      </h2>
       <p>{{notice.time}}</p>
     </button>
   </ion-list>

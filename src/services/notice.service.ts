@@ -11,7 +11,6 @@ export class NoticeService {
   ) {}
 
   noticeList(pageNumber:number):Promise<Page<NoticeBrief>>{
-    console.log(pageNumber);
     return this.apiSvc.get(`/notice/list/${pageNumber}/`);
   }
 

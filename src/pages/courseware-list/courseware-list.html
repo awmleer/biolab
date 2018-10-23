@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>课件资料</ion-title>
+    <ion-title>{{folderName?folderName:'课件资料'}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,11 +11,11 @@
   <ion-list *ngIf="files">
     <ng-container *ngFor="let file of files">
       <button ion-item (click)="openFolder(file)" *ngIf="file.isFolder">
-        <ion-icon name="folder" item-start></ion-icon>
+        <ion-icon name="ios-folder-outline" item-start></ion-icon>
         {{file.name}}
       </button>
       <button ion-item (click)="coursewareSvc.download(file)" *ngIf="!file.isFolder">
-        <ion-icon name="document" item-start></ion-icon>
+        <ion-icon name="ios-document-outline" item-start></ion-icon>
         {{file.name}}
       </button>
     </ng-container>

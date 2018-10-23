@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {AccountService} from "../../services/account.service";
 import {LoginPage} from "../login/login";
+import {UserInfoPage} from '../user-info/user-info';
 
 /**
  * Generated class for the MePage page.
@@ -26,6 +27,10 @@ export class MePage {
 
   showLoginModal():void{
     this.modalCtrl.create(LoginPage).present();
+  }
+
+  goUserInfoPage() {
+    this.navCtrl.push(UserInfoPage);
   }
 
 

@@ -38,7 +38,7 @@ export class LabDetailPage {
 
   fetchAllReservations(d:Date){
     this.labSvc.allReservationListByLabID(d, this.labId).then((r) => {
-      this.reservationsPersonal=r;
+      this.reservationsAll=r;
     });
   }
 

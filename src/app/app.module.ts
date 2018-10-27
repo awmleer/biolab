@@ -55,6 +55,7 @@ import {MyReservationsListPageModule} from "../pages/labreserve-myreservations-l
 import {CoursewareListPageModule} from '../pages/courseware-list/courseware-list.module'
 import {CoursewareService} from '../services/courseware.service';
 import {UserInfoPageModule} from '../pages/user-info/user-info.module';
+import {ChangePasswordPageModule} from '../pages/change-password/change-password.module';
 
 
 @NgModule({
@@ -103,6 +104,7 @@ import {UserInfoPageModule} from '../pages/user-info/user-info.module';
     MyReservationsListPageModule,
     CoursewareListPageModule,
     UserInfoPageModule,
+    ChangePasswordPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

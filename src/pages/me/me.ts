@@ -3,6 +3,7 @@ import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angula
 import {AccountService} from "../../services/account.service";
 import {LoginPage} from "../login/login";
 import {UserInfoPage} from '../user-info/user-info';
+import {ChangePasswordPage} from '../change-password/change-password';
 
 /**
  * Generated class for the MePage page.
@@ -31,6 +32,10 @@ export class MePage {
 
   goUserInfoPage() {
     this.navCtrl.push(UserInfoPage);
+  }
+
+  goChangePasswordPage() {
+    this.navCtrl.push(ChangePasswordPage);
   }
 
 

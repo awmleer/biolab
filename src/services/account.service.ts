@@ -37,4 +37,12 @@ export class AccountService {
     return p;
   }
 
+  async changePassword(oldPassword:string, newPassword:string) {
+    await this.apiSvc.post(`/user/change-password/`, {
+      newPassword,
+      oldPassword
+    });
+    this.user = null;
+  }
+
 }

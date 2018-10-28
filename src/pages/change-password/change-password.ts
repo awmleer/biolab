@@ -22,6 +22,10 @@ export class ChangePasswordPage {
   ) {}
 
   async submit() {
+    if (this.oldPassword !== this.newPassword) {
+      this.toastSvc.toast('两次输入的密码不一致');
+      return;
+    }
     await this.accountSvc.changePassword(this.oldPassword, this.newPassword);
     await this.toastSvc.toast('修改成功，请重新登录');
     await this.navCtrl.pop();

@@ -22,7 +22,7 @@ export class ChangePasswordPage {
   ) {}
 
   async submit() {
-    if (this.oldPassword !== this.newPassword) {
+    if (this.newPasswordConfirm !== this.newPassword) {
       this.toastSvc.toast('两次输入的密码不一致');
       return;
     }

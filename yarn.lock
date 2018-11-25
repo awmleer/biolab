@@ -74,6 +74,11 @@
   version "4.12.0"
   resolved "http://registry.npm.taobao.org/@ionic-native/file/download/@ionic-native/file-4.12.0.tgz#d122b6544657b6cbf5e4e6ebf7b1cb54531fa666"
 
+"@ionic-native/http@^4.17.0":
+  version "4.17.0"
+  resolved "http://registry.npm.taobao.org/@ionic-native/http/download/@ionic-native/http-4.17.0.tgz#54d7de8f38e1233f0e8b305039429de1d41efbb6"
+  integrity sha1-VNfejzjhIz8OizBQOUKd4dQe+7Y=
+
 "@ionic-native/image-picker@^4.12.0":
   version "4.12.0"
   resolved "http://registry.npm.taobao.org/@ionic-native/image-picker/download/@ionic-native/image-picker-4.12.0.tgz#2f5cbb7e0d7b3a2d4b667e5b2f8408cd58765515"
@@ -867,6 +872,11 @@ cordova-ios@4.5.x:
     shelljs "^0.5.3"
     xcode "^0.9.0"
     xml-escape "^1.1.0"
+
+cordova-plugin-advanced-http@2.0.1:
+  version "2.0.1"
+  resolved "http://registry.npm.taobao.org/cordova-plugin-advanced-http/download/cordova-plugin-advanced-http-2.0.1.tgz#95161241abfdaba89ffbe95d8fa6625063f3d65c"
+  integrity sha1-lRYSQav9q6if++ldj6ZiUGPz1lw=
 
 cordova-plugin-console@1.0.5:
   version "1.0.5"
@@ -1878,6 +1888,11 @@ invert-kv@^1.0.0:
 ionic-angular@3.9.x:
   version "3.9.2"
   resolved "http://registry.npm.taobao.org/ionic-angular/download/ionic-angular-3.9.2.tgz#75053e4a422aaae7d7cd668cc92cfd5cb29d38cc"
+
+ionic-native-http-connection-backend@^4.0.7:
+  version "4.0.7"
+  resolved "http://registry.npm.taobao.org/ionic-native-http-connection-backend/download/ionic-native-http-connection-backend-4.0.7.tgz#1666bef606df895d40dabce5d7bd926da4ecdd32"
+  integrity sha1-Fma+9gbfiV1A2rzl172SbaTs3TI=
 
 ionic-plugin-keyboard@2.2.x:
   version "2.2.1"

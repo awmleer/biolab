@@ -5,7 +5,6 @@ import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http'
 import {ToastService} from "./toast.service";
 import {Observable} from 'rxjs'
 import {ApiError} from '../classes/error'
-import {Storage} from '@ionic/storage'
 
 @Injectable()
 export class ApiService {
@@ -13,18 +12,7 @@ export class ApiService {
   constructor(
     private http: HttpClient,
     private toastSvc: ToastService,
-    private storage: Storage,
   ) {}
-
-  get sessionId():Promise<string>{
-    return this.storage.get('sessionId').then((s) => {
-      if(s){
-        return s;
-      }else{
-        return '';
-      }
-    });
-  }
 
   private handleHttp(request:Observable<Object>){
     return request.toPromise().catch((error:HttpErrorResponse) => {
@@ -40,10 +28,6 @@ export class ApiService {
       throw new ApiError(messageText);
     }).then(async (res:HttpResponse<object>)=>{
       const data = res.body;
-      const sessionId = res.headers.get('App-Set-Session-Id');
-      if (sessionId){
-        await this.storage.set('sessionId', sessionId);
-      }
       if (data['status']==='success') {
         return data['payload'];
       }else{
@@ -64,11 +48,8 @@ export class ApiService {
     }=null
   ):Promise<any>{
     let request=this.http.get(CONST.apiUrl+url,{
-      params:params,
+      params: params,
       observe: 'response',
-      headers: {
-        'App-Session-Id': await this.sessionId
-      },
       withCredentials:true
     });
     return this.handleHttp(request);
@@ -77,9 +58,6 @@ export class ApiService {
   async post(url:string, body:object=null):Promise<any>{
     let request=this.http.post(CONST.apiUrl+url, body,{
       observe: 'response',
-      headers: {
-        'App-Session-Id': await this.sessionId
-      },
       withCredentials:true
     });
     return this.handleHttp(request);

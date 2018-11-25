@@ -97,4 +97,5 @@
     <engine name="browser" spec="5.0.x" />
     <engine name="ios" spec="4.5.x" />
     <engine name="android" spec="7.1.x" />
+    <plugin name="cordova-plugin-advanced-http" spec="2.0.1" />
 </widget>

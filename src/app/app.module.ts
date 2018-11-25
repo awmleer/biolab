@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import {IonicApp, IonicModule, Platform} from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { TabsPage } from '../pages/tabs/tabs';
@@ -25,7 +25,7 @@ import {PhotoViewer} from "@ionic-native/photo-viewer";
 import {ReagentLabelsPageModule} from "../pages/reagent-labels/reagent-labels.module";
 import {BbsListPageModule} from "../pages/bbs-list/bbs-list.module";
 import {BbsDetailPageModule} from "../pages/bbs-detail/bbs-detail.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpBackend, HttpClientModule, HttpXhrBackend} from '@angular/common/http';
 import {MePageModule} from "../pages/me/me.module";
 import {LoginPageModule} from "../pages/login/login.module";
 import {ServicesModule} from "../services/services.module";
@@ -56,6 +56,7 @@ import {CoursewareListPageModule} from '../pages/courseware-list/courseware-list
 import {CoursewareService} from '../services/courseware.service';
 import {UserInfoPageModule} from '../pages/user-info/user-info.module';
 import {ChangePasswordPageModule} from '../pages/change-password/change-password.module';
+import {NativeHttpBackend, NativeHttpFallback, NativeHttpModule} from 'ionic-native-http-connection-backend';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import {ChangePasswordPageModule} from '../pages/change-password/change-password
   imports: [
     BrowserModule,
     HttpClientModule,
+    NativeHttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     PaperSearchAdvancePageModule,
@@ -131,6 +133,7 @@ import {ChangePasswordPageModule} from '../pages/change-password/change-password
     CoursewareService,
     DatePipe,
     // {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: HttpBackend, useClass: NativeHttpFallback, deps: [Platform, NativeHttpBackend, HttpXhrBackend]},
   ]
 })
 export class AppModule {}

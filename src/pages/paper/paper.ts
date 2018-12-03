@@ -4,9 +4,9 @@ import {SearchBasicPage} from "../search-basic/search-basic";
 
 import 'rxjs/add/operator/toPromise'
 import {PaperLabelsPage} from "../paper-labels/paper-labels";
-import {PaperLabel} from "../../classes/paper-label";
 import {ApiService} from "../../services/api.service";
 import {PaperSearchAdvancePage} from "../paper-search-advance/paper-search-advance";
+import {Label} from '../../classes/label';
 
 
 @Component({
@@ -14,7 +14,7 @@ import {PaperSearchAdvancePage} from "../paper-search-advance/paper-search-advan
   templateUrl: 'paper.html'
 })
 export class PaperPage {
-  rootLabels:PaperLabel[]=[];
+  rootLabels:Label[]=[];
 
   constructor(
     private navCtrl: NavController,

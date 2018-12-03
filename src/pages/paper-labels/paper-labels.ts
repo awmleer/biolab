@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import 'rxjs/add/operator/toPromise'
-import {PaperLabel} from "../../classes/paper-label";
 import {PaperListPage} from "../paper-list/paper-list";
 import {ApiService} from "../../services/api.service";
+import {Label} from '../../classes/label';
 
 
 
@@ -13,8 +13,8 @@ import {ApiService} from "../../services/api.service";
   templateUrl: 'paper-labels.html',
 })
 export class PaperLabelsPage {
-  parentLabel:PaperLabel;
-  labels:PaperLabel[]=[];
+  parentLabel:Label;
+  labels:Label[]=[];
 
   constructor(
     public navCtrl: NavController,

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {ReagentLabel} from "../../classes/reagent-label";
 import {ApiService} from "../../services/api.service";
 import {ReagentListPage} from "../reagent-list/reagent-list";
+import {Label} from '../../classes/label';
 
 
 @IonicPage()
@@ -12,8 +12,8 @@ import {ReagentListPage} from "../reagent-list/reagent-list";
 })
 export class ReagentLabelsPage {
 
-  parentLabel:ReagentLabel;
-  labels:ReagentLabel[]=[];
+  parentLabel:Label;
+  labels:Label[]=[];
 
   constructor(
     public navCtrl: NavController,

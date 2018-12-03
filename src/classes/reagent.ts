@@ -1,12 +1,12 @@
 import {html,uri} from "./types";
-import {ReagentLabel} from "./reagent-label";
+import {Label} from './label';
 
 export class ReagentEntry {
   id: number;
   chineseName: string;
   englishName: string;
   alias: string;
-  labels: ReagentLabel[];
+  labels: Label[];
 }
 
 export class ReagentBrief extends ReagentEntry {

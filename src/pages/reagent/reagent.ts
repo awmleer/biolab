@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {SearchBasicPage} from "../search-basic/search-basic";
 import {ReagentListPage} from "../reagent-list/reagent-list";
-import {ReagentLabel} from "../../classes/reagent-label";
 import {ApiService} from "../../services/api.service";
 import {ReagentLabelsPage} from "../reagent-labels/reagent-labels";
+import {Label} from '../../classes/label';
 
 @Component({
   selector: 'page-reagent',
   templateUrl: 'reagent.html'
 })
 export class ReagentPage {
-  rootLabels:ReagentLabel[];
+  rootLabels: Label[];
 
   constructor(
     public navCtrl: NavController,

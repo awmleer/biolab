@@ -33,8 +33,8 @@ export class LabreserveService {
     console.log(endTime);
     console.log(description);
     let data = {
-      startTime: new Date(startTime).getTime() + (3600000 * -8),//this.datePipe.transform(startTime, 'yyyy-MM-dd hh:mm'),
-      endTime: new Date(endTime).getTime() + (3600000 * -8),//this.datePipe.transform(endTime, 'yyyy-MM-dd hh:mm'),
+      startTime: new Date(startTime).getTime(),//this.datePipe.transform(startTime, 'yyyy-MM-dd hh:mm'),
+      endTime: new Date(endTime).getTime(),//this.datePipe.transform(endTime, 'yyyy-MM-dd hh:mm'),
       labId: labID,
       description: description,
     };

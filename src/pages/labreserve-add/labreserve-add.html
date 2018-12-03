@@ -14,11 +14,11 @@
   <div>
     <ion-item>
       <ion-label>开始时间</ion-label>
-      <ion-datetime displayFormat="YYYY-MM-DD HH:mm" pickerFormat="YYYY-MM-DD HH:mm" [(ngModel)]="newReservation.startTime"></ion-datetime>
+      <ion-datetime displayFormat="YYYY-MM-DD HH:mm Z" pickerFormat="YYYY-MM-DD HH:mm Z" [ngModel]="newReservation.startTime | formatToLocal" (ngModelChange)="newReservation.startTime=$event"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>结束时间</ion-label>
-      <ion-datetime displayFormat="YYYY-MM-DD HH:mm" pickerFormat="YYYY-MM-DD HH:mm" [(ngModel)]="newReservation.endTime"></ion-datetime>
+      <ion-datetime displayFormat="YYYY-MM-DD HH:mm Z" pickerFormat="YYYY-MM-DD HH:mm Z" [ngModel]="newReservation.endTime | formatToLocal" (ngModelChange)="newReservation.endTime=$event"></ion-datetime>
     </ion-item>
     <textarea [(ngModel)]="newReservation.description" placeholder="请输入留言…"></textarea>
   </div>

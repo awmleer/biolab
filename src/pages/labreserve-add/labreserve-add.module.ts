@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { LabAddPage } from './labreserve-add';
+import {PipesModule} from '../../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { LabAddPage } from './labreserve-add';
   ],
   imports: [
     IonicPageModule.forChild(LabAddPage),
+    PipesModule,
   ],
   exports: [
     LabAddPage

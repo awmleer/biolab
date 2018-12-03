@@ -4,8 +4,8 @@ import {UserItem} from "./user";
 export class Reservation {
   id: number;
   lab: Lab;
-  startTime: Date;
-  endTime: Date;
+  startTime: string;
+  endTime: string;
   applier: UserItem;
   approver?: UserItem;
   status: 'init' | 'approved' | 'rejected';

@@ -52,6 +52,7 @@
     "ionic-native-http-connection-backend": "^4.0.7",
     "ionic-plugin-keyboard": "2.2.x",
     "ionicons": "3.x",
+    "moment": "^2.22.2",
     "rxjs": "5.5.x",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.x"

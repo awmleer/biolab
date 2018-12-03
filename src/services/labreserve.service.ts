@@ -28,7 +28,7 @@ export class LabreserveService {
     return this.apiSvc.get('/lab-reserve/lab/all/');
   }
 
-  addReservation(startTime: Date, endTime: Date, labID: number, description: string): Promise<number> {
+  addReservation(startTime: string, endTime: string, labID: number, description: string): Promise<number> {
     console.log(startTime);
     console.log(endTime);
     console.log(description);

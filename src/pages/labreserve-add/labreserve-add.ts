@@ -25,8 +25,8 @@ export class LabAddPage {
     private modalCtrl: ModalController,
   ) {
     this.newReservation = new Reservation();
-    this.newReservation.startTime = new Date();
-    this.newReservation.endTime = new Date();
+    this.newReservation.startTime = new Date().toLocaleString();
+    this.newReservation.endTime = new Date().toLocaleString();
   }
 
   get labId():number{

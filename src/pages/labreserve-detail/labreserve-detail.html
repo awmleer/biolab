@@ -14,9 +14,7 @@
     <p>
       容量：{{lab.capacity}}
     </p>
-    <div style="margin-top: 1.5rem; white-space: pre-wrap">
-      {{lab.description}}
-    </div>
+    <div style="margin-top: 1.5rem; white-space: pre-wrap">{{lab.description}}</div>
     <ion-item>
       <ion-label>查询日期</ion-label>
       <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="curDate" (ngModelChange)="flushDate()"></ion-datetime>

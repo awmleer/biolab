@@ -16,9 +16,9 @@
         起始时间：{{reservation.startTime | date:'yyyy-MM-dd HH:mm'}}<br>
         结束时间：{{reservation.endTime | date:'yyyy-MM-dd HH:mm'}}
       </p>
-      <p *ngIf="reservation.status === 'init'">待审批</p>
-      <p *ngIf="reservation.status === 'approved'">已通过</p>
-      <p *ngIf="reservation.status === 'rejected'">已回绝</p>
+      <p *ngIf="reservation.status === 'init'" style="color: #1D5C80"><b>待审批</b></p>
+      <p *ngIf="reservation.status === 'approved'" style="color: #34c644"><b>已通过</b></p>
+      <p *ngIf="reservation.status === 'rejected'" style="color: #ff4441"><b>已回绝</b></p>
       <p>{{reservation.description}}</p>
     </button>
   </ion-list>

@@ -29,7 +29,9 @@
         结束时间：{{reservation.endTime | date: 'yyyy-MM-dd HH:mm'}}
       </p>
       <hr>
-      {{reservation.description}}
+      <p style="white-space: pre-wrap">
+        {{reservation.description}}
+      </p>
     </div>
   </div>
   <button ion-button block (click)="viewMyReservations()">我的预约</button>

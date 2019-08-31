@@ -2296,10 +2296,10 @@ ionic-angular@^3.9.8:
   resolved "https://registry.npm.taobao.org/ionic-angular/download/ionic-angular-3.9.8.tgz#2b00e46a94b753afe8e22182eefdbaa0612be84e"
   integrity sha1-KwDkapS3U6/o4iGC7v26oGEr6E4=
 
-ionic-native-http-connection-backend@^4.0.7:
-  version "4.1.0"
-  resolved "https://registry.npm.taobao.org/ionic-native-http-connection-backend/download/ionic-native-http-connection-backend-4.1.0.tgz#0f00bc7e4a85b073b29f54d9405778e20267d6d2"
-  integrity sha1-DwC8fkqFsHOyn1TZQFd44gJn1tI=
+ionic-native-http-connection-backend@~4.0.7:
+  version "4.0.10"
+  resolved "https://registry.npm.taobao.org/ionic-native-http-connection-backend/download/ionic-native-http-connection-backend-4.0.10.tgz#20e4590c8dea0e2ea6fbfd3ea280956c9028b963"
+  integrity sha1-IORZDI3qDi6m+/0+ooCVbJAouWM=
 
 ionic-plugin-keyboard@^2.2.1:
   version "2.2.1"
@@ -4679,12 +4679,7 @@ type@^1.0.1:
   resolved "https://registry.npm.taobao.org/type/download/type-1.0.3.tgz#16f5d39f27a2d28d86e48f8981859e9d3296c179"
   integrity sha1-FvXTnyei0o2G5I+JgYWenTKWwXk=
 
-typescript@^2.6.2:
-  version "2.9.2"
-  resolved "https://registry.npm.taobao.org/typescript/download/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
-  integrity sha1-HL9h0F1rliaSROtqO85L2RTg8Aw=
-
-typescript@~2.6.1:
+typescript@~2.6.1, typescript@~2.6.2:
   version "2.6.2"
   resolved "https://registry.npm.taobao.org/typescript/download/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
   integrity sha1-PFtv1/beCRQmkCfwPAlGdY92c6Q=

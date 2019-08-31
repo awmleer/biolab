@@ -1,4 +1,4 @@
-import {html,uri} from "./types";
+import {uri} from "./types";
 import {InstrumentLabel} from "./instrument-label";
 
 

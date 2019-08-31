@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {LabreserveService} from "../../services/labreserve.service";
 import {Reservation} from "../../classes/reservation";
 import {Lab} from "../../classes/lab";
@@ -22,7 +22,7 @@ export class LabAddPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private labSvc: LabreserveService,
-    private modalCtrl: ModalController,
+
   ) {
     this.newReservation = new Reservation();
     this.newReservation.startTime = new Date().toLocaleString();

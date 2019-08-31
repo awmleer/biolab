@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {LabreserveService} from "../../services/labreserve.service";
 import {Reservation} from "../../classes/reservation";
 import {LabAddPage} from "../labreserve-add/labreserve-add";
@@ -23,7 +23,7 @@ export class LabDetailPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private labSvc: LabreserveService,
-    private modalCtrl: ModalController,
+
 
   ) {}
 

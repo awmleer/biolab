@@ -1,8 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {Label, NavController, NavParams, Searchbar} from 'ionic-angular';
+import {NavController, NavParams, Searchbar} from 'ionic-angular';
 import {ReagentListPage} from "../reagent-list/reagent-list";
-import {ReagentDetailPage} from "../reagent-detail/reagent-detail";
-import {PaperService} from "../../services/paper.service";
 import {PaperListPage} from "../paper-list/paper-list";
 import {Storage} from "@ionic/storage";
 import {InstrumentListPage} from '../instrument-list/instrument-list'
@@ -23,8 +21,7 @@ export class SearchBasicPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private storage: Storage,
-    private paperService: PaperService
+    private storage: Storage
   ) {
     if (this.searchType == 'paper') {
       this.searchField='all';

@@ -3,8 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import {PaperDetail} from "../../classes/paper";
 import {PaperService} from "../../services/paper.service";
 import {ToastService} from "../../services/toast.service";
-import {InAppBrowser} from "@ionic-native/in-app-browser";
-import {Clipboard} from "@ionic-native/clipboard";
 import {ShareService} from "../../services/share.service";
 
 
@@ -20,8 +18,7 @@ export class PaperDetailPage {
     public navParams: NavParams,
     private toastService: ToastService,
     private paperService: PaperService,
-    private shareSvc: ShareService,
-    private clipboard: Clipboard
+    private shareSvc: ShareService
   ) {}
 
   ionViewWillLoad(){

@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 
 import 'rxjs/add/operator/toPromise'
 import {ToastService} from "./toast.service";
-import {GetReagentsResult, ReagentBrief} from "../classes/reagent";
+import {GetReagentsResult} from "../classes/reagent";
 import {ApiService} from "./api.service";
 import {ReagentSearchParam} from "../classes/search-param";
 

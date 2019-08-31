@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {PaperBrief} from "../../classes/paper";
-import {PaperService} from "../../services/paper.service";
-
 
 
 @Component({
@@ -19,7 +17,7 @@ export class PaperCardComponent {
     @Output() shareButtonClicked:EventEmitter<any> = new EventEmitter();
 
     constructor(
-        private paperService: PaperService
+
     ) {}
 
     toggleDetail(){

@@ -1,5 +1,4 @@
 import {UserInfo} from "./user";
-import {Label, LabeledItem} from './label'
 
 export class Reply{
   id:number;

@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 
 import 'rxjs/add/operator/toPromise'
 import {ToastService} from "./toast.service";
-import {GetInstrumentsResult, InstrumentBrief} from "../classes/instrument";
+import {GetInstrumentsResult} from "../classes/instrument";
 import {ApiService} from "./api.service";
 import {InstrumentSearchParam} from "../classes/search-param";
 

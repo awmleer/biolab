@@ -4,7 +4,6 @@ import {Lab} from "../../classes/lab";
 import {LabreserveService} from "../../services/labreserve.service";
 import {ToastService} from "../../services/toast.service";
 import {Reservation} from "../../classes/reservation";
-import {LabAddPage} from "../labreserve-add/labreserve-add";
 import {AlertController} from "ionic-angular";
 
 @Component({

@@ -1,0 +1,5 @@
+BioChem 技术支持信息
+
+项目地址：https://github.com/zju-biochem/biolab-app
+联系人：awmleer
+联系方式：awmleer@sparker.xyz

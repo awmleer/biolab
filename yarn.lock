@@ -1140,11 +1140,6 @@ cordova-plugin-advanced-http@^2.0.1:
   resolved "https://registry.npm.taobao.org/cordova-plugin-advanced-http/download/cordova-plugin-advanced-http-2.1.1.tgz#2583d84bd5b068e1842ccd60dc4e490ead1a4eb3"
   integrity sha1-JYPYS9WwaOGELM1g3E5JDq0aTrM=
 
-cordova-plugin-console@^1.0.5:
-  version "1.1.0"
-  resolved "https://registry.npm.taobao.org/cordova-plugin-console/download/cordova-plugin-console-1.1.0.tgz#e2fbac10290179e44cb72c5fdbc410a531c1cd6d"
-  integrity sha1-4vusECkBeeRMtyxf28QQpTHBzW0=
-
 cordova-plugin-device@^1.1.7:
   version "1.1.7"
   resolved "https://registry.npm.taobao.org/cordova-plugin-device/download/cordova-plugin-device-1.1.7.tgz?cache=0&sync_timestamp=1562089310547&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcordova-plugin-device%2Fdownload%2Fcordova-plugin-device-1.1.7.tgz#fc94111be6932628c66868938ddf3dc82c9fbfe6"

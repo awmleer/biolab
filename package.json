@@ -10,7 +10,7 @@
     "build": "ionic-app-scripts build --prod",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve --no-open --port 8102",
-    "ios": "ionic cordova build ios --no-build --release",
+    "ios": "ionic cordova prepare ios --no-build --release",
     "android": "ionic cordova build android --no-build --release"
   },
   "dependencies": {
@@ -38,9 +38,8 @@
     "com.verso.cordova.clipboard": "https://github.com/VersoSolutions/CordovaClipboard.git",
     "cordova-android": "7.1.4",
     "cordova-browser": "5.0.x",
-    "cordova-ios": "^4.5.5",
+    "cordova-ios": "4.5.5",
     "cordova-plugin-advanced-http": "^2.0.1",
-    "cordova-plugin-console": "^1.0.5",
     "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-inappbrowser": "^1.7.2",
@@ -65,7 +64,6 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
-    "cordova-plugin-console",
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
@@ -89,7 +87,6 @@
     "plugins": {
       "ionic-plugin-keyboard": {},
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-console": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},

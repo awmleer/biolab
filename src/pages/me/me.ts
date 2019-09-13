@@ -4,6 +4,7 @@ import {AccountService} from "../../services/account.service";
 import {LoginPage} from "../login/login";
 import {UserInfoPage} from '../user-info/user-info';
 import {ChangePasswordPage} from '../change-password/change-password';
+import {AboutPage} from '../about/about';
 
 /**
  * Generated class for the MePage page.
@@ -36,6 +37,10 @@ export class MePage {
 
   goChangePasswordPage() {
     this.navCtrl.push(ChangePasswordPage);
+  }
+
+  goAboutPage() {
+    this.navCtrl.push(AboutPage);
   }
 
 

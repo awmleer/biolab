@@ -55,6 +55,7 @@ import {CoursewareService} from '../services/courseware.service';
 import {UserInfoPageModule} from '../pages/user-info/user-info.module';
 import {ChangePasswordPageModule} from '../pages/change-password/change-password.module';
 import {NativeHttpBackend, NativeHttpFallback, NativeHttpModule} from 'ionic-native-http-connection-backend';
+import {AboutPageModule} from '../pages/about/about.module';
 
 
 @NgModule({
@@ -105,6 +106,7 @@ import {NativeHttpBackend, NativeHttpFallback, NativeHttpModule} from 'ionic-nat
     CoursewareListPageModule,
     UserInfoPageModule,
     ChangePasswordPageModule,
+    AboutPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

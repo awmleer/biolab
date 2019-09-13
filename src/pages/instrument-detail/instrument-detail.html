@@ -8,7 +8,7 @@
 
 
 <ion-content padding>
-  <ng-container *ngIf="instrument">
+  <div *ngIf="instrument" (click)="handleContainerClick($event)">
     <h2>{{instrument.chineseName}}</h2>
     <p>
       英文名：{{instrument.englishName}}<br>
@@ -22,5 +22,5 @@
     <div [innerHtml]="instrument.content.instructions | sanitizeHtml"></div>
     <h3>注意事项</h3>
     <div [innerHtml]="instrument.content.attentions | sanitizeHtml"></div>
-  </ng-container>
+  </div>
 </ion-content>

@@ -30,6 +30,14 @@ export class InstrumentDetailPage {
     });
   }
 
+  handleContainerClick(event: MouseEvent) {
+    const element = event.srcElement as HTMLImageElement;
+    if (!element) return;
+    if (element.tagName.toUpperCase() === 'IMG' && element.src) {
+      this.viewPicture(element.src, this.instrument.chineseName)
+    }
+  }
+
   viewPicture(url,title){
     this.photoViewer.show(url,title);
   }

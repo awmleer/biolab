@@ -1,3 +1,3 @@
 export const CONST={
-    apiUrl: 'http://biochem.sparker.xyz'
+    apiUrl: 'https://biochem.sparker.xyz'
 };

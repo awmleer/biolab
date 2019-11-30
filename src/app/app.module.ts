@@ -56,6 +56,7 @@ import {UserInfoPageModule} from '../pages/user-info/user-info.module';
 import {ChangePasswordPageModule} from '../pages/change-password/change-password.module';
 import {NativeHttpBackend, NativeHttpFallback, NativeHttpModule} from 'ionic-native-http-connection-backend';
 import {AboutPageModule} from '../pages/about/about.module';
+import {AgreementPageModule} from '../pages/agreement/agreement.module';
 
 
 @NgModule({
@@ -107,6 +108,7 @@ import {AboutPageModule} from '../pages/about/about.module';
     UserInfoPageModule,
     ChangePasswordPageModule,
     AboutPageModule,
+    AgreementPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

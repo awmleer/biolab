@@ -13,6 +13,9 @@
     "ios": "ionic cordova prepare ios --no-build --release",
     "android": "ionic cordova build android --no-build --release"
   },
+  "engines": {
+    "node": "10.x"
+  },
   "dependencies": {
     "@angular/common": "^5.2.11",
     "@angular/compiler": "^5.2.11",
